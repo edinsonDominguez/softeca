@@ -1,0 +1,166 @@
+<!DOCTYPE html> 
+<html lang="es"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
+	
+<h:head>
+	<meta charset= "utf-8"/>
+	<meta http-equiv = "X-UA-Compatible" content = "IE=edge"/>
+	<title>Index</title>
+	<link rel="stylesheet" type="text/css" href="../resources/css/index.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	<h:outputScript library="../resources/js/materialize.js" name="materilize.js"/>
+</h:head> 
+
+
+<body class="gray" style="margin: 0"> 
+
+	<form>
+	
+		<div class="row valign-wrapper"  style="margin: 0">
+		
+		<div class="col s12 hide-on-med-only hide-on-large-only center-align" ><img  src="../resources/imagenes/logoSofteca1.ico" alt="" /></div>
+		
+		</div>
+		
+		<div class="row valign-wrapper"  style="margin: 0">
+		
+		<div class="col s4 hide-on-med-only hide-on-large-only right-align"><img src="../resources/imagenes/user1.ico" alt="" class="imgLogoUbicacion"/></div>
+		<div class="col s8 hide-on-med-only hide-on-large-only"><h6>Bienvenido, #{tituloNombre}</h6></div>
+		
+		</div>
+			
+			
+			
+		<div class="row valign-wrapper" style="margin: 0">
+		<div class="col m6 l7 hide-on-small-only" ><img  src="../resources/imagenes/logoSofteca1.ico" alt="" /></div>
+			
+		<div class="col m4 l4 hide-on-small-only"><h6>Bienvenido, #{tituloNombre}</h6></div>
+			
+		<div class="col m2 l1 hide-on-small-only"><img src="../resources/imagenes/user1.ico" alt="" class="imgLogoUbicacion"/></div> 
+		</div>
+		
+	
+	
+		<ul id="dropdown1" class="dropdown-content" >
+		  <li><a href="#!" class="center-align">Registrar</a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!" class="center-align">Devolver libro</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown2" class="dropdown-content">
+		  <li><a href="#!" class="center-align">Registrar</a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!" class="center-align">Consultar</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown3" class="dropdown-content">
+		  <li><a href="#!" class="center-align">Registrar</a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!" class="center-align">Consultar</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown4" class="dropdown-content">
+		  <li><a href="#!" class="center-align">Consultar libros de un usuario </a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!" class="center-align">Consultar los usuarios de un libro</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown5" class="dropdown-content" >
+		  <li><a href="#!" class="center-align">Registrar prestamos</a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!" class="center-align">Devolver libro</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown6" class="dropdown-content">
+		  <li><a href="#!" class="center-align">Registrar</a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!" class="center-align">Consultar</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown7" class="dropdown-content">
+		  <li><a href="#!" class="center-align">Registrar</a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!" class="center-align">Consultar</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown8" class="dropdown-content">
+		  <li><a href="#!" class="center-align">Consultar libros de un usuario </a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!" class="center-align">Consultar los usuarios de un libro</a></li>
+		  
+		  
+		</ul>
+		
+		
+		<div class="row">		
+		<nav class="colorNavegador col s12 m12 l12">
+		  <div class="nav-wrapper">
+		  
+		    <ul class="right hide-on-small-only">		      
+		    	
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Prestamos<i class="material-icons right">import_contacts</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Libros<i class="material-icons right">book</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown3">usuarios<i class="material-icons right">account_box</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown4">informes<i class="material-icons right">assignment</i></a></li>
+		      <li><a href="sass.html">salir</a></li>
+		    </ul>
+		    
+		    <ul class="right hide-on-med-only hide-on-large-only right-align">
+		    
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown5"><i class="material-icons right">import_contacts</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown6"><i class="material-icons right">book</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown7"><i class="material-icons right">account_box</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown8"><i class="material-icons right">assignment</i></a></li>
+		      <li><a href="sass.html"></a><i class="material-icons right">close</i></li>
+		    	
+		    
+		    </ul>
+		    
+		  </div>
+		</nav>
+		</div>
+		
+		
+		
+		
+		
+		<div class="contenedor">
+		
+		
+			<ui:insert name="contenido"></ui:insert>
+	
+		
+		</div>
+		
+		
+	
+	</form>
+</body>
+	
+	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+	<script src="../resources/js/materialize.min.js"></script>
+	
+	<script>
+		$(".dropdown-button").dropdown();
+	</script>
+	
+</html>
