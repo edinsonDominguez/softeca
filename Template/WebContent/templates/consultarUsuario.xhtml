@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:f="http://java.sun.com/jsf/core"
+ 	xmlns:h="http://java.sun.com/jsf/html"
+ 	template="/templates/plantilla.xhtml">
+ 	
+ 	<ui:param name="tituloPagina" value="Consulta usuario"></ui:param> 
+	<ui:param name="tituloNombre" value="Juana Pelaez" /> 
+
+
+<ui:define name="contenido">
+				
+			<div class="row consulIndividual ">
+			
+			 	<div class="input-field col s8">
+			 	
+					 <h:form id="idFormularioConsulta">
+					 
+						    <h:outputLabel value="Consulta individual" for="ConsultIndividual"/>
+							<h:inputText id="ConsultIndividual"  value="#{usuarioBean.docUsuario}" required="true" requiredMessage="Campo obligatorio*">
+				<f:validateRequired/>
+				</h:inputText>
+				<h:message for="ConsultIndividual" style="color:red" />
+				 
+							<h:commandButton class="waves-effect waves-light btn "  value="Consultar" action="#{usuarioBean.consultaIndividual()}" onclick="limpiar()"/>
+										   	
+					 </h:form> 
+					 
+				</div>
+				<div class="row">
+				
+				
+							<div class="input-field col s12 ">
+							<!-- class="bordered" -->
+							<h:form clas="tablaUsuarios">
+							
+							<h:outputLabel rendered="#{usuarioBean.listaUsuario.size() == 0}" id = "resultado" value="#{usuarioBean.mjsListaUsuario}" style="color:black"/>
+							
+										<h:dataTable value="#{usuarioBean.listaUsuario}" var = "datos" 
+										rendered= "#{usuarioBean.listaUsuario.size() > 0}" style="border:1px solid; " class="striped tabla">
+									
+								<h:column>
+										<f:facet name="header">Documento</f:facet>
+										<h:inputText value="#{datos.documento}" rendered="#{datos.editar}" />
+										<h:outputText value="#{datos.documento}" rendered="#{not datos.editar}"/> 
+							 	</h:column>
+								  
+								<h:column>
+										<f:facet name="header">Nombre</f:facet>
+										<h:inputText value="#{datos.nombre}" rendered="#{datos.editar}"/>
+										<h:outputText value="#{datos.nombre}" rendered="#{not datos.editar}"/>
+								</h:column>
+												
+								
+								
+								<h:column>
+										<f:facet name="header">Apellidos</f:facet>
+										<h:inputText value="#{datos.apellidos}" rendered="#{datos.editar}"/>
+										<h:outputText value="#{datos.apellidos}" rendered="#{not datos.editar}"/>
+								</h:column>
+																	
+								<h:column>
+										<f:facet name="header">Direccion</f:facet>
+										<h:inputText value="#{datos.direccion}" rendered="#{datos.editar}"/>
+										<h:outputText value="#{datos.direccion}" rendered="#{not datos.editar}"/>
+								</h:column>
+																	
+								<h:column>
+										<f:facet name="header">Fecha nacimiento</f:facet>
+										<h:inputText value="#{datos.fecha}" rendered="#{datos.editar}"/>
+										<h:outputText value="#{datos.fecha}" rendered="#{not datos.editar}"/>
+										<!-- <h:inputText id="Fecha" class="datepicker" value="#{usuarioBean.miUsuarioVo.fecha}" requiredMessage="Campo obligatorio*"> -->
+								</h:column>
+																	
+								<h:column>
+										<f:facet name="header">Telefono</f:facet>
+										<h:inputText value="#{datos.telefono}" rendered="#{datos.editar}"/>
+										<h:outputText value="#{datos.telefono}" rendered="#{not datos.editar}"/>
+								</h:column>
+																	
+								<h:column>
+										<f:facet name="header">Contrasenia</f:facet>
+										<h:inputText value="#{datos.contrasenia}" rendered="#{datos.editar}"/>
+										<h:outputText value="#{datos.contrasenia}" rendered="#{not datos.editar}"/>
+								</h:column>
+																	
+								<h:column>
+										<f:facet name="header">Tipo usuario</f:facet>
+										<h:inputText value="#{datos.tipo_Usuario}" rendered="#{datos.editar}"/>
+										<h:outputText value="#{datos.tipo_Usuario}" rendered="#{not datos.editar}"/>
+										
+								</h:column>
+								
+								<h:column>
+										<f:facet name="header">Correo electronico</f:facet>
+										<h:inputText value="#{datos.correo}" rendered="#{datos.editar}"/>
+										<h:outputText value="#{datos.correo}" rendered="#{not datos.editar}"/>
+										
+								</h:column>
+									
+								<h:column>
+										<f:facet name="header">Opciones</f:facet>
+										<h:commandLink action="#{usuarioBean.EditarUsuario(datos)}"
+										value="Editar" rendered="#{not datos.editar}"
+										class="waves-effect waves-light btn" /> <br />
+										
+										
+										<h:commandLink action="#{usuarioBean.guardarCambiosUsuario(datos)}"
+										value="Guardar" rendered="#{datos.editar}"
+										class="waves-effect waves-light btn"/> <br />
+										
+												
+										<h:commandLink action="#{usuarioBean.EliminarUsuario(datos)}"
+										value="Eliminar" class="waves-effect waves-light btn" /> <br />
+										
+										
+								</h:column>
+								
+								
+								
+								
+									</h:dataTable>
+					
+							</h:form>						
+							
+							</div>
+							
+					
+				</div>		
+				          
+				
+		</div>		
+
+</ui:define>
+<script>
+function limpiar(){
+	
+		//document.getElementById("idFormularioConsulta").reset();
+
+	
+	//alert("click boton");
+	
+}
+
+</script>
+
+</ui:composition>

@@ -1,3 +1,148 @@
-.inpu{
-	background-color: #ffffff;
+@import url(materialize.css);
+@import url('font-awesome.css');
+
+@font-face{
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src:url(../fonts/material-design-icons/MaterialIcons-Regular.eot);
+	src:local('Material Icons'),
+	local('MaterialIcons-Regular'),
+	url(../fonts/material-design-icons/MaterialIcons-Regular.woff2) format('woff2'),
+	url(../fonts/material-design-icons/MaterialIcons-Regular.woff) format('woff'),
+	url(../fonts/material-design-icons/MaterialIcons-Regular.ttf) format('truetype');
 }
+
+
+.material-icons{
+	font-family: 'Material Icons'
+	font-weight:normal;
+	font-style: normal;
+	font-size: 24px;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	-webkit-font-smoothing:antialiased;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: 'liga'
+}
+
+
+
+.colorNavegador{	
+	background-color: #13959e !important;
+	
+}
+
+.gray{
+	background-color: #fafafa !important;
+}
+
+.imgLogoUbicacion{
+	
+	margin-right: 2%;
+}
+
+.labelBienvenido2{
+	
+	padding: 3%;	
+}
+
+<!-- Parte registro usuario--------
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /*background: rgb(224,224,224) #e0e0e0*/;
+    background: fafafa;
+}
+
+.imgLogoSofteca{
+/*display: block;*/
+margin-left:5%;
+}
+.logos{
+    height: 140px;
+    background: white;
+}
+.menuColor{
+    background-color: rgb(109, 189, 224);
+    margin-top: -20px;
+  }
+.cajaRegistro{
+	width: 69.7%;
+	height:  auto  ;
+	margin-left:15%;
+	margin-top:60px;
+	border: 3px solid black;
+	
+}
+
+.menuDireccion{
+    position:absolute; right:5%;
+}
+a{
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+footer{
+    background: white;
+    height: 50px;    
+    padding: 0;
+}
+
+.caja1, .caja2, .caja3, .caja4, .caja5, .caja6{
+
+
+height: 10px;
+}
+
+
+
+fieldset{
+	border : none;
+	
+}
+.btn{
+background: rgb(109, 189, 224);
+margin-left: 5%;
+margin-bottom: 3%; 
+}
+.consulIndividual, .consultGeneral, .consulEliminar{
+    margin-top: 80px;
+    margin-left: 200px;
+    width: 40%;
+}
+.consultGeneral{
+  margin-top: -100px;
+  float: right;
+  width:40%;
+}
+
+h2{
+	text-align: center;
+}
+
+.tablaUsuarios{
+	 width: 100%;
+	 color: red;	
+}
+
+
+
+
+
+--------------------------------- -->
+

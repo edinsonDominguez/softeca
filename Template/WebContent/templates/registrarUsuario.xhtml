@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<ui:composition 	
+		xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:ui="http://java.sun.com/jsf/facelets" 
+		xmlns:f="http://java.sun.com/jsf/core" 
+		xmlns:h="http://java.sun.com/jsf/html"
+ 		template="/templates/plantilla.xhtml">
+ 	
+ 	<ui:param name="tituloPagina" value="Registro usuario"></ui:param> 
+	<ui:param name="tituloNombre" value="Juana Pelaez" /> 
+
+<ui:define name="contenido">    
+<f:view>
+	
+	<div class="row cajaRegistro">
+				
+		 <fieldset class="col s12 ">
+        <h:form method="post">
+         <div class="row caja1 ">
+
+             <div class="input-field col s6 ">
+                   <h:outputLabel value="Documento" for="Documento"/>
+				<h:inputText id="Documento" value="#{usuarioBean.miUsuarioVo.documento}" requiredMessage="Campo obligatorio*"> 
+				<f:validateLength minimum="6" maximum="10" > <f:validateRequired/></f:validateLength>
+				</h:inputText>
+				
+             <h:message for="Documento" style="color:red" />
+             </div>  
+            <div class="input-field col s6">
+                          <h:outputLabel value="Nombre" for="Nombre"/>
+				<h:inputText id="Nombre" value="#{usuarioBean.miUsuarioVo.nombre}" requiredMessage="Campo obligatorio*">
+				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+				</h:inputText>
+				 <h:message for="Nombre" style="color:red" />
+             </div>
+        </div>
+        
+         <div class="row caja2">
+        		 <div  class="input-field col s6">
+              			 <h:outputLabel value="Apellidos" for="Apellido"/>
+						<h:inputText id="Apellido" value="#{usuarioBean.miUsuarioVo.apellidos}" requiredMessage="Campo obligatorio*">
+				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+				</h:inputText>
+				 <h:message for="Apellido" style="color:red" />
+               </div>
+               
+               <div class="input-field col s6">
+                   	  <h:outputLabel value="Direccion" for="Direccion"/>
+						<h:inputText id="Direccion" value="#{usuarioBean.miUsuarioVo.direccion}" requiredMessage="Campo obligatorio*">
+				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+				</h:inputText>
+				 <h:message for="Direccion" style="color:red" />
+              </div>       
+        </div>
+        
+         <div class="row caja3">
+                <div class="input-field col s6">
+                <h:outputLabel value="Fecha nacimiento" for="Fecha"/>
+                <h:inputText id="Fecha" class="datepicker" value="#{usuarioBean.miUsuarioVo.fecha}" requiredMessage="Campo obligatorio*">
+				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+				</h:inputText>
+				 <h:message for="Fecha" style="color:red" />
+                    
+                        
+                </div>
+                <div class="input-field col s6">
+                      <h:outputLabel value="Telefono" for="Telefono"/>
+				<h:inputText id="Telefono" value="#{usuarioBean.miUsuarioVo.telefono}" requiredMessage="Campo obligatorio*">
+				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+				</h:inputText>
+				 <h:message for="Telefono" style="color:red" />
+                </div>
+        </div>
+        
+       <div class="row caja4">
+			            <div class="input-field col s6">
+			                       <h:outputLabel value="Contrasenia" for="Contrasenia"  />
+							<h:inputSecret id="Contrasenia" value="#{usuarioBean.miUsuarioVo.contrasenia}" requiredMessage="Campo obligatorio*">
+				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+				</h:inputSecret>
+				 <h:message for="Contrasenia" style="color:red" />
+			            </div>
+			            
+			  
+			         <div class="input-field col s6">
+			              <h:outputLabel  for="Tipo_Usuario" required="true"> 
+			              
+			              </h:outputLabel>
+							<h:selectOneMenu id="Tipo_Usuario" value="#{usuarioBean.miUsuarioVo.tipo_Usuario}" requiredMessage="Campo obligatorio*">
+							<f:selectItem   disabled="disabled" selected="selected" itemLabel="Seleccione el tipo" />
+							<f:selectItem   itemLabel="Usuario" itemValue="Usuario"/>
+							<f:selectItem itemLabel="Administrador" itemValue="Administrador"/> 
+							</h:selectOneMenu>
+			                
+			        </div> 
+
+
+   </div>
+   
+       	<div class="row caja5">
+   					<div class="input-field col s6">
+   						
+				<h:outputLabel value="Correo" for="Correo"/>
+				<h:inputText id="Correo" value="#{usuarioBean.miUsuarioVo.correo}" requiredMessage="Campo obligatorio*">
+				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+				</h:inputText>
+				 <h:message for="Correo" style="color:red" />
+   					</div>
+   			
+   			<div class="input-field col s6"></div>
+   			
+   			</div>
+   			
+   			
+   			
+    <div class="row caja6">
+    
+				            <div class="input-field col s7">
+				           
+				        <h:commandButton class="waves-effect waves-light btn" value="Cancelar" />
+				         </div>
+				            
+				          <div class="input-field col s5 ">
+				          
+				        <h:commandButton class="waves-effect waves-light btn modal-trigger"  value="Registrar" action="#{usuarioBean.registrarUsuario()}"/>
+				          </div>
+          
+       </div>
+       
+     <!--   <div class="row">
+       		<div class="input-field col s12">
+       		<h:outputLabel value="#{usuarioBean.respuesta}"  />
+       		</div>
+       
+       </div> -->
+	
+		</h:form>
+		</fieldset>
+	
+	</div>
+		
+</f:view>
+</ui:define>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        
+<script type="text/javascript" src="../js/materialize.min.js"></script>
+		
+
+<script>
+
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 97, // Creates a dropdown of 15 years to control year,
+    today: 'Hoy',
+    clear: 'Limpiar',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+  
+ 
+   
+</script>
+
+</ui:composition>
