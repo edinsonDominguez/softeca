@@ -28,7 +28,7 @@ public class UsuarioDao {
 		Conexion conexion = new Conexion();
 		java.sql.PreparedStatement preStatement = null;
 		
-		connection = conexion.getConnection();
+		connection = conexion.getConexion();
 		System.out.println("antes de la consulta");
 		String consulta = "INSERT INTO usuario (idUsuario,nombreUsuario,apellidoUsuario,direccionUsuario,nacimientoUsuario,telefonoUsuario,contraseniaUsuario,tipoUsuario,correoUsuario)"
 				+ "  VALUES (?,?,?,?,?,?,?,?,?)";
@@ -73,7 +73,7 @@ public class UsuarioDao {
 		ArrayList <UsuarioVo> lista = new ArrayList<>();
 		
 		
-		connection = conexion.getConnection();
+		connection = conexion.getConexion();
 		String consultaUsuario = "select * from usuario where idUsuario = ?";
 		
 		try {
@@ -119,7 +119,7 @@ public class UsuarioDao {
 		Conexion miConexion = new Conexion();
 		java.sql.PreparedStatement preStatement = null;
 		
-		connection = miConexion.getConnection();
+		connection = miConexion.getConexion();
 		
 		String consulta = "UPDATE usuario SET nombreUsuario = ?, apellidoUsuario = ?, direccionUsuario = ?, nacimientoUsuario = ?, telefonoUsuario = ?,  contraseniaUsuario = ?, tipoUsuario = ?, correoUsuario = ? WHERE idUsuario = ?";
 		
@@ -156,7 +156,7 @@ public class UsuarioDao {
 		Conexion miConexion = new Conexion();
 		java.sql.PreparedStatement preStatement = null;
 		
-		connection = miConexion.getConnection();
+		connection = miConexion.getConexion();
 		
 		String consulta = "DELETE FROM usuario WHERE idUsuario = ?";
 		

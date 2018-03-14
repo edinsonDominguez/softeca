@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.ResultSet;
 
 /**
  * Servlet implementation class PruebaConexion
@@ -40,7 +38,7 @@ public class PruebaConexion extends HttpServlet {
 		java.sql.ResultSet result=null;
 		
 		try {
-			connection=miConexion.getConnection();
+			connection=miConexion.getConexion();
 		
 			String consulta = "SELECT * FROM usuario;";
 			if (connection!=null) {
