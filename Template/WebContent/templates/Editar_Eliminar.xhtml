@@ -1,80 +1,70 @@
 <!DOCTYPE html>
-<ui:composition lang="es" xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition 
+	lang="es" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	template = "/templates/plantilla.xhtml">
 
 
 
+<ui:param name = "tituloPagina" value = "Actualizar Libro"/>
+<ui:param name="tituloNombre" value="Viviana Martinez" />
 
+	<ui:define name = "contenido">
 
-<h:head>
-	<title>Actualizar_libro</title>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-	
-
-   
-<!--
-<link rel="stylesheet" href="resource/css/estilo.css" />
-
-	
-	<link rel="stylesheet" href="resource/css/estilo.css" />
- 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-	<h:outputScript library="resource/js/materialize.js"
-		name="materialize.js" />
-
- -->
-
-	<!-- El error posiblemente sea de la carpeta resource  -->
-
-</h:head>
-
-
-<ui:param name = "prueba " value = "pagina de inicio"/>
-
-<ui:define name = "contenido">
-	
-	<h1>funciona</h1>
-	
-
-
-</ui:define>
-
-<body>
-
-
-			<!-- ESTE ES EL CUADRO DE BUSCADOR -->
 	<h:outputText value="#{librosBean.validacion}" /><br /><br />
 					
 
 			<h:form>
-		
-					<h:inputText value="#{librosBean.textoTraer}" id="buscador" class = "col s6 tamanioCampoTexto"  /> 
+				
+				<div class="row">		
+					<!--  <h:inputText value="#{librosBean.textoTraer}" id="buscador" class = "col s2 tamanioCampoTexto"/> --> 
 
 				
-					<h:selectOneMenu value="#{librosBean.opcion}">
+					<!-- <h:selectOneMenu value="#{librosBean.opcion}" class = "col s6">
 						<f:selectItem itemValue="nombre" itemLabel="Nombre .."/>
 						<f:selectItem itemValue="icbn" itemLabel="ICBN .."/>
 						<f:selectItem itemValue="autor" itemLabel="Autor .."/>
 						<f:selectItem itemValue="categoria" itemLabel="Categoria .."/>	
-					</h:selectOneMenu>
+					</h:selectOneMenu>  -->
 					
+					<h:commandLink action="#{librosBean.filtrarOpcion()}" class = "col s4"><i class="medium material-icons">search</i></h:commandLink>
 					
-					 <!-- <div class="input-field col s12">
-					    <select>
-      						<option value=""> Choose your option</option>
-				        	<option value="1">Edinson</option>
-      						<option value="2">Option 2</option>
-      						<option value="3">Option 3</option>
-    					</select>
-    					<label>Materialize Select</label>
-  					</div> -->
-					
-					<h:commandLink action="#{librosBean.filtrarOpcion()}" class = "col s2"><i class="medium material-icons">search</i></h:commandLink>
+
+				 <!-- <div class="input-field col s12">
+				    <select>
+				      <optgroup label="team 1">
+				        <option value="1">Option 1</option>
+				        <option value="2">Option 2</option>
+				      </optgroup>
+				      <optgroup label="team 2">
+				        <option value="3">Option 3</option>
+				        <option value="4">Option 4</option>
+				      </optgroup>
+				    </select>
+				    <label>Optgroups</label>
+				  </div> -->
+				  
+				</div>
 			</h:form>
+			
+			
+			<f:view>
+				<div class="row">
+				
+				<label>Browser Select</label>
+				  <select class="browser-default">
+				    <option value="" disabled selected>Choose your option</option>
+				    <option value="1">Option 1</option>
+				    <option value="2">Option 2</option>
+				    <option value="3">Option 3</option>
+				  </select>
+										
+				 </div>	
+			</f:view>
+
 
 
 
@@ -185,13 +175,17 @@
 			</h:form>				
 					</div>
 		</div>
+	
+	
+	</ui:define>
+	
+	<script>
+	
+	 $(document).ready(function() {
+	    $('select').material_select();
+	  });
+	
+	</script>	
+	
 
-
-
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
- 
-
-</body>
 </ui:composition>
