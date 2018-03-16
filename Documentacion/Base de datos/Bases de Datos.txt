@@ -1,0 +1,126 @@
+
+
+
+CREATE DATABASE softeca;
+
+USE softeca;
+
+
+-- categoria
+
+CREATE TABLE categoria(
+
+codCategoria MEDIUMINT,
+nombreCategoria VARCHAR(30),
+PRIMARY KEY (codCategoria)
+);
+
+
+-- libro
+
+CREATE TABLE libro(
+
+codLibro VARCHAR(10),
+tituloLibro VARCHAR(30),
+autorLibro VARCHAR(50),
+editorialLibro VARCHAR(20),
+estanteriaLibro CHAR(10),
+ejemplarLibro TINYINT,
+categoriaLibro MEDIUMINT,
+disponible TINYINT,
+
+
+PRIMARY KEY (codLibro),
+FOREIGN KEY (categoriaLibro) REFERENCES categoria(codCategoria)
+);
+
+
+-- usuario
+ 
+CREATE TABLE usuario(
+
+idUsuario INT,
+nombreUsuario VARCHAR(25),
+apellidoUsuario VARCHAR(25),
+direccionUsuario VARCHAR(60),
+nacimientoUsuario DATE,
+telefonoUsuario CHAR(13),
+contraseniaUsuario CHAR(15),
+tipoUsuario TINYINT,
+correoUsuario VARCHAR(60),
+
+PRIMARY KEY(idUsuario)
+);
+
+
+
+
+
+-- tipoSancion
+
+CREATE TABLE tiposancion(
+
+codTipo TINYINT,
+nombreTipo VARCHAR(40),
+informacionTipo BLOB(1000),
+
+
+PRIMARY KEY(codTipo)
+
+);
+
+
+
+
+-- sancion
+
+CREATE TABLE sancion(
+
+codSancion MEDIUMINT NOT NULL AUTO_INCREMENT,
+usuarioSancion INT,
+fechaSancion DATE,
+fechaExpiracion DATE,
+tipoSancion TINYINT,
+
+PRIMARY KEY(codSancion),
+FOREIGN KEY(usuarioSancion) REFERENCES usuario(idUsuario),
+FOREIGN KEY(tipoSancion) REFERENCES tiposancion(codTipo)
+
+);
+
+
+
+-- prestamo
+
+CREATE TABLE prestamo(
+
+codPrestamo MEDIUMINT NOT NULL AUTO_INCREMENT,
+usuarioPrestamo INT,
+libroPrestamo VARCHAR(10),
+fechaPrestamo DATE,
+fechaRegreso DATE,
+
+
+PRIMARY KEY (codPrestamo),
+FOREIGN KEY (usuarioPrestamo) REFERENCES usuario(idUsuario),
+FOREIGN KEY (libroPrestamo) REFERENCES libro(codLibro)
+
+);
+
+
+
+------------------------------------------------------------------------------------------
+esta es la sentencia para el modulo 
+_______________________________________________________________________________________
+
+
+
+SELECT tituloLibro, fechaPrestamo, fechaRegreso FROM libro, prestamo, usuario, revisionPrestamo 
+WHERE (usuarioPrestamo = idUsuario) AND (codPrestamo = codigoPrestamo) AND (codigoLibro = codlibro) AND (usuario.idUsuario = 100);
+
+
+
+
+
+
+
