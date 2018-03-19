@@ -10,7 +10,6 @@
 
 
 <ui:param name = "tituloPagina" value = "Actualizar Libro"/>
-<ui:param name="tituloNombre" value="Viviana Martinez" />
 
 	<ui:define name = "contenido">
 
@@ -19,52 +18,32 @@
 
 			<h:form>
 				
-				<div class="row">		
-					<!--  <h:inputText value="#{librosBean.textoTraer}" id="buscador" class = "col s2 tamanioCampoTexto"/> --> 
-
+				<div class="row">
 				
-					<!-- <h:selectOneMenu value="#{librosBean.opcion}" class = "col s6">
+				<div class = "col s1"></div>
+				
+				<div class = "input-field col s6 ">		
+					<h:outputLabel value="buscador" for = "buscador" />
+					<h:inputText value="#{librosBean.textoTraer}" id="buscador" class = "validate"/>
+				</div>
+				
+				<div class = "col s2">
+					
+					<Label>elige una categoria</Label>
+					
+					 <h:selectOneMenu value="#{librosBean.opcion}" class = "col s6">
 						<f:selectItem itemValue="nombre" itemLabel="Nombre .."/>
 						<f:selectItem itemValue="icbn" itemLabel="ICBN .."/>
 						<f:selectItem itemValue="autor" itemLabel="Autor .."/>
 						<f:selectItem itemValue="categoria" itemLabel="Categoria .."/>	
-					</h:selectOneMenu>  -->
+					</h:selectOneMenu>  
+					</div>
 					
-					<h:commandLink action="#{librosBean.filtrarOpcion()}" class = "col s4"><i class="medium material-icons">search</i></h:commandLink>
-					
-
-				 <!-- <div class="input-field col s12">
-				    <select>
-				      <optgroup label="team 1">
-				        <option value="1">Option 1</option>
-				        <option value="2">Option 2</option>
-				      </optgroup>
-				      <optgroup label="team 2">
-				        <option value="3">Option 3</option>
-				        <option value="4">Option 4</option>
-				      </optgroup>
-				    </select>
-				    <label>Optgroups</label>
-				  </div> -->
-				  
+					<div class = "col 2">
+						<h:commandLink action="#{librosBean.filtrarOpcion()}" ><i class="medium material-icons">search</i></h:commandLink>
+					</div>
 				</div>
 			</h:form>
-			
-			
-			<f:view>
-				<div class="row">
-				
-				<label>Browser Select</label>
-				  <select class="browser-default">
-				    <option value="" disabled selected>Choose your option</option>
-				    <option value="1">Option 1</option>
-				    <option value="2">Option 2</option>
-				    <option value="3">Option 3</option>
-				  </select>
-										
-				 </div>	
-			</f:view>
-
 
 
 
