@@ -3,12 +3,14 @@ package accionesBean;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import dao.ReporteDao;
 import vo.Libro;
 import vo.Reporte;
 
 @ManagedBean
+@SessionScoped
 public class ModuloReporte {
 
 	String obtenerDato;
