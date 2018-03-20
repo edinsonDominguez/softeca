@@ -8,27 +8,34 @@
 	template = "/templates/plantilla.xhtml">
 
 
-<ui:param name = "tituloPagina" value = "Actualizar Libro"/>
 
 <ui:define name="contenido">
 
+	
+
 	<h:form>
 	
-		<h1>funciona</h1> 
-		
-		<br /><br /><br />
+		<h2>funciona</h2> 
 		
 		<h:outputLabel value="#{moduloReporte.estadoLibro}" />
 		
 		<br /><br /><br />
+	
+	<div class = "row">
 		
+		<div class = "col s5">
 		<h:inputText value="#{moduloReporte.obtenerDato}" />
+		</div>
+		
+		<div class = "col s3">
 		
 		<h:commandLink action="#{moduloReporte.accionReporte()}" value="buscar" />
-		
+	
+		</div>
+	</div>	
 		<hr></hr>
 		
-		<h2>Informacion Libro</h2>
+		<h4>Informacion Libro</h4>
 		<br />
 		
 		
@@ -108,7 +115,7 @@
 	
 	
 	</h:form>
-	
+		
 	</ui:define>
 
 </ui:composition>

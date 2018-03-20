@@ -25,6 +25,7 @@ public class ModuloReporte {
 		
 		daoReporte = new ReporteDao();
 		
+		System.out.println("funcionando correctamente");
 	}
 	
 	public void accionReporte(){
@@ -121,8 +122,5 @@ public class ModuloReporte {
 	public void setObtenerDato(String obtenerDato) {
 		this.obtenerDato = obtenerDato;
 	}
-	
-	
-	
 	
 }
