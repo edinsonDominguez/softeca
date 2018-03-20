@@ -10,7 +10,9 @@ public class Libro {
 	private int ejemplar;
 	private int categoria;
 	private String nombreCategoria = "None";
+	private int disponible;
 	boolean editar;
+	
 	
 	public Libro(){
 		
@@ -18,7 +20,7 @@ public class Libro {
 	
 	
 	public Libro(int codigo, String titulo, String autor, String editorial, String estanteria, int ejemplar,
-			int miCategoria, String nombreCategoria, boolean editar) {
+			int miCategoria, String nombreCategoria, int disponible, boolean editar) {
 		super();
 		this.codigo = codigo;
 		this.titulo = titulo;
@@ -32,6 +34,18 @@ public class Libro {
 	}
 	
 	
+	
+	
+	public int getDisponible() {
+		return disponible;
+	}
+
+
+	public void setDisponible(int disponible) {
+		this.disponible = disponible;
+	}
+
+
 	public String getNombreCategoria() {
 		return nombreCategoria;
 	}
