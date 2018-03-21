@@ -3,16 +3,15 @@ package accionesBean;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 import dao.ReporteDao;
 import vo.Libro;
 import vo.Reporte;
 
 @ManagedBean
-@SessionScoped
-public class ModuloReporte {
+public class ModuloReporteLibro {
 
+	
 	String obtenerDato;
 	String estadoLibro = "sin estado";
 	String estadoPrestamo = "sin estado";
@@ -23,11 +22,10 @@ public class ModuloReporte {
 	
 	
 	
-	public ModuloReporte(){
+	public ModuloReporteLibro(){
 		
 		daoReporte = new ReporteDao();
 		
-		System.out.println("funcionando correctamente");
 	}
 	
 	public void accionReporte(){
@@ -124,5 +122,8 @@ public class ModuloReporte {
 	public void setObtenerDato(String obtenerDato) {
 		this.obtenerDato = obtenerDato;
 	}
+	
+	
+
 	
 }
