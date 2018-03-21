@@ -81,10 +81,12 @@ usuarioSancion INT,
 fechaSancion DATE,
 fechaExpiracion DATE,
 tipoSancion TINYINT,
+libroSancion VARCHAR(10),
 
 PRIMARY KEY(codSancion),
 FOREIGN KEY(usuarioSancion) REFERENCES usuario(idUsuario),
-FOREIGN KEY(tipoSancion) REFERENCES tiposancion(codTipo)
+FOREIGN KEY(tipoSancion) REFERENCES tiposancion(codTipo),
+FOREIGN KEY(libroSancion) REFERENCES libro(codLibro)
 
 );
 
@@ -121,6 +123,10 @@ WHERE (usuarioPrestamo = idUsuario) AND (codPrestamo = codigoPrestamo) AND (codi
 
 
 
+------------------------------------------------------------
 
 
+sentencia para el modulo reportes
+SELECT fechasancion, fechaExpiracion, nombreTipo, informacionTipo FROM tipoSancion, sancion, usuario, libro WHERE () AND (idUsuario = 200) AND (tituloLibro = 'monje');
 
+-------

@@ -9,8 +9,9 @@ import vo.Libro;
 import vo.Reporte;
 
 @ManagedBean
-public class ModuloReporte {
+public class ModuloReporteLibro {
 
+	
 	String obtenerDato;
 	String estadoLibro = "sin estado";
 	String estadoPrestamo = "sin estado";
@@ -21,11 +22,10 @@ public class ModuloReporte {
 	
 	
 	
-	public ModuloReporte(){
+	public ModuloReporteLibro(){
 		
 		daoReporte = new ReporteDao();
 		
-		System.out.println("funcionando correctamente");
 	}
 	
 	public void accionReporte(){
@@ -122,5 +122,8 @@ public class ModuloReporte {
 	public void setObtenerDato(String obtenerDato) {
 		this.obtenerDato = obtenerDato;
 	}
+	
+	
+
 	
 }

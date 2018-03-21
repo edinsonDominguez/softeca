@@ -1,67 +1,63 @@
 <!DOCTYPE html> 
-<ui:composition
-	lang="es" xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition 
+	lang="es" 
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	template = "/templates/plantilla.xhtml">
-
-
+	template = "/templates/plantilla.xhtml"> 
+      
+ 
+<ui:param name = "tituloPagina" value = "Actualizar Libro"/>
+  
 
 <ui:define name="contenido">
-
 	
-
-	<h:form>
 	
-		<h2>funciona</h2> 
-		
-		<h:outputLabel value="#{moduloReporte.estadoLibro}" />
+		<h:form>
+	
+		<h1>funciona</h1> 
 		
 		<br /><br /><br />
-	
-	<div class = "row">
 		
-		<div class = "col s5">
-		<h:inputText value="#{moduloReporte.obtenerDato}" />
-		</div>
+		<h:outputLabel value="#{moduloReporteLibro.estadoLibro}" />
 		
-		<div class = "col s3">
+		<br /><br /><br />
 		
-		<h:commandLink action="#{moduloReporte.accionReporte()}" value="buscar" />
-	
-		</div>
-	</div>	
+		<h:inputText value="#{moduloReporteLibro.obtenerDato}" />
+		
+		<h:commandLink action="#{moduloReporteLibro.accionReporte()}" value="buscar" />
+		
 		<hr></hr>
 		
-		<h4>Informacion Libro</h4>
+		<h2>Informacion Libro</h2>
 		<br />
 		
 		
 		<h:outputLabel value="Codigo: " />
-		<h:outputLabel value="#{moduloReporte.miLibro.codigo}" /> <br />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.codigo}" /> <br />
 		
 		<h:outputLabel value="Nombre: " />
-		<h:outputLabel value="#{moduloReporte.miLibro.titulo}" /><br />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.titulo}" /><br />
 		
 		<h:outputLabel value="Autor: " />
-		<h:outputLabel value="#{moduloReporte.miLibro.autor}" /><br />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.autor}" /><br />
 		
 		<h:outputLabel value="Editorial: " />
-		<h:outputLabel value="#{moduloReporte.miLibro.editorial}" /><br />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.editorial}" /><br />
 		
 		<h:outputLabel value="Estanteria: " />
-		<h:outputLabel value="#{moduloReporte.miLibro.estanteria}" /><br />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.estanteria}" /><br />
 		
 		<h:outputLabel value="Ejemplar: " />
-		<h:outputLabel value="#{moduloReporte.miLibro.ejemplar}" /><br />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.ejemplar}" /><br />
 		
 		<h:outputLabel value="Disponible: " />
-		<h:outputLabel value="#{moduloReporte.miLibro.disponible}" /><br />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.disponible}" /><br />
 		
 		<h:outputLabel value="Categoria: " />
-		<h:outputLabel value="#{moduloReporte.miLibro.nombreCategoria}" /><br />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.nombreCategoria}" /><br />
 		
 		<hr />
 
@@ -70,9 +66,9 @@
 	
 	<h:form>
 	
-		<h:outputLabel value="#{moduloReporte.estadoPrestamo}" />
+		<h:outputLabel value="#{moduloReporteLibro.estadoPrestamo}" />
 	
-	<h:dataTable value = "#{moduloReporte.listaPrestamos}" var="datosLibro" >
+	<h:dataTable value = "#{moduloReporteLibro.listaPrestamos}" var="datosLibro" >
 
 	<h:column>
 		<f:facet name="header">
@@ -115,7 +111,7 @@
 	
 	
 	</h:form>
-		
-	</ui:define>
+	
+</ui:define>
 
 </ui:composition>
