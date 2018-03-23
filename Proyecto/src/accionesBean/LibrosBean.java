@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import com.sun.org.apache.xpath.internal.SourceTreeManager;
+
 import dao.LibroDao;
+import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
 import vo.Libro;
 
 @ManagedBean
@@ -108,7 +111,10 @@ public class LibrosBean {
 	
 	
 	public void registrarLibro(){
+		
+		System.out.println(miLibro.getMiCategoria());
 		setMensaje(daoLibro.agregarLibro(miLibro));
+		
 		
 		if (mensaje.equals("ok")) {
 			
