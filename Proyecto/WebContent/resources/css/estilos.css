@@ -141,10 +141,13 @@ h2{
 }
 
 .logos{
-	background: #e0eef7;
+	background: #bbdefb !important;
 }
 
-
+.ingresarBtn{
+	
+	background: #13959e !important;
+}
 
 --------------------------------- -->
 
