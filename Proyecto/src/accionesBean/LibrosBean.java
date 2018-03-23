@@ -3,13 +3,13 @@ package accionesBean;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import dao.LibroDao;
 import vo.Libro;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 
 public class LibrosBean {	
 	LibroDao daoLibro;

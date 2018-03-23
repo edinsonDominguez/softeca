@@ -14,71 +14,54 @@
 	
 							<h5>Registro de Libros</h5>
 							
-										<h:inputText value="#{moduloUsuario.miLibro.codigo}" id="cod" requiredMessage="Campo Obligatorio*" class = "validate">
+										<h:outputLabel value="codigo:" for="cod"/>
+										<h:inputText value="#{librosBean.miLibro.codigo}" id="cod" requiredMessage="Campo Obligatorio*" class = "validate">
 										</h:inputText>
 										<h:message for="cod" style="color: red"/>
-										<h:outputLabel value="codigo:" for="cod"/>		
+												
 									
 									
 										<h:outputLabel value="titulo: " for="tit"/>
-										<h:inputText value="#{moduloUsuario.miLibro.titulo}"  id="tit" requiredMessage="Campo Obligatorio*" class = "validate">
+										<h:inputText value="#{librosBean.miLibro.titulo}"  id="tit" requiredMessage="Campo Obligatorio*" class = "validate">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="tit" style="color: red"/>
 									
 									
 										<h:outputLabel value="autor:" for="aut"/>
-										<h:inputText value="#{moduloUsuario.miLibro.autor}"  id="aut" requiredMessage="Campo Obligatorio*" class = "validate">
+										<h:inputText value="#{librosBean.miLibro.autor}"  id="aut" requiredMessage="Campo Obligatorio*" class = "validate">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="aut" style="color: red"/>
 						
 									
 										<h:outputLabel value="ejemplares:" for="eje"/>
-										<h:inputText value="#{moduloUsuario.miLibro.ejemplar}"  id="eje" requiredMessage="Campo Obligatorio*" class = "validate">
+										<h:inputText value="#{librosBean.miLibro.ejemplar}"  id="eje" requiredMessage="Campo Obligatorio*" class = "validate">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="eje" style="color: red"/>									
 									
 										<h:outputLabel value="editorial:" for="edi"/>
-										<h:inputText value="#{moduloUsuario.miLibro.editorial}"  id="edi" class = "validate">
+										<h:inputText value="#{librosBean.miLibro.editorial}"  id="edi" class = "validate">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="edi" style="color: red"/>					
 									
 										<h:outputLabel value="estanteria:" for="est"/>
-										<h:inputText value="#{moduloUsuario.miLibro.estanteria}"  id="est" requiredMessage="Campo Obligatorio*">
+										<h:inputText value="#{librosBean.miLibro.estanteria}"  id="est" requiredMessage="Campo Obligatorio*">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="est" style="color: red"/>
 							
-							
-								<div class = "row">
-									
-									
-									<div class = "input-field col s5 center-align">
-										
-										<select>
-											
-											<option value = "1">Edinson ....</option>
-											<option value = "2">Jerson ....</option>
-											<option value = "3">Guillermo ....</option>
-										
-										</select>
-										
-										<label > select con materialize</label>
-									</div>
-								
-								</div>
 							
 								
 								<div class="row">
 									
 									<div class="col s6">
 							
-										<h:outputLabel value="categoria:"/>
+										<h:outputLabel value="categoria: "/>
 										
-										<h:selectOneMenu value="#{moduloUsuario.miLibro.miCategoria}" >
+										<h:selectOneMenu value="#{librosBean.miLibro.miCategoria}" >
 											<f:selectItem itemValue="1" itemLabel="tecnologia"/>
 											<f:selectItem itemValue="2" itemLabel="filosofia  y psicologia"/>
 											<f:selectItem itemValue="3" itemLabel="religion"/>
@@ -93,7 +76,7 @@
 									
 								</div>
 										
-										<h:commandButton action="#{moduloUsuario.registrarLibro()}" value="Registrar" /><br /><br />
+										<h:commandButton action="#{librosBean.registrarLibro()}" value="Registrar" /><br /><br />
 										
 									
 									<!-- <div class ="col s12">
