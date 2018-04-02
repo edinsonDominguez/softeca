@@ -10,54 +10,87 @@
 <!-- template = "/templates/plantilla.xhtml" -->
 	
 	
-		<h:form>
+	<h:head>
+	 <title>softeca</title>
+</h:head> 
+<body>
+
+	<h3>Buscar por Codigo DE Usuario</h3>
 	
-		<h1>funciona</h1> 
+	<h:form>
 		
-		<br /><br /><br />
+		<h:inputText value="#{moduloReporteUsuario.obtenerDato}" />
+		<h:commandLink action="#{moduloReporteUsuario.accionUsuario()}" value="buscar usuario" /><br /><br />
 		
-		<h:outputLabel value="#{moduloReporteLibro.estadoLibro}" />
-		
-		<br /><br /><br />
-		
-		<h:inputText value="#{moduloReporteLibro.obtenerDato}" />
-		
-		<h:commandLink action="#{moduloReporteLibro.accionReporte()}" value="buscar" />
-		
-		<hr></hr>
-		
-		<h2>Informacion Libro</h2>
-		<br />
-		
-		
-		<h:outputLabel value="Codigo: " />
-		<h:outputLabel value="#{moduloReporteLibro.miLibro.codigo}" /> <br />
+		<h:outputLabel value="Documento: " />
+		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.documento}" /><br />
 		
 		<h:outputLabel value="Nombre: " />
-		<h:outputLabel value="#{moduloReporteLibro.miLibro.titulo}" /><br />
+		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.nombre}" /><br />
 		
-		<h:outputLabel value="Autor: " />
-		<h:outputLabel value="#{moduloReporteLibro.miLibro.autor}" /><br />
+		<h:outputLabel value="Apellido: " />
+		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.apellidos}" /><br />
 		
-		<h:outputLabel value="Editorial: " />
-		<h:outputLabel value="#{moduloReporteLibro.miLibro.editorial}" /><br />
+		<h:outputLabel value="Direccion: " />
+		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.direccion}" /><br />
 		
-		<h:outputLabel value="Estanteria: " />
-		<h:outputLabel value="#{moduloReporteLibro.miLibro.estanteria}" /><br />
 		
-		<h:outputLabel value="Ejemplar: " />
-		<h:outputLabel value="#{moduloReporteLibro.miLibro.ejemplar}" /><br />
+		<h:outputLabel value="Telefono: " />
+		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.telefono}" /><br />
 		
-		<h:outputLabel value="Disponible: " />
-		<h:outputLabel value="#{moduloReporteLibro.miLibro.disponible}" /><br />
+		<h:outputLabel value="Correo: " />
+		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.correo}" /><br />
 		
-		<h:outputLabel value="Categoria: " />
-		<h:outputLabel value="#{moduloReporteLibro.miLibro.nombreCategoria}" /><br />
-		
-		<hr />
+	</h:form> 	
+ 	
+ 	<hr />
+ 	
+ 
+ <h:form>
+	
+	
+	<h:dataTable value = "#{moduloReporteUsuario.listaPrestamos}" var="datosUsuario" >
 
 
+
+	<h:column>
+		<f:facet name="header">
+			<h:outputLabel value="Titulo Libro" />
+		</f:facet>
+		<h:outputLabel value="#{datosUsuario.tituloLibro}" />
+	</h:column>
+
+	<h:column>
+		<f:facet name="header">
+			<h:outputLabel value="Fecha Prestamos" />
+		</f:facet>
+		<h:outputLabel value="#{datosUsuario.fechaPrestamo}" />
+	</h:column>
+
+
+	<h:column>
+		<f:facet name="header">
+			<h:outputLabel value="fecha regreso" />
+		</f:facet>
+		<h:outputLabel value="#{datosUsuario.fechaRegreso}" />
+	</h:column>
+
+	 <h:column>
+		<f:facet name="header">
+			<h:outputLabel value="Sancion" />
+		</f:facet>
+		<h:outputLabel value="#{datosUsuario.sancionPrestamo}" />
+	</h:column>
+ 
+ 
+	</h:dataTable>
+	
+	
 	</h:form>
-  
+ 
+ 
+ 
+
+</body> 
 
 </html>
