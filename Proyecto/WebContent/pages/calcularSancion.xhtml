@@ -1,0 +1,56 @@
+<!DOCTYPE html >
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:ui="http://java.sun.com/jsf/facelets" 
+		xmlns:f="http://java.sun.com/jsf/core" 
+		xmlns:h="http://java.sun.com/jsf/html"
+ 		template="plantilla.xhtml">
+
+<ui:define name="contenido">
+<f:view>
+	<h1>Devoluciones</h1>
+	
+	<div class="row cajaSancion">
+	
+	<div class=" col s10">
+	
+			
+	
+	<h:form>
+			
+			<h:selectOneMenu value="#{tablaBean.miLibro.tipo_sancion}">
+			
+				<f:selectItem itemValue="No aplica" itemLabel="No aplica" />
+				<f:selectItem itemValue="Retardo" itemLabel="Retardo" />
+				<f:selectItem itemValue="Perdida" itemLabel="Perdida" />
+				<f:selectItem itemValue="Danio" itemLabel="Danio" />
+				
+				
+			</h:selectOneMenu>
+			<br/><br/><br/>
+			<h:outputLabel value="Observaciones" for="info"/> 
+			<h:inputTextarea value="#{tablaBean.miLibro.infoObservaciones}" id="info"/><br/><br/>
+			
+			<h:outputLabel value="Fecha Sancion" for="sancion"/>
+			<h:inputText value="#{tablaBean.miLibro.fecha_inicioSancion}" id="sancion"/><br/><br/>
+			
+			<h:outputLabel value="Fecha Expiracion" for="expi"/>
+			<h:inputText value="#{tablaBean.miLibro.fecha_finSancion}" id="expi"/><br/><br/>
+			
+			
+			<h:commandButton value="Cancelar" action="devolverLibro" class="waves-effect waves-light btn"/> 
+			
+			<h:commandButton value="Devolver" action="#{tablaBean.devolverLibro()}" class="waves-effect waves-light btn" />
+			
+			
+	
+	</h:form>
+	
+	
+	
+	</div>
+	
+	
+	</div>
+</f:view>
+</ui:define>
+</ui:composition>

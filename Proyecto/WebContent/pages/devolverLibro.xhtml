@@ -1,0 +1,81 @@
+<!DOCTYPE html >
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:ui="http://java.sun.com/jsf/facelets" 
+		xmlns:f="http://java.sun.com/jsf/core" 
+		xmlns:h="http://java.sun.com/jsf/html"
+ 		template="plantilla.xhtml">
+
+<ui:define name="contenido">
+<f:view>
+
+
+
+			<div class="row cajaPrestamos">
+					<div class="input-field col s12">
+					
+					<h:form>
+			
+			<h:outputLabel value="Codigo usuario" for="codUsuario"/> <br /> <br />
+			<h:inputText  value="#{tablaBean.miLibro.documento}"   id="codUsuario"/> <br /><br/>
+			
+			<h:commandButton value="Consultar" action="#{tablaBean.RevisionDevolverLibro()}" class="waves-effect waves-light btn"/>
+			
+			</h:form>
+			
+					
+					</div>
+			
+			</div>
+
+			<div class="row cajaPrestamos">
+			
+			<div class="input-field col s12">
+			
+			<h:form>
+			
+			<h:dataTable value="#{tablaBean.listaDevolucionLibros}" var="datosDevolucion"
+			rendered="#{tablaBean.datosDevolver == true}" class="striped tabla">
+			
+			<h:column>
+			<f:facet name="header">Nombre libro</f:facet>
+			<h:outputText value="#{datosDevolucion.nombreLibro}"/>
+		
+			</h:column>
+			
+			<h:column>
+			<f:facet name="header">Nombre Usuario</f:facet>
+			<h:outputText value="#{datosDevolucion.nombreUsuario}"/>
+			</h:column>
+			
+			<h:column>
+			<f:facet name="header">Documento Usuario</f:facet>
+			<h:outputText value="#{datosDevolucion.documento}"/>
+			</h:column>
+			
+			<h:column>
+			<f:facet name="header">Fecha prestamo</f:facet>
+			<h:outputText value="#{datosDevolucion.fechaPrestamo}"/>
+			
+			</h:column>
+			
+			<h:column>
+			<f:facet name="header">Fecha regreso</f:facet>
+			<h:outputText value="#{datosDevolucion.fechaRegreso}"/>
+			</h:column>
+			
+			<h:column>
+			<f:facet name="header">Fecha regreso</f:facet>
+			<h:commandLink action="calcularSancion" value="Devolver" class="waves-effect waves-light btn"/>
+			</h:column>
+			
+			</h:dataTable>
+			
+			</h:form>
+			
+			</div>
+			
+			</div>
+
+</f:view>
+</ui:define>
+</ui:composition>
