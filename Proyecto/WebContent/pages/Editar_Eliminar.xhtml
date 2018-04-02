@@ -28,6 +28,7 @@
 					<h:inputText value="#{librosBean.textoTraer}" id="buscador" class = "validate"/>
 				</div>
 				
+				
 				<div class = "col s2">
 					
 					<Label>elige una categoria</Label>
@@ -41,7 +42,7 @@
 					</div>
 					
 					<div class = "col 2">
-						<h:commandLink action="#{librosBean.filtrarOpcion()}" ><i class="medium material-icons">search</i></h:commandLink>
+						<h:commandButton action="#{librosBean.filtrarOpcion()}" value = "buscar libro"/> 
 					</div>
 				</div>
 			</h:form>
@@ -56,12 +57,12 @@
 
 				<h:outputLabel
 					value="Ingresa el ICBN del libro para que aparescan los resultados!! "
-					rendered="#{moduloUsuario.listaLibros.size() == 0}" />
+					rendered="#{librosBean.listaLibros.size() == 0}" />
 				
 				<h:dataTable value="#{librosBean.listaLibros}" var="datos"
-					rendered="#{librosBean.listaLibros.size() > 0}"
 					class="striped tabla">
 
+<!-- rendered="#{librosBean.listaLibros.size() > 0}" -->
 						<h:column>
 							<f:facet name="header" class = "colorCabecera">
 								<h:outputLabel value="Codigo Libro" />
@@ -134,16 +135,16 @@
 								<h:outputLabel value="Opciones" />
 							</f:facet>
 
-							<h:commandLink action="#{moduloUsuario.EditarLibro(datos)}"
+							<h:commandLink action="#{librosBean.EditarLibro(datos)}"
 								value="Editar" rendered="#{not datos.editar}"
 								class="waves-effect waves-light btn" />
 							<!--&bnps;  -->
-							<h:commandLink action="#{moduloUsuario.guardarCambios(datos)}"
+							<h:commandLink action="#{librosBean.guardarCambios(datos)}"
 								value="Guardar" rendered="#{datos.editar}"
 								class="waves-effect waves-light btn" />
 							<br />
 							<!--&bnps;  -->
-							<h:commandLink action="#{moduloUsuario.eliminarLibro(datos)}"
+							<h:commandLink action="#{librosBean.eliminarLibro(datos)}"
 								value="eliminar" class="waves-effect waves-light btn_eliminar" />
 							<br />
 
@@ -157,16 +158,33 @@
 					</div>
 		</div>
 	
+		
+	
+		<!-- <script type = "text/javascript" src="resource/js/jquery-3.3.1.min.js"></script>  -->
+
+
+		<!-- <script type = "text/javascript">
+			$(document).ready(function(){
+				  $(".button-collapse").sideNav();
+				   $('.modal').modal();
+			})
+
+		</script> -->
+
+	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+	<script src="../resources/js/materialize.min.js"></script>
+
+		<script>
+	
+		  $(document).ready(function() {
+			    $('select').material_select();
+			  });
+	
+		 </script>
+	
 	
 	</ui:define>
 	
-	<script>
-	
-	 $(document).ready(function() {
-	    $('select').material_select();
-	  });
-	
-	</script>	
 	
 
 </ui:composition>

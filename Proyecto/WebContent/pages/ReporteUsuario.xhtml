@@ -1,13 +1,63 @@
 <!DOCTYPE html> 
-<ui:composition 
+<html 
 	  lang = "es"
 	  xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      template = "/templates/plantilla.xhtml"> 
+      > 
 
-<ui:param name = "tituloPagina" value = "Actualizar Libro"/>
+<!-- template = "/templates/plantilla.xhtml" -->
+	
+	
+		<h:form>
+	
+		<h1>funciona</h1> 
+		
+		<br /><br /><br />
+		
+		<h:outputLabel value="#{moduloReporteLibro.estadoLibro}" />
+		
+		<br /><br /><br />
+		
+		<h:inputText value="#{moduloReporteLibro.obtenerDato}" />
+		
+		<h:commandLink action="#{moduloReporteLibro.accionReporte()}" value="buscar" />
+		
+		<hr></hr>
+		
+		<h2>Informacion Libro</h2>
+		<br />
+		
+		
+		<h:outputLabel value="Codigo: " />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.codigo}" /> <br />
+		
+		<h:outputLabel value="Nombre: " />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.titulo}" /><br />
+		
+		<h:outputLabel value="Autor: " />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.autor}" /><br />
+		
+		<h:outputLabel value="Editorial: " />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.editorial}" /><br />
+		
+		<h:outputLabel value="Estanteria: " />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.estanteria}" /><br />
+		
+		<h:outputLabel value="Ejemplar: " />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.ejemplar}" /><br />
+		
+		<h:outputLabel value="Disponible: " />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.disponible}" /><br />
+		
+		<h:outputLabel value="Categoria: " />
+		<h:outputLabel value="#{moduloReporteLibro.miLibro.nombreCategoria}" /><br />
+		
+		<hr />
+
+
+	</h:form>
   
 
-</ui:composition>
+</html>
