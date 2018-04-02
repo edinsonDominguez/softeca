@@ -30,6 +30,8 @@ public class ModuloReporteLibro {
 	
 	public void accionReporte(){
 		
+		System.out.println("Estamos en el metodo // accion reporte");
+		
 		buscarLibro();
 		buscarPrestamosLibro();
 	}

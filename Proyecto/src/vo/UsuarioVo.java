@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class UsuarioVo {
+	
 	private String nombre;
 	private String apellidos;
 	private String tipo_Usuario;

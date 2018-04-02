@@ -10,6 +10,7 @@ import conexion.Conexion;
 import vo.Libro;
 import vo.Reporte;
 import vo.Sancion;
+import vo.UsuarioVo;
 
 public class ReporteDao {
 
@@ -167,5 +168,114 @@ public class ReporteDao {
 		return estado;
 		
 	}
+	
+	
+	
+	// ************************* BUSCAR PRESTAMOS POR USUARIO **************************************
+	
+
+	public UsuarioVo hallarUsuario(int documentoUsuario){
+		
+		
+		Connection connection = null;
+		Conexion conexion = new Conexion();
+		PreparedStatement statement = null;
+		ResultSet result = null;
+	
+		
+		connection = conexion.getConexion();
+		
+		UsuarioVo miUsuario = null;
+		String consulta = "SELECT idUsuario, nombreUsuario, apellidoUsuario, direccionUsuario, telefonoUsuario, correoUsuario FROM usuario WHERE (idUsuario = ?);";
+		
+		
+	try {
+			
+			statement = connection.prepareStatement(consulta);
+			statement.setInt(1, documentoUsuario);
+			result = statement.executeQuery();
+			
+			while(result.next()){
+				
+				miUsuario = new UsuarioVo();
+				miUsuario.setDocumento(result.getString("idUsuario"));
+				miUsuario.setNombre(result.getString("nombreUsuario"));
+				miUsuario.setApellidos(result.getString("apellidoUsuario"));
+				miUsuario.setDireccion(result.getString("direccionUsuario"));
+				miUsuario.setTelefono(result.getString("telefonoUsuario"));
+				miUsuario.setCorreo(result.getString("correoUsuario"));
+				
+			}
+			
+		} catch (SQLException e) {
+		
+		System.out.println("Error en el metodo <hallarUsuario(int )> / ReporteDao ");
+		System.out.println("Error en la consulta " + e.getMessage());
+		}
+		
+		conexion.desconectar();
+	
+		
+		return miUsuario;
+	}
+
+
+	public ArrayList<Reporte> listaPrestamosUsuario(int documentoUsuario){
+	
+	Connection connection = null;
+	Conexion conexion = new Conexion();
+	PreparedStatement statement = null;
+	ResultSet result = null;
+	
+	ArrayList<Reporte> lista = new ArrayList<>();
+	Reporte miReporte = null;
+	
+	connection = conexion.getConexion();
+	
+	String consulta = "SELECT tituloLibro, fechaPrestamo, fechaRegreso FROM libro, prestamo, usuario WHERE (usuarioPrestamo = idUsuario) AND (libroPrestamo = codLibro) AND (idUsuario = ?);";
+	
+	try {
+		
+		statement = connection.prepareStatement(consulta);
+		statement.setInt(1, documentoUsuario);
+		result = statement.executeQuery();
+		
+		
+		while(result.next()){
+			
+			miReporte = new Reporte();
+			
+			miReporte.setTituloLibro(result.getString("tituloLibro"));
+			miReporte.setFechaPrestamo(result.getString("fechaPrestamo"));
+			miReporte.setFechaRegreso(result.getString("fechaRegreso"));
+			
+			
+			
+			boolean sancion = verificarSancion(miReporte.getTituloLibro(), documentoUsuario + "" );
+			
+			miReporte.setSancionPrestamo(sancion);
+			//boolean estadoSancion = verificarSancion(tituloLibro, miReporte.getIdUsuario()); 
+			
+			//miReporte.setSancionPrestamo(estadoSancion);
+			
+			lista.add(miReporte);
+			
+		}
+		
+	} catch (SQLException e) {
+		
+	System.out.println("Error en el metodo <hallarprestamosUsuario(String)>/ReporteDao");
+	e.getMessage();
+		
+	}
+	
+	conexion.desconectar();
+	
+	System.out.println("cantidad de prestamos en la clase ReporteDao" + lista.size());
+	
+	return lista;
+	}
+
+
 	
 }

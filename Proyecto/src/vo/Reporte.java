@@ -9,6 +9,17 @@ public class Reporte {
 	String fechaRegreso;
 	boolean sancionPrestamo;
 	
+	String tituloLibro;
+	
+	
+	
+	public String getTituloLibro() {
+		return tituloLibro;
+	}
+	public void setTituloLibro(String tituloLibro) {
+		this.tituloLibro = tituloLibro;
+	}
+	
 	
 	public boolean isSancionPrestamo() {
 		return sancionPrestamo;
