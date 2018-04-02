@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<ui:composition 
+	lang="es" 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template = "/templates/plantilla.xhtml">
+
+
+
+<ui:param name = "tituloPagina" value = "Actualizar Libro"/>
+
+	<ui:define name = "contenido">
+
+	<h:outputText value="#{librosBean.validacion}" /><br /><br />
+					
+
+			<h:form>
+				
+				<div class="row">
+				
+				<div class = "col s1"></div>
+				
+				<div class = "input-field col s6 ">		
+					<h:outputLabel value="buscador" for = "buscador" />
+					<h:inputText value="#{librosBean.textoTraer}" id="buscador" class = "validate"/>
+				</div>
+				
+				
+				<div class = "col s2">
+					
+					<Label>elige una categoria</Label>
+					
+					 <h:selectOneMenu value="#{librosBean.opcion}" class = "col s6">
+						<f:selectItem itemValue="nombre" itemLabel="Nombre .."/>
+						<f:selectItem itemValue="icbn" itemLabel="ICBN .."/>
+						<f:selectItem itemValue="autor" itemLabel="Autor .."/>
+						<f:selectItem itemValue="categoria" itemLabel="Categoria .."/>	
+					</h:selectOneMenu>  
+					</div>
+					
+					<div class = "col 2">
+						<h:commandButton action="#{librosBean.filtrarOpcion()}" value = "buscar libro"/> 
+					</div>
+				</div>
+			</h:form>
+
+
+
+		<div class="row">
+			
+			<div class = "marcoContenido col s10 ">
+			<!-- ESTOS SON LOS RESULTADOS EN UN DATATABLE -->
+			<h:form>
+
+				<h:outputLabel
+					value="Ingresa el ICBN del libro para que aparescan los resultados!! "
+					rendered="#{librosBean.listaLibros.size() == 0}" />
+				
+				<h:dataTable value="#{librosBean.listaLibros}" var="datos"
+					class="striped tabla">
+
+<!-- rendered="#{librosBean.listaLibros.size() > 0}" -->
+						<h:column>
+							<f:facet name="header" class = "colorCabecera">
+								<h:outputLabel value="Codigo Libro" />
+							</f:facet>
+							<h:outputLabel value="#{datos.codigo}" />
+						</h:column>
+
+
+						<h:column>
+							<f:facet name="header" class = "colorCabecera">
+								<h:outputLabel value="Titulo Libro" />
+							</f:facet>
+							<h:inputText value="#{datos.titulo}" rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.titulo}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Autor Libro" />
+							</f:facet>
+							<h:inputText value="#{datos.autor}" rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.autor}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Editorial" />
+							</f:facet>
+							<h:inputText value="#{datos.editorial}"
+								rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.editorial}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Estanteria" />
+							</f:facet>
+							<h:inputText value="#{datos.estanteria}"
+								rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.estanteria}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Ejemplar" />
+							</f:facet>
+							<h:inputText value="#{datos.ejemplar}" rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.ejemplar}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Categoria" />
+							</f:facet>
+							<h:inputText value="#{datos.miCategoria}"
+								rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.miCategoria}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Opciones" />
+							</f:facet>
+
+							<h:commandLink action="#{librosBean.EditarLibro(datos)}"
+								value="Editar" rendered="#{not datos.editar}"
+								class="waves-effect waves-light btn" />
+							<!--&bnps;  -->
+							<h:commandLink action="#{librosBean.guardarCambios(datos)}"
+								value="Guardar" rendered="#{datos.editar}"
+								class="waves-effect waves-light btn" />
+							<br />
+							<!--&bnps;  -->
+							<h:commandLink action="#{librosBean.eliminarLibro(datos)}"
+								value="eliminar" class="waves-effect waves-light btn_eliminar" />
+							<br />
+
+
+						</h:column>
+
+				</h:dataTable>
+
+			</h:form>	
+						
+					</div>
+		</div>
+	
+		
+	
+		<!-- <script type = "text/javascript" src="resource/js/jquery-3.3.1.min.js"></script>  -->
+
+
+		<!-- <script type = "text/javascript">
+			$(document).ready(function(){
+				  $(".button-collapse").sideNav();
+				   $('.modal').modal();
+			})
+
+		</script> -->
+
+	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+	<script src="../resources/js/materialize.min.js"></script>
+
+		<script>
+	
+		  $(document).ready(function() {
+			    $('select').material_select();
+			  });
+	
+		 </script>
+	
+	
+	</ui:define>
+	
+	
+
+</ui:composition>
