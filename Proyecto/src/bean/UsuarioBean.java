@@ -147,8 +147,5 @@ public class UsuarioBean {
 
 	public void setmjsUsuario(String mjsUsuario) {
 		this.mjsUsuario = mjsUsuario;
-	}
-	
-	
-		
+	}		
 }
