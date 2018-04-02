@@ -232,7 +232,7 @@ public class ReporteDao {
 	
 	connection = conexion.getConexion();
 	
-	String consulta = "SELECT tituloLibro, fechaPrestamo, fechaRegreso FROM libro, prestamo, usuario WHERE (usuarioPrestamo = idUsuario) AND (libroPrestamo = codLibro) AND (idUsuario = ?);";
+	String consulta = "SELECT idUsuario, tituloLibro, fechaPrestamo, fechaRegreso FROM libro, prestamo, usuario WHERE (usuarioPrestamo = idUsuario) AND (libroPrestamo = codLibro) AND (idUsuario = ?);";
 	
 	try {
 		
@@ -245,13 +245,14 @@ public class ReporteDao {
 			
 			miReporte = new Reporte();
 			
+			miReporte.setIdUsuario(result.getString("idUsuario"));
 			miReporte.setTituloLibro(result.getString("tituloLibro"));
 			miReporte.setFechaPrestamo(result.getString("fechaPrestamo"));
 			miReporte.setFechaRegreso(result.getString("fechaRegreso"));
 			
 			
+			boolean sancion = verificarSancionUsua(miReporte.getIdUsuario(), miReporte.getTituloLibro());
 			
-			boolean sancion = verificarSancion(miReporte.getTituloLibro(), documentoUsuario + "" );
 			
 			miReporte.setSancionPrestamo(sancion);
 			//boolean estadoSancion = verificarSancion(tituloLibro, miReporte.getIdUsuario()); 
@@ -277,5 +278,60 @@ public class ReporteDao {
 	}
 
 
+	
+	public boolean verificarSancionUsua(String idUsuario, String tituloLibro){
+		
+		Connection connection = null;
+		Conexion conexion = new Conexion();
+		PreparedStatement statement = null;
+		ResultSet result = null;
+		
+
+		boolean estado = false;
+		Sancion sancion = null;
+		
+		connection = conexion.getConexion();
+		
+		String consulta = "SELECT fechaSancion, fechaExpiracion,  informacionTipo FROM sancion, tiposancion, libro, usuario, prestamo WHERE (usuarioSancion = idUsuario) AND (usuarioPrestamo = idUsuario) AND (libroPrestamo = codLibro) AND(usuarioSancion = ?) AND (tituloLibro = ?);";
+		
+		
+		
+		try {
+			
+			statement = connection.prepareStatement(consulta);
+			statement.setString(1, idUsuario);
+			statement.setString(2, tituloLibro);
+			result = statement.executeQuery();
+			
+			
+			while(result.next()){
+				
+				sancion = new Sancion();
+				sancion.setFechaSancion("fechaSancion");
+				sancion.setFechaExpiracion("fechaExpiracion");
+				sancion.setNombreTipo("nombreTipo");
+				sancion.setDescripcionSancion("informacionTipo");
+				
+			}
+			
+			if(sancion != null){
+				estado = true;
+			}
+			
+			
+		} catch (SQLException e) {
+			
+		System.out.println("Error en el metodo <hallarprestamosLibro(String)>/PrestamoDao");
+		e.getMessage();
+			
+		}
+		
+		conexion.desconectar();
+				
+		
+		
+		
+		return estado;
+	}
 	
 }

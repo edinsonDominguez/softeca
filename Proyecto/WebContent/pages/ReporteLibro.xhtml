@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 
-<html 
+<ui:composition lang = "es" xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:jsf="http://xmlns.jcp.org/jsf"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		template="/templates/plantilla.xhtml"> 
+
+
+
+
+<!-- <html 
 	lang="es" 
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-> 
+>  -->
       
  
   
-
+<ui:define name="contenido">
 	
 	
 		<h:form>
@@ -111,5 +121,8 @@
 	
 	</h:form>
 	
-
-</html>
+	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+	<script src="../resources/js/materialize.min.js"></script>
+	</ui:define>
+	
+</ui:composition>
