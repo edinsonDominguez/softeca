@@ -20,7 +20,7 @@ public class Libro {
 	
 	
 	public Libro(int codigo, String titulo, String autor, String editorial, String estanteria, int ejemplar,
-			int miCategoria, String nombreCategoria, int disponible, boolean editar) {
+			int categoria, String nombreCategoria, int disponible, boolean editar) {
 		super();
 		this.codigo = codigo;
 		this.titulo = titulo;
@@ -28,7 +28,7 @@ public class Libro {
 		this.editorial = editorial;
 		this.estanteria = estanteria;
 		this.ejemplar = ejemplar;
-		this.categoria = miCategoria;
+		this.categoria = categoria;
 		this.nombreCategoria = nombreCategoria;
 		this.editar = editar;
 	}
@@ -92,11 +92,11 @@ public class Libro {
 	public void setEjemplar(int ejemplar) {
 		this.ejemplar = ejemplar;
 	}
-	public int getMiCategoria() {
+	public int getCategoria() {
 		return categoria;
 	}
-	public void setMiCategoria(int miCategoria) {
-		this.categoria = miCategoria;
+	public void setCategoria(int categoria) {
+		this.categoria = categoria;
 	}
 
 

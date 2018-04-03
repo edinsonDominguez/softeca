@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-
 import dao.LibroDao;
 import vo.Libro;
 
-@ManagedBean
 @ViewScoped
+@ManagedBean
 
 public class LibrosBean {	
+
 	LibroDao daoLibro;
 	Libro miLibro;
 	ArrayList<Libro> listaLibros = new ArrayList<Libro>();
@@ -110,7 +110,7 @@ public class LibrosBean {
 	
 	public void registrarLibro(){
 		
-		System.out.println(miLibro.getMiCategoria());
+		System.out.println(miLibro.getCategoria());
 		setMensaje(daoLibro.agregarLibro(miLibro));
 		
 		
@@ -121,6 +121,8 @@ public class LibrosBean {
 		}else{
 			validaciones = "No se pudo Registrar el usuario !!";
 		}
+		
+		miLibro = new Libro();
 	
 	}
 

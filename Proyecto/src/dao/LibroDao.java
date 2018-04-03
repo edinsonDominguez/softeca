@@ -28,7 +28,7 @@ public class LibroDao {
 		
 		
 		connection = conexion.getConexion();
-				String consulta="INSERT INTO libro (codLibro,tituloLibro,autorLibro,editorialLibro,estanteriaLibro,ejemplarLibro,categoriaLibro) VALUES (?,?,?,?,?,?,?)";
+				String consulta="INSERT INTO libro (codLibro,tituloLibro,autorLibro,editorialLibro,estanteriaLibro,ejemplarLibro,categoriaLibro,disponible) VALUES (?,?,?,?,?,?,?)";
 		
 		
 		try{
@@ -39,7 +39,8 @@ public class LibroDao {
 			preStatement.setString(4, miLibro.getEditorial());
 			preStatement.setString(5, miLibro.getEstanteria());
 			preStatement.setInt(6,  miLibro.getEjemplar());	
-			preStatement.setInt(7, miLibro.getMiCategoria());	
+			preStatement.setInt(7, miLibro.getCategoria());	
+			preStatement.setInt(8, miLibro.getDisponible());
 			preStatement.execute();
 
 			resultado="Registro Exitoso ala base de datos ******************************";
@@ -78,7 +79,7 @@ public class LibroDao {
 			statement.setString(3, miLibro.getEditorial());
 			statement.setString(4, miLibro.getEstanteria());
 			statement.setInt(5, miLibro.getEjemplar());
-			statement.setInt(6, miLibro.getMiCategoria());			
+			statement.setInt(6, miLibro.getCategoria());			
 			statement.setInt(7, miLibro.getCodigo());
 			
 			statement.executeUpdate();
@@ -163,9 +164,9 @@ public class LibroDao {
 				libro.setEditorial(result.getString("editorialLibro"));
 				libro.setEstanteria(result.getString("estanteriaLibro"));
 				libro.setEjemplar(result.getInt("ejemplarLibro"));
-				libro.setMiCategoria(result.getInt("categoriaLibro"));
+				libro.setCategoria(result.getInt("categoriaLibro"));
 	
-				String nombreCategoria = daoCategoria.buscarNombreCategoria(libro.getMiCategoria());
+				String nombreCategoria = daoCategoria.buscarNombreCategoria(libro.getCategoria());
 				libro.setNombreCategoria(nombreCategoria);
 		
 				lista.add(libro);
@@ -214,9 +215,9 @@ public class LibroDao {
 				libro.setEditorial(result.getString("editorialLibro"));
 				libro.setEstanteria(result.getString("estanteriaLibro"));
 				libro.setEjemplar(result.getInt("ejemplarLibro"));
-				libro.setMiCategoria(result.getInt("categoriaLibro"));
+				libro.setCategoria(result.getInt("categoriaLibro"));
 		
-				String nombreCategoria = daoCategoria.buscarNombreCategoria(libro.getMiCategoria());
+				String nombreCategoria = daoCategoria.buscarNombreCategoria(libro.getCategoria());
 				libro.setNombreCategoria(nombreCategoria);
 		
 				lista.add(libro);
@@ -266,9 +267,9 @@ public ArrayList<Libro> hallarPorAutor(String autorLibro){
 				libro.setEditorial(result.getString("editorialLibro"));
 				libro.setEstanteria(result.getString("estanteriaLibro"));
 				libro.setEjemplar(result.getInt("ejemplarLibro"));
-				libro.setMiCategoria(result.getInt("categoriaLibro"));
+				libro.setCategoria(result.getInt("categoriaLibro"));
 		
-				String nombreCategoria = daoCategoria.buscarNombreCategoria(libro.getMiCategoria());
+				String nombreCategoria = daoCategoria.buscarNombreCategoria(libro.getCategoria());
 				libro.setNombreCategoria(nombreCategoria);
 		
 				
@@ -318,9 +319,9 @@ public ArrayList<Libro> hallarPorAutor(String autorLibro){
 			libro.setEditorial(result.getString("editorialLibro"));
 			libro.setEstanteria(result.getString("estanteriaLibro"));
 			libro.setEjemplar(result.getInt("ejemplarLibro"));
-			libro.setMiCategoria(result.getInt("categoriaLibro"));
+			libro.setCategoria(result.getInt("categoriaLibro"));
 		
-			String nombreCategoria = daoCategoria.buscarNombreCategoria(libro.getMiCategoria());
+			String nombreCategoria = daoCategoria.buscarNombreCategoria(libro.getCategoria());
 			libro.setNombreCategoria(nombreCategoria);
 	
 			
@@ -374,7 +375,7 @@ public ArrayList<Libro> hallarPorAutor(String autorLibro){
 					miLibro.setEditorial(result.getString("editorialLibro"));
 					miLibro.setEstanteria(result.getString("estanteriaLibro"));
 					miLibro.setEjemplar(result.getInt("ejemplarLibro"));
-					miLibro.setMiCategoria(result.getInt("categoriaLibro"));
+					miLibro.setCategoria(result.getInt("categoriaLibro"));
 					
 					lista.add(miLibro);
 					
@@ -429,7 +430,7 @@ public ArrayList<Libro> hallarPorAutor(String autorLibro){
 				miLibro.setEditorial(result.getString("editorialLibro"));
 				miLibro.setEstanteria(result.getString("estanteriaLibro"));
 				miLibro.setEjemplar(result.getInt("ejemplarlibro"));
-				miLibro.setMiCategoria(result.getInt("categoriaLibro"));
+				miLibro.setCategoria(result.getInt("categoriaLibro"));
 				
 				System.out.println("Mi Titulo: " + miLibro.getTitulo());
 				lista.add(miLibro);
@@ -480,7 +481,7 @@ public ArrayList<Libro> hallarPorAutor(String autorLibro){
 				miLibro.setEditorial(result.getString("editorialLibro"));
 				miLibro.setEstanteria(result.getString("estanteriaLibro"));
 				miLibro.setEjemplar(result.getInt("ejemplarlibro"));
-				miLibro.setMiCategoria(result.getInt("categoriaLibro"));
+				miLibro.setCategoria(result.getInt("categoriaLibro"));
 				
 				lista.add(miLibro);
 			}

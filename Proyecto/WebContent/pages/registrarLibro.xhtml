@@ -1,73 +1,95 @@
 <!DOCTYPE html> 
-<ui:composition lang = "es" xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:jsf="http://xmlns.jcp.org/jsf"
-		xmlns:h="http://xmlns.jcp.org/jsf/html"
-		xmlns:f="http://xmlns.jcp.org/jsf/core"
-		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+<ui:composition 
+		xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:ui="http://java.sun.com/jsf/facelets" 
+		xmlns:f="http://java.sun.com/jsf/core" 
+		xmlns:h="http://java.sun.com/jsf/html"
 		template="/templates/plantilla.xhtml"> 
 
-	<ui:define name="contenido">
-	
-	<div><h2>Registro de libros</h2></div>
+	<ui:param name="tituloNombre" value="Juana Pelaez" /> 
+
+
+	<ui:define name="contenido">	
 		
-	<h:form>
+	<h:form class = "col s12">
 	
+	<section>
+		
+		<div class = "container">
+			
+			<div class = "row">
+					
+					<div class = "card-panel">
 							<h5>Registro de Libros</h5>
-							
-										<h:outputLabel value="codigo:" for="cod"/>
+						
+								<div class = "row">
+										
+										
+										<div class = "input-field col s5">	
 										<h:inputText value="#{librosBean.miLibro.codigo}" id="cod" requiredMessage="Campo Obligatorio*" class = "validate">
 										</h:inputText>
+										<h:outputLabel value="codigo:" for="cod"/>
 										<h:message for="cod" style="color: red"/>
-												
+										</div>
 									
 									
+										<div class = "input-field col s5 offset-s1">
 										<h:outputLabel value="titulo: " for="tit"/>
 										<h:inputText value="#{librosBean.miLibro.titulo}"  id="tit" requiredMessage="Campo Obligatorio*" class = "validate">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="tit" style="color: red"/>
+										</div>
 									
-									
+										<div class = "input-field col s5">	
 										<h:outputLabel value="autor:" for="aut"/>
 										<h:inputText value="#{librosBean.miLibro.autor}"  id="aut" requiredMessage="Campo Obligatorio*" class = "validate">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="aut" style="color: red"/>
-						
+										</div>
 									
+										<div class = "input-field col s5 offset-s1">
 										<h:outputLabel value="ejemplares:" for="eje"/>
 										<h:inputText value="#{librosBean.miLibro.ejemplar}"  id="eje" requiredMessage="Campo Obligatorio*" class = "validate">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="eje" style="color: red"/>									
-									
+										</div>
+										
+										<div class = "input-field col s5">										
 										<h:outputLabel value="editorial:" for="edi"/>
 										<h:inputText value="#{librosBean.miLibro.editorial}"  id="edi" class = "validate">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="edi" style="color: red"/>					
+										</div>
 									
+										<div class = "input-field col s5 offset-s1">
 										<h:outputLabel value="estanteria:" for="est"/>
 										<h:inputText value="#{librosBean.miLibro.estanteria}"  id="est" requiredMessage="Campo Obligatorio*">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="est" style="color: red"/>
-							
+										</div>
+										
+										<div class = "input-field col s5">										
 										<h:outputLabel value="Disponible:" for="disponible"/>
 										<h:inputText value="#{librosBean.miLibro.disponible}"  id="dis" requiredMessage="Campo Obligatorio*">
 										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
 										</h:inputText>
 										<h:message for="dis" style="color: red"/>
+										</div>
 							
-							
-								
+								<div class = "input-field col s5 offset-s1">
+										
 								<div class="row">
 									
-									<div class="col s6">
-							
-										<h:outputLabel value="categoria: "/>
 										
-										<h:selectOneMenu value="#{librosBean.miLibro.miCategoria}" >
+									<div class="col s12">
+							
+										
+										<h:selectOneMenu value="#{librosBean.miLibro.categoria}" >
 											<f:selectItem itemValue="1" itemLabel="tecnologia"/>
 											<f:selectItem itemValue="2" itemLabel="filosofia  y psicologia"/>
 											<f:selectItem itemValue="3" itemLabel="religion"/>
@@ -81,17 +103,23 @@
 									</div>	
 									
 								</div>
+								</div>	
 										
-										<h:commandButton action="#{librosBean.registrarLibro()}" value="Registrar" /><br /><br />
-										
+										<div class = "col s6 offset-s9">
+										<h:commandButton action="#{librosBean.registrarLibro()}" value="Registrar" class = "waves-effect waves-light btn-large"/><br /><br />
+										</div>
 									
-									<!-- <div class ="col s12">
+									 <div class ="col s12">
 										
-										<h:outputLabel value="#{moduloUsuario.validacion}" />
+										<h:outputLabel value="#{librosBean.validacion}" />
 									</div>
-									 -->
 									
-																								
+									
+							</div>
+						</div>
+					</div>
+				</div>				
+			</section>																					
 </h:form>
 
 
