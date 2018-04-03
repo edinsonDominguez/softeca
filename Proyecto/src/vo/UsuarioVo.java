@@ -7,7 +7,7 @@ public class UsuarioVo {
 	
 	private String nombre;
 	private String apellidos;
-	private String tipo_Usuario;
+	private int tipo_Usuario;
 	private String documento;
 	private String direccion;
 	private String telefono;
@@ -22,7 +22,7 @@ public class UsuarioVo {
 		
 	}
 	
-	public UsuarioVo(String nombre, String apellidos, String tipo_Usuario, String documento, String direccion,
+	public UsuarioVo(String nombre, String apellidos, int tipo_Usuario, String documento, String direccion,
 			String telefono, String fecha, String contrasenia, String correo, boolean editar){
 		super();
 		this.nombre=nombre;
@@ -58,12 +58,12 @@ public class UsuarioVo {
 	}
 
 
-	public String getTipo_Usuario() {
+	public int getTipo_Usuario() {
 		return tipo_Usuario;
 	}
 
 
-	public void setTipo_Usuario(String tipo_Usuario) {
+	public void setTipo_Usuario(int tipo_Usuario) {
 		this.tipo_Usuario = tipo_Usuario;
 	}
 
@@ -129,9 +129,5 @@ public class UsuarioVo {
 	public void setEditar(boolean editar) {
 		this.editar = editar;
 	}
-
-
-	
-
 	
 }

@@ -43,7 +43,7 @@ public class UsuarioDao {
 			preStatement.setString(5, miUsuarioVo.getFecha());
 			preStatement.setString(6, miUsuarioVo.getTelefono());
 			preStatement.setString(7, miUsuarioVo.getContrasenia());
-			preStatement.setString(8, miUsuarioVo.getTipo_Usuario());
+			preStatement.setInt(8, miUsuarioVo.getTipo_Usuario());
 			preStatement.setString(9, miUsuarioVo.getCorreo());
 		
 			preStatement.execute();
@@ -93,7 +93,7 @@ public class UsuarioDao {
 					miUsuarioVo.setFecha(result.getString("nacimientoUsuario"));
 					miUsuarioVo.setTelefono(result.getString("telefonoUsuario"));
 					miUsuarioVo.setContrasenia(result.getString("contraseniaUsuario"));
-					miUsuarioVo.setTipo_Usuario(result.getString("tipoUsuario"));
+					miUsuarioVo.setTipo_Usuario(result.getInt("tipoUsuario"));
 					miUsuarioVo.setCorreo(result.getString("correoUsuario"));
 				
 					lista.add(miUsuarioVo);
@@ -133,7 +133,7 @@ public class UsuarioDao {
 			preStatement.setString(4, miUsuarioVo.getFecha());
 			preStatement.setString(5, miUsuarioVo.getTelefono());
 			preStatement.setString(6, miUsuarioVo.getContrasenia());
-			preStatement.setString(7, miUsuarioVo.getTipo_Usuario());
+			preStatement.setInt(7, miUsuarioVo.getTipo_Usuario());
 			preStatement.setString(8, miUsuarioVo.getCorreo());
 			preStatement.setString(9, miUsuarioVo.getDocumento());
 			

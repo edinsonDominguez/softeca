@@ -6,23 +6,30 @@ xmlns:ui="http://java.sun.com/jsf/facelets"
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Login</title>
+	<meta charset= "utf-8"/>
 	<link rel="stylesheet" type="text/css" href="../resources/css/estilos.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 	<h:outputScript library="../resources/js/materialize.js" name="materilize.js"/>
 </h:head>
+
+
 <body>
-<f:view>
+	<f:view>
 
-<h1>Login</h1>
+		<h1>Login</h1>
 
-<h:form>
+		<h:form>
 
-<h:outputLabel value="Documento"  id="doc"/>
-<h:inputText value="" id="doc"/>
-<br /> <br />
+			<h:outputLabel value="Documento"  id="doc"/>
+			<h:inputText value="#{bean.usuario}" for="doc"/>
+			<br /> <br />
 
-
+			<h:outputLabel value="Contrasena"  id="contrasenia"/>
+			<h:inputText value="#{bean.contrasena}" for="contrasenia"/>
+			<br /> <br />
+								
+			<h:commandButton action="#{bean.buscarUsuario()}" value="INGRESAR MENOR" />
 
 </h:form>
 
