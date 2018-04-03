@@ -54,10 +54,12 @@ public class Bean {
 		UsuarioVo miUsuario = daoPersona.ingresoCredenciales(getUsuario()); 
 		
 		if(miUsuario != null){
+			 mensaje="el usuario no existe";
+			 
 			
 			if(miUsuario.getContrasenia() == getContrasena()){
 				System.out.println("el usuario puede ingresar");
-				
+				mensaje="el usuario puede ingresar";
 			}
 			
 		}else{
