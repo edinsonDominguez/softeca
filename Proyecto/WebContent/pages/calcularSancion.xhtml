@@ -7,9 +7,10 @@
 
 <ui:define name="contenido">
 <f:view>
-	<h1>Devoluciones</h1>
 	
-	<div class="row cajaSancion">
+	<div class="row cajaPrestamos">
+	
+	<h1>Devoluciones</h1>
 	
 	<div class=" col s10">
 	
@@ -17,7 +18,32 @@
 	
 	<h:form>
 			
-			<h:selectOneMenu value="#{tablaBean.miLibro.tipo_sancion}">
+			<div class="input-field col s4">
+			    <h:selectOneMenu value="#{tablaBean.miLibro.tipo_sancion}">
+			      <f:selectItem itemLabel="Selecione" itemValue=""/>
+			      <f:selectItem itemLabel="No aplica" itemValue="No aplica"/>
+			      <f:selectItem itemLabel="Retraso" itemValue="Retraso"/>
+			      <f:selectItem itemLabel="Perdida" itemValue="Perdida"/>
+			      <f:selectItem itemLabel="Danio" itemValue="Danio"/>
+			    </h:selectOneMenu>
+			    <label>Tipo Sancion</label>
+  			</div><br/>
+			
+			<!-- <div class="input-field col s6">
+				<h:outputLabel for="Tipo_Sancion" required="true"  /> 
+
+			   
+					<h:selectOneMenu id="Tipo_Sancion" value="#{tablaBean.miLibro.tipo_sancion}" requiredMessage="Campo obligatorio*">
+						<f:selectItem selected="selected" itemLabel="Seleccione el tipo" />
+						<f:selectItem itemLabel="No Aplica" itemValue="No Aplica"/>
+						<f:selectItem itemLabel="Retardo" itemValue="Retardo"/>
+						<f:selectItem itemLabel="Perdida" itemValue="Perdida"/>
+						<f:selectItem itemLabel="Danio" itemValue="Danio"/> 
+					</h:selectOneMenu>
+			             
+			</div> --> 
+			
+			<!-- <h:selectOneMenu value="#{tablaBean.miLibro.tipo_sancion}">
 			
 				<f:selectItem itemValue="No aplica" itemLabel="No aplica" />
 				<f:selectItem itemValue="Retardo" itemLabel="Retardo" />
@@ -25,16 +51,16 @@
 				<f:selectItem itemValue="Danio" itemLabel="Danio" />
 				
 				
-			</h:selectOneMenu>
+			</h:selectOneMenu> -->
 			<br/><br/><br/>
 			<h:outputLabel value="Observaciones" for="info"/> 
-			<h:inputTextarea value="#{tablaBean.miLibro.infoObservaciones}" id="info"/><br/><br/>
+			<h:inputTextarea value="#{tablaBean.miLibro.infoObservaciones}" id="info" /><br/><br/>
 			
 			<h:outputLabel value="Fecha Sancion" for="sancion"/>
-			<h:inputText value="#{tablaBean.miLibro.fecha_inicioSancion}" id="sancion"/><br/><br/>
+			<h:inputText value="#{tablaBean.miLibro.fecha_inicioSancion}" id="sancion" type="text" class="datepicker"/><br/><br/>
 			
 			<h:outputLabel value="Fecha Expiracion" for="expi"/>
-			<h:inputText value="#{tablaBean.miLibro.fecha_finSancion}" id="expi"/><br/><br/>
+			<h:inputText value="#{tablaBean.miLibro.fecha_finSancion}" id="expi" type="text" class="datepicker"/><br/><br/>
 			
 			
 			<h:commandButton value="Cancelar" action="devolverLibro" class="waves-effect waves-light btn"/> 
@@ -52,5 +78,27 @@
 	
 	</div>
 </f:view>
+
+	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+	<script src="../resources/js/materialize.min.js"></script>
+
+		<script type = "text/javascript">
+
+	  $(document).ready(function() {
+		    $('select').material_select();
+		  });
+	  
+	  $('.datepicker').pickadate({
+		    selectMonths: true, // Creates a dropdown to control month
+		    selectYears: 97, // Creates a dropdown of 15 years to control year,
+		    today: 'Hoy',
+		    clear: 'Limpiar',
+		    close: 'Ok',
+		    closeOnSelect: false // Close upon selecting a date,
+		  });
+	
+		 </script>
+
+
 </ui:define>
 </ui:composition>
