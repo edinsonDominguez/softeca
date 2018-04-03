@@ -20,7 +20,6 @@ public class ModuloReporteUsuario {
 	public ModuloReporteUsuario(){
 		
 		daoReporte = new ReporteDao();
-		
 	}
 	
 	
