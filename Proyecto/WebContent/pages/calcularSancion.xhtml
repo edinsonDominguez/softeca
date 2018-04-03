@@ -3,14 +3,16 @@
 		xmlns:ui="http://java.sun.com/jsf/facelets" 
 		xmlns:f="http://java.sun.com/jsf/core" 
 		xmlns:h="http://java.sun.com/jsf/html"
- 		template="plantilla.xhtml">
+ 		template="/templates/plantilla.xhtml">
+
+<ui:param name="tituloNombre" value="Juana Pelaez"></ui:param>
 
 <ui:define name="contenido">
 <f:view>
 	
 	<div class="row cajaPrestamos">
 	
-	<h1>Devoluciones</h1>
+	<h2>Devoluciones</h2>
 	
 	<div class=" col s10">
 	
@@ -20,7 +22,7 @@
 			
 			<div class="input-field col s4">
 			    <h:selectOneMenu value="#{tablaBean.miLibro.tipo_sancion}">
-			      <f:selectItem itemLabel="Selecione" itemValue=""/>
+			      <f:selectItem itemLabel="Seleccione" itemValue=""/>
 			      <f:selectItem itemLabel="No aplica" itemValue="No aplica"/>
 			      <f:selectItem itemLabel="Retraso" itemValue="Retraso"/>
 			      <f:selectItem itemLabel="Perdida" itemValue="Perdida"/>
