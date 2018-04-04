@@ -40,12 +40,13 @@ public class LibroDao {
 			preStatement.setString(5, miLibro.getEstanteria());
 			preStatement.setInt(6,  miLibro.getEjemplar());	
 			preStatement.setInt(7, miLibro.getCategoria());	
-			preStatement.setInt(8, miLibro.getDisponible());
+			preStatement.setInt(8, miLibro.getEjemplar());
 			preStatement.execute();
 
 			resultado="Registro Exitoso ala base de datos ******************************";
 			
 		}catch (SQLException e) {
+			System.out.println("Error en el metodo agregarLibro() !!");
 			System.out.println("No se pudo registrar el libro " +  e.getMessage());
 		resultado="No se pudo registrar";
 		}finally{
