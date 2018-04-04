@@ -6,138 +6,113 @@
 		xmlns:h="http://java.sun.com/jsf/html"
 		template="/templates/plantilla.xhtml"> 
 
+	<!-- ESTA PAGINA YA ESTA TERMINADA POR FAVOR NO LA EDITEN !! -->
+	
 	<ui:param name="tituloNombre" value="Juana Pelaez" /> 
-
 
 	<ui:define name="contenido">	
 		
-	<h:form class = "col s12">
-	
-	<section>
+		<h:form class = "col s12">
+			<section>
 		
-		<div class = "container">
-						
-			<div class = "row">
-					
+			<div class = "container">			
+				<div class = "row">	
 					<div class = "card-panel">
-							<h5>Registro de Libros</h5>
-						
-								<div class = "row">
-										
-										<div class = "input-field col s5">	
-										<h:inputText value="#{librosBean.miLibro.codigo}" id="cod" requiredMessage="Campo Obligatorio*" class = "validate">
-										</h:inputText>
-										<h:outputLabel value="codigo:" for="cod"/>
-										<h:message for="cod" style="color: red"/>
-										</div>
-									
-									
-										<div class = "input-field col s5 offset-s1">
-										<h:outputLabel value="titulo: " for="tit"/>
-										<h:inputText value="#{librosBean.miLibro.titulo}"  id="tit" requiredMessage="Campo Obligatorio*" class = "validate">
-										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
-										</h:inputText>
-										<h:message for="tit" style="color: red"/>
-										</div>
-									
-										<div class = "input-field col s5">	
-										<h:outputLabel value="autor:" for="aut"/>
-										<h:inputText value="#{librosBean.miLibro.autor}"  id="aut" requiredMessage="Campo Obligatorio*" class = "validate">
-										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
-										</h:inputText>
-										<h:message for="aut" style="color: red"/>
-										</div>
-									
-										<div class = "input-field col s5 offset-s1">
-										<h:outputLabel value="ejemplares:" for="eje"/>
-										<h:inputText value="#{librosBean.miLibro.ejemplar}"  id="eje" requiredMessage="Campo Obligatorio*" class = "validate">
-										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
-										</h:inputText>
-										<h:message for="eje" style="color: red"/>									
-										</div>
-										
-										<div class = "input-field col s5">										
-										<h:outputLabel value="editorial:" for="edi"/>
-										<h:inputText value="#{librosBean.miLibro.editorial}"  id="edi" class = "validate">
-										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
-										</h:inputText>
-										<h:message for="edi" style="color: red"/>					
-										</div>
-									
-										<div class = "input-field col s5 offset-s1">
-										<h:outputLabel value="estanteria:" for="est"/>
-										<h:inputText value="#{librosBean.miLibro.estanteria}"  id="est" requiredMessage="Campo Obligatorio*">
-										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
-										</h:inputText>
-										<h:message for="est" style="color: red"/>
-										</div>
-																	
-								<div class = "input-field col s5 offset-s1">
-										
-								<div class="row">
-									
-										
-									<div class="col s12">
 							
+							<h5>Registro de Libros</h5>
+							<div class = "row">
 										
-										<h:selectOneMenu value="#{librosBean.miLibro.categoria}" >
-											<f:selectItem itemValue="1" itemLabel="tecnologia"/>
-											<f:selectItem itemValue="2" itemLabel="filosofia  y psicologia"/>
-											<f:selectItem itemValue="3" itemLabel="religion"/>
-											<f:selectItem itemValue="4" itemLabel="ciencias sociales"/>
-											<f:selectItem itemValue="5" itemLabel="linguistica" />
-											<f:selectItem itemValue="6" itemLabel="literatura"/>
-											<f:selectItem itemValue="7" itemLabel="matematicas"/>
-											<f:selectItem itemValue="8" itemLabel="arte"/>
-										</h:selectOneMenu>
-									
-									</div>	
-									
+								<div class = "input-field col s5">	
+									<h:inputText value="#{librosBean.miLibro.codigo}" id="cod" requiredMessage="Campo Obligatorio*" class = "validate">
+									</h:inputText>
+									<h:outputLabel value="Codigo:" for="cod"/>
+									<h:message for="cod" style="color: red"/>
 								</div>
+									
+									
+								<div class = "input-field col s5 offset-s1">
+									<h:outputLabel value="Titulo: " for="tit"/>
+									<h:inputText value="#{librosBean.miLibro.titulo}"  id="tit" requiredMessage="Campo Obligatorio*" class = "validate">
+										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
+									</h:inputText>
+									<h:message for="tit" style="color: red"/>
+								</div>
+									
+								<div class = "input-field col s5">	
+									<h:outputLabel value="Autor:" for="aut"/>
+									<h:inputText value="#{librosBean.miLibro.autor}"  id="aut" requiredMessage="Campo Obligatorio*" class = "validate">
+										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
+									</h:inputText>
+									<h:message for="aut" style="color: red"/>
+								</div>
+									
+								<div class = "input-field col s5 offset-s1">
+									<h:outputLabel value="Ejemplares:" for="eje"/>
+									<h:inputText value="#{librosBean.miLibro.ejemplar}"  id="eje" requiredMessage="Campo Obligatorio*" class = "validate">
+										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
+									</h:inputText>
+									<h:message for="eje" style="color: red"/>									
+								</div>
+										
+								<div class = "input-field col s5">										
+									<h:outputLabel value="Editorial:" for="edi"/>
+									<h:inputText value="#{librosBean.miLibro.editorial}"  id="edi" class = "validate">
+										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
+									</h:inputText>
+									<h:message for="edi" style="color: red"/>					
+								</div>
+									
+								<div class = "input-field col s5 offset-s1">
+									<h:outputLabel value="Estanteria:" for="est"/>
+									<h:inputText value="#{librosBean.miLibro.estanteria}"  id="est" requiredMessage="Campo Obligatorio*">
+										<f:validateLength minimum="3" maximum="9"><f:validateRequired /></f:validateLength>
+									</h:inputText>
+									<h:message for="est" style="color: red"/>
+								</div>
+																	
+								<div class = "input-field col s5">		
+									<div class="row">	
+									
+										<div class="col s12">	
+											<h:selectOneMenu value="#{librosBean.miLibro.categoria}" >
+												<f:selectItem itemValue="1" itemLabel="tecnologia"/>
+												<f:selectItem itemValue="2" itemLabel="filosofia  y psicologia"/>
+												<f:selectItem itemValue="3" itemLabel="religion"/>
+												<f:selectItem itemValue="4" itemLabel="ciencias sociales"/>
+												<f:selectItem itemValue="5" itemLabel="linguistica" />
+												<f:selectItem itemValue="6" itemLabel="literatura"/>
+												<f:selectItem itemValue="7" itemLabel="matematicas"/>
+												<f:selectItem itemValue="8" itemLabel="arte"/>
+											</h:selectOneMenu>
+										</div>	
+									
+									</div>
 								</div>	
 										
-										<div class = "col s6 offset-s9">
-										<h:commandButton action="#{librosBean.registrarLibro()}" value="Registrar" class = "waves-effect waves-light btn-large"/><br /><br />
-										</div>
+								<div class = "col s6 offset-s9">
+									<h:commandButton action="#{librosBean.registrarLibro()}" value="Registrar" class = "waves-effect waves-light btn-large"/><br /><br />
+								</div>
 									
-									 <div class ="col s12">
-										
-										<h:outputLabel value="#{librosBean.validacion}" />
-									</div>
-									
-									
+								<div class ="col s12">
+									<h:outputLabel value="#{librosBean.validacion}" />
+								</div>						
 							</div>
+			
 						</div>
 					</div>
 				</div>				
+			
 			</section>																					
-</h:form>
+		</h:form>
 
+		<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+		<script src="../resources/js/materialize.min.js"></script>
 
+		<script>	
+	 		$(document).ready(function() {
+			  $('select').material_select();
+			 });
+		</script>
 
-	
-	
-		<!-- <script type = "text/javascript" src="resource/js/jquery-3.3.1.min.js"></script>  -->
-
-
-		<!-- <script type = "text/javascript">
-			$(document).ready(function(){
-				  $(".button-collapse").sideNav();
-				   $('.modal').modal();
-			})
-
-		</script> -->
-
-	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
-	<script src="../resources/js/materialize.min.js"></script>
-
-		<script>
-	
-		  $(document).ready(function() {
-			    $('select').material_select();
-			  });
-	
-		 </script>
-
-</ui:define>
+	</ui:define>
 </ui:composition>

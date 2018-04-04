@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import conexion.Conexion;
 import vo.Libro;
 
@@ -28,8 +27,11 @@ public class LibroDao {
 		
 		
 		connection = conexion.getConexion();
-				String consulta="INSERT INTO libro (codLibro,tituloLibro,autorLibro,editorialLibro,estanteriaLibro,ejemplarLibro,categoriaLibro,disponible) VALUES (?,?,?,?,?,?,?)";
+				String consulta="INSERT INTO libro (codLibro,tituloLibro,autorLibro,editorialLibro,estanteriaLibro,ejemplarLibro,categoriaLibro,disponible) VALUES (?,?,?,?,?,?,?,?)";
 		
+				int numeroEjemplares = miLibro.getEjemplar();
+				
+				System.out.println("El numero de ejemplares es " + numeroEjemplares);
 		
 		try{
 			preStatement = connection.prepareStatement(consulta);
@@ -38,8 +40,8 @@ public class LibroDao {
 			preStatement.setString(3, miLibro.getAutor());
 			preStatement.setString(4, miLibro.getEditorial());
 			preStatement.setString(5, miLibro.getEstanteria());
-			preStatement.setInt(6,  miLibro.getEjemplar());	
-			preStatement.setInt(7, miLibro.getCategoria());	
+			preStatement.setInt(6,  numeroEjemplares);	
+			preStatement.setInt(7, numeroEjemplares);	
 			preStatement.setInt(8, miLibro.getEjemplar());
 			preStatement.execute();
 
