@@ -60,6 +60,9 @@ public class Bean {
 			if(miUsuario.getContrasenia() == getContrasena()){
 				System.out.println("el usuario puede ingresar");
 				mensaje="el usuario puede ingresar";
+				
+			} else{
+				
 			}
 			
 		}else{
@@ -67,6 +70,31 @@ public class Bean {
 		}
 		
 		
+	}
+	
+	public void busquedaUsuarioPrueba(){
+		System.out.println("Ingresa a la prueba");
+		UsuarioVo miUsuario = new UsuarioVo();
+		String respuestaLogin = daoPersona.pruebaIngresoLogin(getUsuario());
+		
+		if(respuestaLogin.equalsIgnoreCase("ingreso correcto")){
+			System.out.println("Ingreso correcto login");
+			mensaje = "no";
+			
+			if(miUsuario.getContrasenia() == getContrasena()){
+				System.out.println("Campos exitosos puede ingresar");
+				
+				mensaje ="si";
+				
+			}else{
+				System.out.println("No puede ingresar campos incorrectos");
+			}
+			
+			
+			
+		}else{
+			System.out.println("Ingreso incorrecto en el login");
+		}
 	}
 	
 }

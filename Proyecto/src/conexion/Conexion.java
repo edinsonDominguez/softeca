@@ -17,12 +17,14 @@ public class Conexion {
 		
 		System.out.println("Estamos en la clase conexion");
 		
+		
 		try {
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			conn = DriverManager.getConnection(url,usuario,password);
-			
+				
+			System.out.println("Ingresa al metodo conexion a la clase conexion");
 			if(conn != null){
 				System.out.println("La conexion a la BD exitosa !!");
 			}

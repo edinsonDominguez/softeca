@@ -248,7 +248,8 @@ public class PersonaDao {
 				statement = connection.prepareStatement(consulta);
 				statement.setString(1, documento);
 				result = statement.executeQuery();
-
+				
+				System.out.println("Esta en persona dao en try catch");
 				if (result.next() == true) {
 					miPersona = new UsuarioVo();
 					miPersona.setDocumento(result.getString("idUsuario"));
@@ -269,6 +270,42 @@ public class PersonaDao {
 		
 		return miPersona;
 	}
+		public String pruebaIngresoLogin(String usuarioIngreso){
+			String respuesta="";
+			
+			Connection connection = null;
+			Conexion miConexion = new Conexion();
+			PreparedStatement statement = null;
+			ResultSet result = null;
+
 	
+			connection = miConexion.getConexion();
+			
+			UsuarioVo miPersona = new UsuarioVo();
+			
+			String consulta= "SELECT * FROM usuario where idUsuario = ? ";
+			
+			try {
+				statement = connection.prepareStatement(consulta);
+				statement.setString(1, usuarioIngreso);
+				result = statement.executeQuery();
+				
+				if(result.next() == true){
+					miPersona = new UsuarioVo();
+					miPersona.setDocumento(result.getString("idUsuario"));
+					miPersona.setNombre(result.getString("nombreUsuario"));
+					miPersona.setApellidos(result.getString("apellidoUsuario"));
+					miPersona.setContrasenia(result.getString("contraseniaUsuario"));
+					miPersona.setTipo_Usuario(result.getInt("tipoUsuario"));
+					
+					respuesta = "ingreso correcto";
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				respuesta = "ingreso incorrecto";
+			}
+			
+			return respuesta;
+		}
 
 }
