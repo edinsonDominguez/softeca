@@ -98,12 +98,12 @@
 							<div class = "row"> 
 							
 							<div class = "input-field col s10 offset-s1">
-								<h:inputText id = "pass-anterior" class = "validate"></h:inputText>
-								<h:outputLabel value="Contraseña anterior" for = "pass-anterior" />
+								<h:inputText value = "#{perfilUsuario.contraseniaActual}" id = "pass-anterior" class = "validate"></h:inputText>
+								<h:outputLabel value="Contraseña Actual" for = "pass-anterior" />
 							</div>
 							
 							<div class = "input-field col s10 offset-s1">								
-								<h:inputText id = "new-pass" class = "validate"></h:inputText>
+								<h:inputText value = "#{perfilUsuario.contraseniaNueva}" id = "new-pass" class = "validate"></h:inputText>
 								<h:outputLabel value="nueva contraseña" for = "new-pass" />
 								
 							</div>
@@ -113,7 +113,7 @@
 							
 							<div class = "row">
 								<div class ="col s10 offset-s1">
-									<h:commandButton  value="Cambiar" class = "waves-effect waves-light btn-large" />
+									<h:commandButton  action = "#{perfilUsuario.verificarContraseniaUsuario()}" value="Cambiar" class = "waves-effect waves-light btn-large" />
 								</div>
 							</div>
 						</div>
