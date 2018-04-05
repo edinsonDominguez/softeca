@@ -207,25 +207,6 @@
 								rendered="#{not datos.editar}" />
 						</h:column>
 
-						<h:column>
-							<f:facet name="header">
-								<h:outputLabel value="Opciones." />
-							</f:facet>
-
-							<h:commandLink action="#{librosBean.EditarLibro(datos)}"
-								value="" rendered="#{not datos.editar}"
-								 ><i class = "small material-icons">edit</i></h:commandLink>
-							<h:commandLink action="#{librosBean.guardarCambios(datos)}"
-								value="" rendered="#{datos.editar}"
-								><i class = "small material-icons">save</i></h:commandLink>
-							<br />
-							<h:commandLink action="#{librosBean.eliminarLibro(datos)}"
-								value=""><i class = "small material-icons">delete</i></h:commandLink>
-							<br />
-
-
-						</h:column>
-
 				</h:dataTable>
 
 			</h:form>	

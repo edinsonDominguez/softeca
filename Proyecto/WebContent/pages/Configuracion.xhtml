@@ -71,10 +71,70 @@
 		</div>
 	</form>
 
-
+	
+	
+	<div class = "row">
+		<h:form class = "col s12">
+		<section>
+			<div class = "container">
+				<div class = "row">
+					<div class = "card-panel">
+						
+						<div class = "row">
+							<div class = "col s10 offset-s1">
+								<h5>Configuracion de usuario</h5>
+							</div>
+						</div>
+						
+						<div class = "row">
+							
+							<div class = "row">
+								<div class = "col s10 offset-s1">
+									<h6>Configurar contraseña</h6>
+								</div>
+							</div>
+							
+							
+							<div class = "row"> 
+							
+							<div class = "input-field col s10 offset-s1">
+								<h:inputText id = "pass-anterior" class = "validate"></h:inputText>
+								<h:outputLabel value="Contraseña anterior" for = "pass-anterior" />
+							</div>
+							
+							<div class = "input-field col s10 offset-s1">								
+								<h:inputText id = "new-pass" class = "validate"></h:inputText>
+								<h:outputLabel value="nueva contraseña" for = "new-pass" />
+								
+							</div>
+							
+							</div>
+							
+							
+							<div class = "row">
+								<div class ="col s10 offset-s1">
+									<h:commandButton  value="Cambiar" class = "waves-effect waves-light btn-large" />
+								</div>
+							</div>
+						</div>
+							
+					</div>
+				
+				</div>
+			
+			</div>
+		</section>
+		
+		</h:form>
+	
+	</div>
 
 
 
 
 </body> 
+
+	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+	<script src="../resources/js/materialize.min.js"></script>
+	
 </html>
