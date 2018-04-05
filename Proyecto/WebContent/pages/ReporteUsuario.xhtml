@@ -16,7 +16,7 @@
 	<h:outputScript library="../resources/js/materialize.js" name="materilize.js"/>
 </h:head> 
 
-<body>
+<body class = "gray">
 
 <form>
 	
@@ -70,9 +70,9 @@
 		</ul>
 		
 		<ul id="dropdown4" class="dropdown-content">
-		  <li><a href="../pages/ReporteUsuario.jsf" class="center-align">Consultar libros de un usuario </a></li>
+		  <li><a href="../pages/ReporteUsuario.jsf" class="center-align">Consultar reporte de prestamos por usuario</a></li>
 		  <li class="divider"></li>
-		  <li><a href="../pages/ReporteLibro.jsf" class="center-align">Consultar los usuarios de un libro</a></li>
+		  <li><a href="../pages/ReporteLibro.jsf" class="center-align">Consultar reporte de prestamos por libro</a></li>
 		  
 		</ul>
 		
@@ -85,25 +85,25 @@
 		</ul>
 		
 		<ul id="dropdown6" class="dropdown-content">
-		  <li><a href="#!" class="center-align">Registrar</a></li>
+		  <li><a href="#!" class="center-align">Registrar libro</a></li>
 		  <li class="divider"></li>
-		  <li><a href="#!" class="center-align">Consultar</a></li>
+		  <li><a href="#!" class="center-align">Consultar libro</a></li>
 		  
 		  
 		</ul>
 		
 		<ul id="dropdown7" class="dropdown-content">
-		  <li><a href="#!" class="center-align">Registrar</a></li>
+		  <li><a href="#!" class="center-align">Registrar usuario</a></li>
 		  <li class="divider"></li>
-		  <li><a href="#!" class="center-align">Consultar</a></li>
+		  <li><a href="#!" class="center-align">Consultar usuario</a></li>
 		  
 		  
 		</ul>
 		
 		<ul id="dropdown8" class="dropdown-content">
-		  <li><a href="../pages/ReporteUsuario.xhtml" class="center-align">Consultar libros de un usuario </a></li>
+		  <li><a href="../pages/ReporteUsuario.xhtml" class="center-align">Consultar reporte de prestamos por usuario</a></li>
 		  <li class="divider"></li>
-		  <li><a href="../pages/ReporteLibro.xhtml" class="center-align">Consultar los usuarios de un libro</a></li>
+		  <li><a href="../pages/ReporteLibro.xhtml" class="center-align">Consultar reporte de prestamos por libro</a></li>
 		  
 		  
 		</ul>
@@ -141,56 +141,133 @@
  
  
  <!-- EMPIEZA LA PARTE YA HECHA HECHA POR EDINON TERMINA EL NAV DE LAURA-->
+
+
+
  
-	<h3>Buscar por Codigo DE Usuario</h3>
+ 	<div class = "contenedor principal">
+	
+	
+	<div class = "row">
 	
 			
-	<h:form>
+		<h:form class = "col s12">
+			<section>
+				<div class = "container">
+					<div class = "row">
+						<div class = "card-panel">
+							
+							<div class = "row">				
+								
+								<div class = "col s10 offset-s1">
+									<h5>Reporte de prestamos por usuario</h5>
+								</div>
+							</div>
+								
+								<div class = "row">
+									
+									<div class = "input-field col s5 offset-s1">
+										<h:inputText value="#{moduloReporteUsuario.obtenerDato}" id = "buscador" class = "validate"/>
+										<h:outputLabel value="Documento" for = "buscador"/>	
+									</div>
+									
+									<div class = "col s2">
+										<h:commandLink action="#{moduloReporteUsuario.accionUsuario()}" value="Buscar" class = "waves-effect waves-light btn" />
+									</div>
+									
+									<div class = "row">
+										<div class = "col s12 offset-s1">
+											<h:outputLabel value="#{moduloReporteUsuario.validacionUsuario}" />
+										</div>
+									</div>
+									
+									</div>
 		
-		<h:inputText value="#{moduloReporteUsuario.obtenerDato}" />
-		<h:commandLink action="#{moduloReporteUsuario.accionUsuario()}" value="buscar usuario" /><br /><br />
 		
-		<h:outputLabel value="Documento: " />
-		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.documento}" /><br />
 		
-		<h:outputLabel value="Nombre: " />
-		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.nombre}" /><br />
+					</div>
+				</div>
+			</div>
+		</section>
+	</h:form> 	
+ 	
+ 	</div>
+
+	<div class = "row">
 		
-		<h:outputLabel value="Apellido: " />
+		<h:form rendered="#{moduloReporteUsuario.miUsuario != null}">
+			<section>
+				<div class = "container">
+					
+					<div class = "row">
+						<div class = "card-panel">
+						
+							<div class = "row">
+								<div class = "col s8 offset-s4">
+									<h5>Informacion del usuario</h5>
+								</div>
+							</div>
+							
+							<h:outputLabel value="DOCUMENTO: " />
+							<h:outputLabel value="#{moduloReporteUsuario.miUsuario.documento}" /><br />
+		
+							<h:outputLabel value="NOMBRE: " />
+							<h:outputLabel value="#{moduloReporteUsuario.miUsuario.nombre}" /><br />
+		
+		<h:outputLabel value="APELLIDO: " />
 		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.apellidos}" /><br />
 		
-		<h:outputLabel value="Direccion: " />
+		<h:outputLabel value="DIRECCION: " />
 		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.direccion}" /><br />
 		
 		
-		<h:outputLabel value="Telefono: " />
+		<h:outputLabel value="TELEFONO: " />
 		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.telefono}" /><br />
 		
-		<h:outputLabel value="Correo: " />
+		<h:outputLabel value="CORREO: " />
 		<h:outputLabel value="#{moduloReporteUsuario.miUsuario.correo}" /><br />
 		
-	</h:form> 	
- 	
- 	<hr />
+		
+						
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</section>
+		</h:form>
+		
+	</div>
+
 
  
+ <div class = "row">
  <h:form>
 	
+	<div class = "row">
+		<div class = "col s8 offset-s4">
+			<h:outputLabel value="#{moduloReporteUsuario.validacionPrestamo}" rendered="#{moduloReporteUsuario.miUsuario != null}"/>
+		</div>			
 	
-	<h:dataTable value = "#{moduloReporteUsuario.listaPrestamos}" var="datosUsuario" >
+	</div>
+	
+	
+	<h:dataTable value = "#{moduloReporteUsuario.listaPrestamos}" var="datosUsuario" 
+	rendered="#{moduloReporteUsuario.listaPrestamos.size() > 0}"   class = "striped centered col s10 offset-s1" >
 
 
 
 	<h:column>
 		<f:facet name="header">
-			<h:outputLabel value="Titulo Libro" />
+			<h:outputLabel value="Libro" />
 		</f:facet>
 		<h:outputLabel value="#{datosUsuario.tituloLibro}" />
 	</h:column>
 
 	<h:column>
 		<f:facet name="header">
-			<h:outputLabel value="Fecha Prestamos" />
+			<h:outputLabel value="Fecha Prestamo" />
 		</f:facet>
 		<h:outputLabel value="#{datosUsuario.fechaPrestamo}" />
 	</h:column>
@@ -198,7 +275,7 @@
 
 	<h:column>
 		<f:facet name="header">
-			<h:outputLabel value="fecha regreso" />
+			<h:outputLabel value="Fecha regreso" />
 		</f:facet>
 		<h:outputLabel value="#{datosUsuario.fechaRegreso}" />
 	</h:column>
@@ -216,6 +293,10 @@
 	
 	
 	</h:form>
+
+</div>
+ 	
+	</div>
 </body> 
   	
   	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />

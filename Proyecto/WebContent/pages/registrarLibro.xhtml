@@ -1,5 +1,6 @@
 <!DOCTYPE html> 
 <ui:composition 
+		lang = "es"
 		xmlns="http://www.w3.org/1999/xhtml" 
 		xmlns:ui="http://java.sun.com/jsf/facelets" 
 		xmlns:f="http://java.sun.com/jsf/core" 
@@ -10,11 +11,12 @@
 	
 	<ui:param name="tituloNombre" value="Juana Pelaez" /> 
 
-	<ui:define name="contenido">	
-		
+<ui:define name="contenido">	
+	
+	<f:view>	
 		<h:form class = "col s12">
 			<section>
-		
+				
 			<div class = "container">			
 				<div class = "row">	
 					<div class = "card-panel">
@@ -104,7 +106,7 @@
 			
 			</section>																					
 		</h:form>
-
+	</f:view>
 		<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
 		<script src="../resources/js/materialize.min.js"></script>
 

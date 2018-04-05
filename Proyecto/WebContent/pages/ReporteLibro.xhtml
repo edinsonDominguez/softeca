@@ -18,9 +18,9 @@
 	<h:outputScript library="../resources/js/materialize.js" name="materilize.js"/>
 </h:head> 
 
-<body>
+<body class="gray">
 
-<form>
+  <form>
 	
 		<div class="row valign-wrapper"  style="margin: 0">
 		
@@ -72,9 +72,9 @@
 		</ul>
 		
 		<ul id="dropdown4" class="dropdown-content">
-		  <li><a href="../pages/ReporteUsuario.jsf" class="center-align">Consultar libros de un usuario </a></li>
+		  <li><a href="../pages/ReporteUsuario.jsf" class="center-align">Consultar los reportes de prestamos por usuario</a></li>
 		  <li class="divider"></li>
-		  <li><a href="../pages/ReporteLibro.jsf" class="center-align">Consultar los usuarios de un libro</a></li>
+		  <li><a href="../pages/ReporteLibro.jsf" class="center-align">Consultar los reportes de prestamos por libro</a></li>
 		  
 		</ul>
 		
@@ -87,9 +87,9 @@
 		</ul>
 		
 		<ul id="dropdown6" class="dropdown-content">
-		  <li><a href="#!" class="center-align">Registrar</a></li>
+		  <li><a href="#!" class="center-align">Registrar libro</a></li>
 		  <li class="divider"></li>
-		  <li><a href="#!" class="center-align">Consultar</a></li>
+		  <li><a href="#!" class="center-align">Consultar libro</a></li>
 		  
 		  
 		</ul>
@@ -103,10 +103,9 @@
 		</ul>
 		
 		<ul id="dropdown8" class="dropdown-content">
-		  <li><a href="../pages/ReporteUsuario.xhtml" class="center-align">Consultar libros de un usuario </a></li>
+		  <li><a href="../pages/ReporteUsuario.xhtml" class="center-align">Consultar los reportes de prestamos por usuario</a></li>
 		  <li class="divider"></li>
-		  <li><a href="../pages/ReporteLibro.xhtml" class="center-align">Consultar los usuarios de un libro</a></li>
-		  
+		  <li><a href="../pages/ReporteLibro.xhtml" class="center-align">Consultar los reportes de prestamos por libro</a></li>
 		  
 		</ul>
 		
@@ -141,13 +140,13 @@
 	</form>
  
  
- 
  <!-- EMPIEZA LA PARTE YA HECHA HECHA POR EDINON TERMINA EL NAV DE LAURA-->
  
   
+	<div class = "contenedorPrincipal">
 	
 	
-	
+	<div class = "row">
 		<h:form class = "col s12">
 			
 			<section>
@@ -156,14 +155,15 @@
 							<div class = "card-panel">			
 					
 								<div class = "row">
-									<h5>Reporte de Prestamos por libro</h5>
-									<h:outputLabel value="#{moduloReporteLibro.estadoLibro}" />
+									<div class = "col s10 offset-s1">
+										<h5>Reporte de prestamos por libro</h5>
+									</div>
 								</div>
 								
 								<div class = "row">		
 									
 									<div class = "input-field col s5 offset-s1"	>
-										<h:outputLabel value="Buscador" for = "buscador" />
+										<h:outputLabel value="Titulo" for = "buscador" />
 										<h:inputText value="#{moduloReporteLibro.obtenerDato}" id = "buscador" class = "validate" />	
 				
 									</div>
@@ -171,7 +171,12 @@
 									<div class = "col s6">
 										<h:commandLink action="#{moduloReporteLibro.accionReporte()}" value="buscar" class = "waves-effect waves-light btn" />
 									</div>
-		
+									
+									<div class = "row">
+									<div class = "col s10 offset-s1">
+									<h:outputLabel value="#{moduloReporteLibro.estadoLibro}" />
+									</div>
+									</div>
 								<!-- SI SE SEPARA ESTA CLASE  -->
 								<div class = "col s12">
 									
@@ -186,8 +191,13 @@
 	</h:form>
 	
 	
+	</div>
 	
-<h:form class = "col s12">
+	
+	<div class = "row">
+	
+	
+<h:form class = "col s12" rendered="#{moduloReporteLibro.miLibro != null}">
 	<section>
 		<div class = "container">
 			<div class = "row">
@@ -195,48 +205,48 @@
 										
 							<div class = "row">
 								
-										<div class = "col s12 offset-s4">								
-											<h5>Informacion del Libro</h5>
+										<div class = "col s8 offset-s4">								
+											<h5>Informacion del libro</h5>
 										</div>
 		
 								<div class = "col s6 offset-s1">
-									<h:outputLabel value="Codigo: "/>
+									<h:outputLabel value="CODIGO: "/>
 									
 										<h:outputLabel value="#{moduloReporteLibro.miLibro.codigo}" />
 								</div>	
 								
 								<div class = "col s6 offset-s1">
-									<h:outputLabel value="Nombre: " />
+									<h:outputLabel value="NOMBRE: " />
 									<h:outputLabel value="#{moduloReporteLibro.miLibro.titulo}"/>
 								</div>
 								
 								<div class = "col s6 offset-s1">
-									<h:outputLabel value="Autor: "/>
+									<h:outputLabel value="AUTOR: "/>
 									<h:outputLabel value="#{moduloReporteLibro.miLibro.autor}" />
 								</div>
 		
 								<div class = "col s6 offset-s1">
-									<h:outputLabel value="Editorial: "/>
+									<h:outputLabel value="EDITORIAL: "/>
 									<h:outputLabel value="#{moduloReporteLibro.miLibro.editorial}" />
 								</div>
 		
 								<div class = "col s6 offset-s1">
-									<h:outputLabel value="Estanteria: "/>
+									<h:outputLabel value="ESTANTERIA: "/>
 									<h:outputLabel value="#{moduloReporteLibro.miLibro.estanteria}" />
 								</div>
 		
 								<div class = "col s6 offset-s1">
-									<h:outputLabel value="Ejemplar: "/>
+									<h:outputLabel value="EJEMPLARES: "/>
 									<h:outputLabel value="#{moduloReporteLibro.miLibro.ejemplar}" />
 								</div>
 		
 								<div class = "col s6 offset-s1">
-									<h:outputLabel value="Disponible: "/>
+									<h:outputLabel value="DISPONIBLES: "/>
 									<h:outputLabel value="#{moduloReporteLibro.miLibro.disponible}" />
 								</div>
 		
 								<div class = "col s6 offset-s1">
-									<h:outputLabel value="Categoria: "/>
+									<h:outputLabel value="CATEGORIA: "/>
 									<h:outputLabel value="#{moduloReporteLibro.miLibro.nombreCategoria}" />
 								</div>
 		
@@ -248,17 +258,27 @@
 	</section>
 </h:form>
 	
+	</div>
 	
+
+
 	
-	<h:form>
+	<div class = "row">
 	
-		<h:outputLabel value="#{moduloReporteLibro.estadoPrestamo}" />
+	<h:form class ="col s12">
+		
+		<div class = "row">
+		<div class = "col s8 offset-s4">	
+		<h:outputLabel value="#{moduloReporteLibro.estadoPrestamo}" rendered="#{moduloReporteLibro.miLibro != null}"/>
+		</div>
+		</div>
 	
-	<h:dataTable value = "#{moduloReporteLibro.listaPrestamos}" var="datosLibro" class = "stripe col s10 offset-s1" >
+	<h:dataTable value = "#{moduloReporteLibro.listaPrestamos}" var="datosLibro"  rendered = "#{moduloReporteLibro.listaPrestamos.size() > 0}" 
+	class = "striped centered col s10 offset-s1" >
 
 	<h:column>
 		<f:facet name="header">
-			<h:outputLabel value="Documento usuario" />
+			<h:outputLabel value="CC" />
 		</f:facet>
 		<h:outputLabel value="#{datosLibro.idUsuario}" />
 	</h:column>
@@ -266,14 +286,14 @@
 
 	<h:column>
 		<f:facet name="header">
-			<h:outputLabel value="Nombre usuario" />
+			<h:outputLabel value="Usuario" />
 		</f:facet>
 		<h:outputLabel value="#{datosLibro.nombreUsuario}" />
 	</h:column>
 
 	<h:column>
 		<f:facet name="header">
-			<h:outputLabel value="Fecha Prestamos" />
+			<h:outputLabel value="Fecha Prestamo" />
 		</f:facet>
 		<h:outputLabel value="#{datosLibro.fechaPrestamo}" />
 	</h:column>
@@ -286,18 +306,21 @@
 		<h:outputLabel value="#{datosLibro.fechaRegreso}" />
 	</h:column>
 
-	<h:column>
-		<f:facet name="header">
-			<h:outputLabel value="Sancion" />
-		</f:facet>
-		<h:outputLabel value="#{datosLibro.sancionPrestamo}" />
-	</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputLabel value="Sancion" />
+			</f:facet>
+			<h:outputLabel value="#{datosLibro.sancionPrestamo}" />
+		</h:column>
 
-	</h:dataTable>
+		</h:dataTable>
 	
 	
-	</h:form>
+		</h:form>
 	
+		</div>
+	
+		</div>
 	</body>
 	
 	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />

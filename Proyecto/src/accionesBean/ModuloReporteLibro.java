@@ -15,7 +15,7 @@ public class ModuloReporteLibro {
 
 	
 	String obtenerDato;
-	String estadoLibro = "sin estado";
+	String estadoLibro = "";
 	String estadoPrestamo = "sin estado";
 	String estadoSancion = "sin estado";
 	Libro miLibro;
@@ -41,7 +41,10 @@ public class ModuloReporteLibro {
 	
 	
 	public void buscarPrestamosLibro(){
-	
+
+		System.out.println("***************");
+		System.out.println("entramos al metodo buscarPrestamosLibros");
+		
 		listaPrestamos = daoReporte.listaPrestamosLibro(getObtenerDato());
 	
 		
@@ -49,9 +52,9 @@ public class ModuloReporteLibro {
 		
 		if(listaPrestamos.size() == 0){
 			
-			estadoPrestamo = "NO SE HAN REALIZADO PRESTAMOS CON EL LIBRO";
+			estadoPrestamo = "No se han realizado prestamos con el libro ";
 		}else{
-			estadoPrestamo = "SI SE HAN REALIZADO PRESTAMOS";
+			estadoPrestamo = "Se han realizado prestamos con el libro ";
 		}
 		
 	}
@@ -59,13 +62,23 @@ public class ModuloReporteLibro {
 	
 	public void buscarLibro(){
 	
+		System.out.println("Estamos en el metodo buscarLibro");
+		if(getObtenerDato() == ""){
+			
+			System.out.println("Estamos en la condicion del metodo buscarLibro");
+		
 		miLibro = daoReporte.HallarLibro(getObtenerDato()); 
 		
 		if(miLibro != null){
 			
-			estadoLibro = "Hay un Libro !!  en la base de datos";
+			estadoLibro = "Hay un Libro !!  en la base de datos.";
 		}else{
-			estadoLibro = "No se encontro el libro !!";
+			estadoLibro = "No se encontro el libro !!. Digita bien el nombre del libro para obtener resultados.";
+		}
+		
+		}else {
+			estadoLibro = "ERROR, debes digitar el titulo del libro y despues presionar el boton consultar";
+			
 		}
 		
 	}
