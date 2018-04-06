@@ -13,129 +13,130 @@
 <f:view>
 	
 	
-	<div class="row cajaRegistro">
+	<div class="row ">
 	 
 	 			
-		 <fieldset class="col s12 ">
-        <h:form method="post">
+		
+        <h:form method="post" class = "col s12">
+    		<section>
+    			<div class = "container">
+    				<div class = "row">
+    					<div class = "card-panel">
+		    
+        					<h5>Registrar Usuarios</h5>
         
-        <h3>Registrar Usuarios</h3>
-        
-         <div class="row caja1 ">
+					         <div class="row">
 
-             <div class="input-field col s6 ">
-                   <h:outputLabel value="Documento" for="Documento"/>
-				<h:inputText id="Documento" value="#{usuarioBean.miUsuarioVo.documento}" requiredMessage="Campo obligatorio*"> 
-				<f:validateLength minimum="6" maximum="10" > <f:validateRequired/></f:validateLength>
-				</h:inputText>
-				
-             <h:message for="Documento" style="color:red" />
-             </div>  
-            <div class="input-field col s6">
-                          <h:outputLabel value="Nombre" for="Nombre"/>
-				<h:inputText id="Nombre" value="#{usuarioBean.miUsuarioVo.nombre}" requiredMessage="Campo obligatorio*">
-				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
-				</h:inputText>
-				 <h:message for="Nombre" style="color:red" />
-             </div>
-        </div>
+             					<div class="input-field col s5">
+                   					<h:outputLabel value="Documento" for="Documento"/>
+									<h:inputText id="Documento" value="#{usuarioBean.miUsuarioVo.documento}" requiredMessage="Campo obligatorio*"> 
+											<f:validateLength minimum="6" maximum="10" > <f:validateRequired/></f:validateLength>
+									</h:inputText>
+									<h:message for="Documento" style="color:red" />
+             					</div>
+             					  
+            					<div class="input-field col s5 offset-s1">
+                          			<h:outputLabel value="Nombre" for="Nombre"/>
+									<h:inputText id="Nombre" value="#{usuarioBean.miUsuarioVo.nombre}" requiredMessage="Campo obligatorio*">
+										<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+									</h:inputText>
+				 					<h:message for="Nombre" style="color:red" />
+             					</div>
         
-         <div class="row caja2">
-        		 <div  class="input-field col s6">
-              			 <h:outputLabel value="Apellidos" for="Apellido"/>
-						<h:inputText id="Apellido" value="#{usuarioBean.miUsuarioVo.apellidos}" requiredMessage="Campo obligatorio*">
-				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
-				</h:inputText>
-				 <h:message for="Apellido" style="color:red" />
-               </div>
+        		 				<div  class="input-field col s5 ">
+              			 			<h:outputLabel value="Apellidos" for="Apellido"/>
+									<h:inputText id="Apellido" value="#{usuarioBean.miUsuarioVo.apellidos}" requiredMessage="Campo obligatorio*">
+										<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+									</h:inputText>
+				 					<h:message for="Apellido" style="color:red" />
+               					</div>
                
-               <div class="input-field col s6">
-                   	  <h:outputLabel value="Direccion" for="Direccion"/>
-						<h:inputText id="Direccion" value="#{usuarioBean.miUsuarioVo.direccion}" requiredMessage="Campo obligatorio*">
-				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
-				</h:inputText>
-				 <h:message for="Direccion" style="color:red" />
-              </div>       
-        </div>
+               					<div class="input-field col s5 offset-s1">
+                   	  				<h:outputLabel value="Direccion" for="Direccion"/>
+									<h:inputText id="Direccion" value="#{usuarioBean.miUsuarioVo.direccion}" requiredMessage="Campo obligatorio*">
+										<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+									</h:inputText>
+				 					<h:message for="Direccion" style="color:red" />
+             					</div>       
         
-         <div class="row caja3">
-                <div class="input-field col s6">
-                <h:outputLabel value="Fecha nacimiento" for="Fecha"/>
-                <h:inputText id="Fecha" class="datepicker" value="#{usuarioBean.miUsuarioVo.fecha}" requiredMessage="Campo obligatorio*">
-				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
-				</h:inputText>
-				 <h:message for="Fecha" style="color:red" />
-                    
-                        
-                </div>
-                <div class="input-field col s6">
-                      <h:outputLabel value="Telefono" for="Telefono"/>
-				<h:inputText id="Telefono" value="#{usuarioBean.miUsuarioVo.telefono}" requiredMessage="Campo obligatorio*">
-				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
-				</h:inputText>
-				 <h:message for="Telefono" style="color:red" />
-                </div>
-        </div>
+        				        <div class="input-field col s5">
+                					<h:outputLabel value="Fecha nacimiento" for="Fecha"/>
+                					<h:inputText id="Fecha" class="datepicker" value="#{usuarioBean.miUsuarioVo.fecha}" requiredMessage="Campo obligatorio*">
+										<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+									</h:inputText>
+				 					<h:message for="Fecha" style="color:red" />
+                				</div>
+                				
+                				<div class="input-field col s5 offset-s1">
+                      				<h:outputLabel value="Telefono" for="Telefono"/>
+									<h:inputText id="Telefono" value="#{usuarioBean.miUsuarioVo.telefono}" requiredMessage="Campo obligatorio*">
+										<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+									</h:inputText>
+				 				<h:message for="Telefono" style="color:red" />
+                				</div>
         
-       <div class="row caja4">
-			            <div class="input-field col s6">
+        
+					            <div class="input-field col s5">
 			                       <h:outputLabel value="Contrasenia" for="Contrasenia"  />
-							<h:inputSecret id="Contrasenia" value="#{usuarioBean.miUsuarioVo.contrasenia}" requiredMessage="Campo obligatorio*">
-				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
-				</h:inputSecret>
-				 <h:message for="Contrasenia" style="color:red" />
-			            </div>
+							   	   <h:inputSecret id="Contrasenia" value="#{usuarioBean.miUsuarioVo.contrasenia}" requiredMessage="Campo obligatorio*">
+										<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+									</h:inputSecret>
+				 					<h:message for="Contrasenia" style="color:red" />
+			            		</div>
 			            
 			  
-			         <div class="input-field col s6">
-			              <h:outputLabel  for="Tipo_Usuario" required="true"> 
+			         			<div class="input-field col 5 offset-s1">
+			              			<h:outputLabel  for="Tipo_Usuario" required="true"> </h:outputLabel>
+									<h:selectOneMenu id="Tipo_Usuario" value="#{usuarioBean.miUsuarioVo.tipo_Usuario}" requiredMessage="Campo obligatorio*">
+										<f:selectItem   disabled="disabled" selected="selected" itemLabel="Seleccione el tipo" />
+										<f:selectItem   itemLabel="Usuario" itemValue="2"/>
+										<f:selectItem itemLabel="Administrador" itemValue="1"/> 
+									</h:selectOneMenu>
+			        			</div> 
+			
+   								</div>
 
-			              </h:outputLabel>
-							<h:selectOneMenu id="Tipo_Usuario" value="#{usuarioBean.miUsuarioVo.tipo_Usuario}" requiredMessage="Campo obligatorio*">
-							<f:selectItem   disabled="disabled" selected="selected" itemLabel="Seleccione el tipo" />
-							<f:selectItem   itemLabel="Usuario" itemValue="2"/>
-							<f:selectItem itemLabel="Administrador" itemValue="1"/> 
-							</h:selectOneMenu>
-			                
-			        </div> 
-
-
-   </div>
-   
-   
-   					<div class="input-field col s6">
-   						
-				<h:outputLabel value="Correo" for="Correo"/>
-				<h:inputText id="Correo" value="#{usuarioBean.miUsuarioVo.correo}" requiredMessage="Campo obligatorio*">
-				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
-				</h:inputText>
-				 <h:message for="Correo" style="color:red" />
-   					</div>
-   		
-   			
-    <div class="row caja6">
+								<div class = "row">
+								
+								
+								
+   								<div class="input-field col s5">
+									<h:outputLabel value="Correo" for="Correo"/>
+									<h:inputText id="Correo" value="#{usuarioBean.miUsuarioVo.correo}" requiredMessage="Campo obligatorio*">
+										<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
+									</h:inputText>
+				 					<h:message for="Correo" style="color:red" />
+   								</div>					
+   	
+								
+								
+								</div>
     
-				            <div class="input-field col s7">
-				           
-				        <h:commandButton class="waves-effect waves-light btn" value="Cancelar" />
-				         </div>
+    
+    							<div class = "row">
+   									<div class="input-field col s2 offset-s7">
+					        			<h:commandButton class="waves-effect waves-light btn" value="Cancelar" />
+					         		</div>
 				            
-				          <div class="input-field col s5 ">
-				          
-				        <h:commandButton class="waves-effect waves-light btn modal-trigger"  value="Registrar" action="#{usuarioBean.registrarUsuario()}"/>
-				          </div>
-          
-       </div>
-       
+				    	      		<div class="input-field col s3 ">
+				        				<h:commandButton class="waves-effect waves-light btn modal-trigger"  value="Registrar" action="#{usuarioBean.registrarUsuario()}"/>
+				          			</div>
+       							</div>
+        
+   							
+				            	
      <!--   <div class="row">
        		<div class="input-field col s12">
        		<h:outputLabel value="#{usuarioBean.respuesta}"  />
        		</div>
        
        </div> -->
-	
+    					</div>
+    				</div>
+    			</div>
+    		</section>
+    	
 		</h:form>
-		</fieldset>
 	
 	</div>
 		
