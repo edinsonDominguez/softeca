@@ -102,13 +102,26 @@
 								<h:outputLabel value="Contraseña Actual" for = "pass-anterior" />
 							</div>
 							
+						<div class = "row">
+							<div class = "col s10 offset-s1">			
+								<h:outputLabel value="#{perfilUsuario.validacionContraseniaActual}" />
+							</div>
+						</div>
+							
 							<div class = "input-field col s10 offset-s1">								
 								<h:inputText value = "#{perfilUsuario.contraseniaNueva}" id = "new-pass" class = "validate"></h:inputText>
 								<h:outputLabel value="nueva contraseña" for = "new-pass" />
-								
-							</div>
 							
 							</div>
+								
+								</div>
+								
+						<div class = "row">
+							<div class = "col s10 offset-s1">		
+								<h:outputLabel value="#{perfilUsuario.validacionContraseniaNueva}" />
+							</div>
+						</div>
+							
 							
 							
 							<div class = "row">
@@ -117,8 +130,15 @@
 								</div>
 							</div>
 						</div>
-							
+						
+						<div class = "row">
+							<div class = "col s10 offset-s1">
+								<h:outputLabel value="#{perfilUsuario.mensaje}" />
+							</div>
+						</div>	
 					</div>
+					
+					
 				
 				</div>
 			

@@ -11,7 +11,7 @@ public class PerfilUsuarioDao {
 
 	
 	
-	public boolean verificarContrasenia(String contraseniaActual, String documento){
+	public boolean verificarContrasenia(String contraseniaActual){
 		
 		boolean verificacion = false;
 		String valor = "";
@@ -23,13 +23,14 @@ public class PerfilUsuarioDao {
 		
 		connection = conexion.getConexion();
 		
-		String consulta = "SELECT contraseniaUsuario FROM usuario WHERE contraseniaUsuario = ? AND idUsuario = ?;";
+		String consulta = "SELECT contraseniaUsuario FROM usuario WHERE contraseniaUsuario LIKE ?";
+		
+		System.out.println("Valor de la variable contraseniaActual = " + contraseniaActual);
 		
 		try {
 			
 			statement = connection.prepareStatement(consulta);
 			statement.setString(1, contraseniaActual);
-			statement.setString(2, documento);
 			
 			result = statement.executeQuery();			
 			
@@ -37,8 +38,9 @@ public class PerfilUsuarioDao {
 				
 				valor = result.getString("contraseniaUsuario");
 			
-				System.out.println("el contenido de la variable valor " + valor);
 			}
+			
+			System.out.println("el contenido de la variable valor " + valor);
 			
 		
 			if(valor.equals("")){
@@ -64,7 +66,14 @@ public class PerfilUsuarioDao {
 	
 	public String cambiarContrasenia(String nuevaContrasenia, String contraseniaActual){
 		
+		System.out.println("estamos en ele metodo cambiarContrasenia() / PerfilUsuarioDao ");
+		
 		String resultado = "";
+		
+		System.out.println("Valor de la ContraseniaActual = " + contraseniaActual);
+		System.out.println("Valor de la nuevaContrasenia = " + nuevaContrasenia);
+		
+		
 		
 		Connection connection = null;
 		Conexion miConexion = new Conexion();
@@ -79,7 +88,7 @@ public class PerfilUsuarioDao {
 			statement = connection.prepareStatement(consulta);
 			statement.setString(1, nuevaContrasenia);
 			statement.setString(2, contraseniaActual);
-			
+			statement.executeUpdate();
 			
 			
 		resultado = "ok";	

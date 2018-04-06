@@ -1,10 +1,12 @@
 package bean;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import dao.PerfilUsuarioDao;
 
 @ManagedBean
+@ViewScoped
 public class PerfilUsuario {
 
 	
@@ -27,18 +29,24 @@ public class PerfilUsuario {
 		
 		System.out.println("estamos en el metodo verificarContraseniaUsuario() / PerfilUsuario");
 		
-		String documento = "0000";
-		
-		boolean verificacion = daoPerfil.verificarContrasenia(getContraseniaActual(), documento);
-		
-		if(verificacion != false){
-			System.out.println("<condicion> ( verificarContraseniaUsuario() )");
+		if(getContraseniaActual().equals("")){
 			
-			cambiarContraseniaUsuario();	
+			System.out.println("El campo Contraseña Actual esta vacio !!");
+			validacionContraseniaActual = "No se puede cambiar la contraseña por que el campo Nueva Contraseña esta vacio";
 			
 		}else{
-			System.out.println("La contraseña no se puede cambiar por que la contraseña actual no es la correcta");
-			validacionContraseniaActual = "La contraseña no se puede cambiar por que la CONTRASEÑA ACTUAL no es la correcta";
+		
+			boolean verificacion = daoPerfil.verificarContrasenia(getContraseniaActual());
+			
+			if(verificacion != false){
+				System.out.println("<condicion> ( verificarContraseniaUsuario() )");
+				
+				cambiarContraseniaUsuario();	
+				
+			}else{
+				System.out.println("La contraseña no se puede cambiar por que la contraseña actual no es la correcta");
+				validacionContraseniaActual = "La contraseña no se puede cambiar por que la CONTRASEÑA ACTUAL no es la correcta";
+			}
 		}
 		
 	}
@@ -47,11 +55,11 @@ public class PerfilUsuario {
 	public void cambiarContraseniaUsuario(){
 		System.out.println("Estamos en el metodo cambiarContraseniaUsuario() / PerfilUsuario");
 		
-		if(contraseniaActual.equals("")){
+		if(contraseniaNueva.equals("")){
 			System.out.println("<condicion> ( cambiarContraseniaUsuario() )");
 			System.out.println("No se puede cambiar la contraseña por que el campo nueva contraseña esta vacio");
 			
-			validacionContraseniaNueva = "No se puede cambiar la contraseña por que el campo contraseña actual esta vacio";
+			validacionContraseniaNueva = "No se puede cambiar la contraseña por que el campo Contraseña Actual esta vacio";
 		
 		}else{
 			
@@ -60,7 +68,7 @@ public class PerfilUsuario {
 			if(resultado.equals("ok")){
 				
 				System.out.println("<condicion <condicion>> ( cambiarContraseniaUsuario() )");
-				mensaje = "la contraseña fue actualizada con exito !!";
+				mensaje = "La contraseña fue actualizada con exito !!";
 				
 			}else{
 				mensaje = "hubo un error vuelve a intentarlo";
@@ -120,7 +128,7 @@ public class PerfilUsuario {
 
 
 	public void setContraseniaNueva(String contraseniaNueva) {
-		this.contraseniaActual = contraseniaNueva;
+		this.contraseniaNueva = contraseniaNueva;
 	}
 	
 }
