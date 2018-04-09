@@ -23,16 +23,32 @@
 	
 	
 	
-	 <div class="row logos light-blue darken-1">
+	 <div class="row logos light-blue darken-1  hide-on-small-only">
 	 
-        <div class="col s12 ">
-            <img src="resources/imagenes/logoSofteca.png" alt="" class="imgLogoSofteca"/>
+        <div class="col s12">
+            <img src="../../resources/imagenes/logoSofteca.ico" alt="" class="imgLogoSofteca"/>
          </div>
     
     	
-     	<div class="col s12 right-align ">
+     	<div class="col s12 right-align">
 			
-			<a href= "#modal1" class= "btn modal-trigger ingresarBtn colorNavegador">Ingresar</a>
+			<a href= "#modal1" class= "btn modal-trigger colorNavegador">Ingresar</a>
+			
+		</div>
+		
+    </div>
+    
+    <div class="row logos light-blue darken-1 center-align hide-on-med-only hide-on-large-only">
+	 
+        <div class="col s12">
+            <img src="../../resources/imagenes/logoSofteca.ico" alt="" class="col s10 right-align imgLogoSofteca"/>
+            
+         </div>
+    
+    	
+     	<div class="col s12">
+			
+			<a href= "#modal1" class= "btn modal-trigger colorNavegador center-align"  style="margin: 0; padding-right: 40%; padding-left: 40%">Ingresar</a>
 		</div>
 		
     </div>
@@ -41,26 +57,26 @@
 					<div class="modal center-align" id="modal1">
 					
 					
-					<div class="col s12 ">
+					<div class="col s12">
 										
-						<img src="resources/imagenes/Login_final.png" alt="" class="imgPhotoshopUsuario" />
+						<img src="../../resources/imagenes/Login_final.ico" alt="" class="imgPhotoshopUsuario" />
 						
 
 			        </div>		
 
 
-					<div class="input-field col s12 offset-s1">
+					<div class="input-field col s10 offset-s1">
 								
 						<h:inputText id="Usuari" type="text" value="#{loginBean.miPersonaVo.documento}" class="validate"/>
-						<h:outputLabel value = "Documento" for = "Usuari"/>
+						<h:outputLabel value = "Documento" for = "Usuari" class="left-align"/>
 						
 					</div>
 			
 					
-				<div class="input-field col s12 offset-s1">
+				<div class="input-field col s10 offset-s1">
 					
 						<h:inputText id="Contrasen" type="password" value="#{loginBean.miPersonaVo.contraseniaUsuario}" class="validate" />
-						<h:outputLabel value = "Contraseña" for = "Contrasen"/>
+						<h:outputLabel value = "Contraseña" for = "Contrasen" class="left-align"/>
 						
 					</div>
 					
@@ -68,8 +84,8 @@
 					<div class="row">
 					<div class="col s12">
 													
-						<h:commandButton class="btn btn-default col s10 offset-s1"  value="Ingresar"  action="#{loginBean.ingresoUsuario()}"/>
-						<h:commandButton />
+						<h:commandButton class="btn btn-default col s10 offset-s1 colorNavegador"  value="Ingresar"  action="#{loginBean.ingresoUsuario()}"/>
+
 						
 							
 					</div>
