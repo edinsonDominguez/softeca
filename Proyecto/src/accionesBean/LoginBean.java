@@ -12,7 +12,8 @@ import vo.PersonaVo;
 @ViewScoped
 public class LoginBean {
 	
-
+	String resp="";
+	
 	private PersonaVo miPersonaVo;
 	PersonaDao miPersonaDao;
 	private String mensaje;
@@ -30,26 +31,34 @@ public class LoginBean {
 	
 public String ingresoUsuario(){
 		
-		String resp="";
 		
 		System.out.println("*****************************************************");
-		System.out.println("Contraseña: "+miPersonaVo.getContraseniaUsuario());
+		System.out.println("Contraseña: " + miPersonaVo.getContraseniaUsuario());
 		//System.out.println("Documento: "+ getDocUsuario());
 		System.out.println("Desde el vo : "+ miPersonaVo.getDocumento()+ " " + miPersonaVo.getContraseniaUsuario());
 		
 		PersonaVo persona=miPersonaDao.consultarUsuarioLogin(miPersonaVo.getDocumento(), miPersonaVo.getContraseniaUsuario());
 		
 		if (persona!=null) {
-			resp="pageAdministrador.xhtml";
+			
 			mensaje="";
 			miPersonaVo=persona;
 			//System.out.println("USUARIO VALIDO: "+miBean.getUsuario()+" "+ miBean.getContrasena());
-			System.out.println("Ingresa : "+ miPersonaVo.getNombre()+ " " + miPersonaVo.getContraseniaUsuario());
+			System.out.println("Ingresa : "+ miPersonaVo.getNombre()+ " " + miPersonaVo.getContraseniaUsuario() + " tipo usuario: " + miPersonaVo.getTipoUsuario());
+			
+			if(miPersonaVo.getTipoUsuario().equals("1")){
+				System.out.print("Ingresa al sistema y es administrador");
+				resp="editar_Eliminar.jsf";
+			}else{				
+				System.out.println("Ingresa al sistema pero es usuario");
+				resp="usuario_Consulta.jsf";		
+			}
 		}else{
 			resp="#";
 			mensaje="El usuario no es Valido, Verifique nuevamente...";
 			System.out.println("USUARIO NO VALIDO");
 		}
+		
 		System.out.println("*****************************************************");
 		return resp;
 	}
@@ -105,5 +114,14 @@ public void setPasswordUsuario(String passwordUsuario) {
 	public void setNavegacion(String navegacion) {
 		this.navegacion = navegacion;
 	}
+
+	public String getResp() {
+		return resp;
+	}
+
+	public void setResp(String resp) {
+		this.resp = resp;
+	}
+	
 	
 }

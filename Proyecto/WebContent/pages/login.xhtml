@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+﻿<!DOCTYPE html> 
 <html lang="es"
 	
       xmlns="http://www.w3.org/1999/xhtml"
@@ -10,9 +10,9 @@
 	<meta charset= "utf-8"/>
 	<meta http-equiv = "X-UA-Compatible" content = "IE=edge"/>
 	<title>Softeca</title>
-	<link rel="stylesheet" type="text/css" href="../../resources/css/materialize.css"/>
-	<link rel="stylesheet" type="text/css" href="../../resources/css/estilos.css"/>
-	<h:outputScript library="../../resources/js/materialize.js" name="materilize.js"/>
+	<link rel="stylesheet" type="text/css" href="../resources/css/materialize.css"/>
+	<link rel="stylesheet" type="text/css" href="../resources/css/estilos.css"/>
+	<h:outputScript library="../resources/js/materialize.js" name="materilize.js"/>
 
 </h:head> 
 
@@ -26,7 +26,7 @@
 	 <div class="row logos light-blue darken-1  hide-on-small-only">
 	 
         <div class="col s12">
-            <img src="../../resources/imagenes/logoSofteca.ico" alt="" class="imgLogoSofteca"/>
+            <img src="../resources/imagenes/logoSofteca.ico" alt="" class="imgLogoSofteca"/>
          </div>
     
     	
@@ -41,7 +41,7 @@
     <div class="row logos light-blue darken-1 center-align hide-on-med-only hide-on-large-only">
 	 
         <div class="col s12">
-            <img src="../../resources/imagenes/logoSofteca.ico" alt="" class="col s10 right-align imgLogoSofteca"/>
+            <img src="../resources/imagenes/logoSofteca.ico" alt="" class="col s10 right-align imgLogoSofteca"/>
             
          </div>
     
@@ -59,7 +59,7 @@
 					
 					<div class="col s12">
 										
-						<img src="../../resources/imagenes/Login_final.ico" alt="" class="imgPhotoshopUsuario" />
+						<img src="../resources/imagenes/Login_final.ico" alt="" class="imgPhotoshopUsuario" />
 						
 
 			        </div>		
@@ -75,7 +75,7 @@
 					
 				<div class="input-field col s10 offset-s1">
 					
-						<h:inputText id="Contrasen" type="password" value="#{loginBean.miPersonaVo.contraseniaUsuario}" class="validate" />
+						<h:inputSecret id="Contrasen" type="password" value="#{loginBean.miPersonaVo.contraseniaUsuario}" class="validate" />
 						<h:outputLabel value = "Contraseña" for = "Contrasen" class="left-align"/>
 						
 					</div>
@@ -97,7 +97,7 @@
 	  </div>
 	  
 	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
-	<script src="../../resources/js/materialize.min.js"></script>
+	<script src="../resources/js/materialize.min.js"></script>
 	
       <script>
 
