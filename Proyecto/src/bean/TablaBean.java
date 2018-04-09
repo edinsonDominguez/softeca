@@ -21,6 +21,7 @@ public class TablaBean {
 	
 	private String codigoUsuario;
 	private String devolverLibroSancion;
+	private String mensajePrestamo;
 
 	ArrayList <PrestamoLibroVo> listaDevolucionLibros = new ArrayList <> ();
 	
@@ -29,13 +30,27 @@ public class TablaBean {
 		miLibroDao=new PrestamoLibroDao();
 	}
 	
-	public void registraPrestamo(){
+	public void registrarPrestamo(){
+		String resp="";
 		respuesta = miLibroDao.agregarprestamo(miLibro);
 		
 		if(respuesta.equalsIgnoreCase("registro exitoso")){
 			respuesta = "se registro satisfactoriamente";
+			
+			resp = miLibroDao.actualizarContador(miLibro);
+			if(resp.equalsIgnoreCase("ok")){
+				System.out.println("El contador se actualizo");
+				mensajePrestamo="Prestamo realizado correctamente";
+				
+				
+			}else{
+				System.out.println("No se actualizo el contador");
+			}
+			
 		}else{
 			respuesta = "no se pudo registra, Intentelo nuevamente";
+			mensajePrestamo="No se pudo registrar el prestamo, Intentelo nuevamente";
+			
 		}
 	
 	}
@@ -44,7 +59,11 @@ public class TablaBean {
 		
 		listaDevolucionLibros.clear();
 		
+		System.out.println("el documento del usuario = " + miLibro.getDocumento());
+		
 		listaDevolucionLibros = miLibroDao.devolver(miLibro.getDocumento());
+		
+		
 		
 		if(listaDevolucionLibros.size() == 0){
 			datosDevolver= false;
@@ -61,11 +80,27 @@ public class TablaBean {
 	
 	public void devolverLibro(){
 		
-	
+		String respSancion=""; 
 		
 		devolverLibroSancion= miLibroDao.devolverLibroSancion(miLibro);
 		
 		if(devolverLibroSancion.equalsIgnoreCase("registro exitoso")){
+			respSancion="registro satisfactorio";
+			
+			devolverLibroSancion = miLibroDao.aumentarCantidad(miLibro);
+			if (devolverLibroSancion.equalsIgnoreCase("ok")) {
+				System.out.println("aumento exitoso");
+			}else{
+				System.out.println("no se aumento");
+			}
+			
+			respSancion = miLibroDao.eliminarPrestamo(miLibro);
+			if(respSancion.equalsIgnoreCase("satisfactorio")){
+				System.out.println("se elimino el prestamo");
+			}else{
+				System.out.println("No se elimino");
+			}
+			
 			System.out.println("registro exitoso de la sancion");
 		}else{
 			System.out.println("error al registrar sancion");
@@ -73,6 +108,15 @@ public class TablaBean {
 	}
 	
 	
+	
+
+	public String getMensajePrestamo() {
+		return mensajePrestamo;
+	}
+
+	public void setMensajePrestamo(String mensajePrestamo) {
+		this.mensajePrestamo = mensajePrestamo;
+	}
 
 	public boolean isDatosDevolver() {
 		return datosDevolver;
@@ -132,11 +176,6 @@ public class TablaBean {
 	public void setMiLibro(PrestamoLibroVo miLibro) {
 		this.miLibro = miLibro;
 	}
-
-
-
-
-
 
 
 	

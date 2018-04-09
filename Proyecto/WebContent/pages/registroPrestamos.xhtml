@@ -1,14 +1,168 @@
 <!DOCTYPE html>
-<ui:composition 	
+<html 	
 		xmlns="http://www.w3.org/1999/xhtml" 
 		xmlns:ui="http://java.sun.com/jsf/facelets" 
 		xmlns:f="http://java.sun.com/jsf/core" 
 		xmlns:h="http://java.sun.com/jsf/html"
- 		template="plantilla.xhtml">
+ 		>
  	
+
+
+<h:head>
+	<meta charset= "utf-8"/>
+	<meta http-equiv = "X-UA-Compatible" content = "IE=edge"/>
+	<title>Softeca</title>
+	<link rel="stylesheet" type="text/css" href="../resources/css/estilos.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	<h:outputScript library="../resources/js/materialize.js" name="materilize.js"/>
+</h:head> 
+
+
+<body class="gray" style="margin: 0"> 
+
+
+	<form>
+	
+		<div class="row valign-wrapper"  style="margin: 0">
+		
+		<div class="col s12 hide-on-med-only hide-on-large-only center-align" ><img  src="../resources/imagenes/logoSofteca1.ico" alt="" /></div>
+		
+		</div>
+		
+		<div class="row valign-wrapper"  style="margin: 0">
+		
+		<div class="col s4 hide-on-med-only hide-on-large-only right-align"><img src="../resources/imagenes/user1.ico" alt="" class="imgLogoUbicacion"/></div>
+		<div class="col s8 hide-on-med-only hide-on-large-only"><h6>Bienvenido, #{tituloNombre}</h6></div>
+		
+		</div>
+			
+			
+			
+		<div class="row valign-wrapper" style="margin: 0">
+		<div class="col m6 l7 hide-on-small-only" ><img  src="../resources/imagenes/logoSofteca1.ico" alt="" /></div>
+			
+		<div class="col m4 l4 hide-on-small-only"><h6>Bienvenido, #{tituloNombre}</h6></div>
+			
+		<div class="col m2 l1 hide-on-small-only"><img src="../resources/imagenes/user1.ico" alt="" class="imgLogoUbicacion"/></div> 
+		</div>
+		
+	
+	
+		<ul id="dropdown1" class="dropdown-content" >
+		  <li><a href="../pages/registroPrestamos.jsf" class="center-align">Registrar Prestamo</a></li>
+		  <li class="divider"></li>
+		  <li><a href="../pages/devolverLibro.jsf" class="center-align">Devolver libro</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown2" class="dropdown-content">
+		  <li><a href="../pages/registrarLibro.jsf" class="center-align">Registrar Libro</a></li>
+		  <li class="divider"></li>
+		  <li><a href="../pages/editar_Eliminar.jsf" class="center-align">Consultar Libro</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown3" class="dropdown-content">
+		  <li><a href="../pages/registrarUsuario.jsf" class="center-align">Registrar Usuario</a></li>
+		  <li class="divider"></li>
+		  <li><a href="../pages/consultarUsuario.jsf" class="center-align">Consultar Usuario</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown4" class="dropdown-content">
+		  <li><a href="../pages/reporteUsuario.jsf" class="center-align">Consultar reporte de prestamos por usuario </a></li>
+		  <li class="divider"></li>
+		  <li><a href="../pages/reporteLibro.jsf" class="center-align">Consultar reporte de prestamos por libro</a></li>
+		  
+		</ul>
+		
+		<ul id="dropdown5" class="dropdown-content" >
+		  <li><a href="../pages/registroPrestamos.jsf" class="center-align">Registrar prestamos</a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!" class="center-align">Devolver libro</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown6" class="dropdown-content">
+		  <li><a href="../pages/registrarLibro.jsf" class="center-align">Registrar libro</a></li>
+		  <li class="divider"></li>
+		  <li><a href="../pages/editar_Eliminar.jsf" class="center-align">Consultar libro</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown7" class="dropdown-content">
+		  <li><a href="#!" class="center-align">Registrar</a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!" class="center-align">Consultar</a></li>
+		  
+		  
+		</ul>
+		
+		<ul id="dropdown8" class="dropdown-content">
+		  <li><a href="../pages/reporteUsuario.jsf" class="center-align">Consultar reporte de prestamos por usuario </a></li>
+		  <li class="divider"></li>
+		  <li><a href="../pages/reporteLibro.jsf" class="center-align">Consultar reporte de prestamos por libro</a></li>
+		  
+		  
+		</ul>
+		
+		
+		<div class="row">		
+		<nav class="colorNavegador col s12 m12 l12">
+		  <div class="nav-wrapper">
+		  
+		    <ul class="right hide-on-small-only">		      
+		    	
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Prestamos<i class="material-icons right">import_contacts</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Libros<i class="material-icons right">book</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Usuarios<i class="material-icons right">account_box</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown4">Informes<i class="material-icons right">assignment</i></a></li>
+		      <li><a href="../pages/loginSofteca/login.jsf">Salir</a><i class="material-icons right">close</i></li>
+		    </ul>
+		    
+		    <ul class="right hide-on-med-only hide-on-large-only right-align">
+		    
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown5"><i class="material-icons right">import_contacts</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown6"><i class="material-icons right">book</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown7"><i class="material-icons right">account_box</i></a></li>
+		      <li><a class="dropdown-button" href="#!" data-activates="dropdown8"><i class="material-icons right">assignment</i></a></li>
+		      <li><a href="sass.html"></a><i class="material-icons right">close</i></li>
+		    	
+		    
+		    </ul>
+		    
+		  </div>
+		</nav>
+		</div>
+		
+	
+	
+	
+		<div class="contenedor">
+		
+		
+	
+		
+		</div>
+		
+		
+	<!-- <footer class="page-footer colorNavegador">
+	
+	<div class="row center-align"> 
+	<label class="labelFooter">KinySoft © 2018 Copyright Text</label>
+	</div>
+	
+	</footer> -->
+	
+	</form>
+
  
-<ui:define name="contenido">    
-<f:view>
 	
 	<div class="row cajaRegistro">
 				
@@ -17,7 +171,7 @@
          <div class="row caja1 ">
 
              <div class="input-field col s6 ">
-                   <h:outputLabel value="Codigo" for="Codigo"/>
+                   <h:outputLabel value="Codigo libro" for="Codigo"/>
 				<h:inputText id="Codigo"  requiredMessage="Campo obligatorio*" value="#{tablaBean.miLibro.codigoLibro}"> 
 				<f:validateLength minimum="6" maximum="10" > <f:validateRequired/></f:validateLength>
 				</h:inputText>
@@ -35,21 +189,28 @@
         
          <div class="row caja2">
         		 <div  class="input-field col s6">
-              			 <h:outputLabel value="fecha prestamo" for="Fechaprestamo"/>
-						<h:inputText class="datepicker"  id="Fechaprestamo"  requiredMessage="Campo obligatorio*" value="#{tablaBean.miLibro.fechaPrestamo}"> 
+              			 <h:outputLabel value="Fecha Prestamo" for="Fechaprestamo"/>
+						<h:inputText id="Fechaprestamo"  requiredMessage="Campo obligatorio*" value="#{tablaBean.miLibro.fechaPrestamo}" type="text"> 
 				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
 				</h:inputText>
 				 <h:message for="Fechaprestamo" style="color:red" />
                </div>
                
                <div class="input-field col s6">
-                   	  <h:outputLabel value="Fecharegreso" for="Fecharegreso"/>
-						<h:inputText id="Fecharegreso" class="datepicker"  requiredMessage="Campo obligatorio*" value="#{tablaBean.miLibro.fechaRegreso}">
+                   	  <h:outputLabel value="Fecha Regreso" for="Fecharegreso"/>
+						<h:inputText id="Fecharegreso" requiredMessage="Campo obligatorio*" value="#{tablaBean.miLibro.fechaRegreso}" type="text">
 				<f:validateLength minimum="" maximum="" ><f:validateRequired/></f:validateLength>
 				</h:inputText>
 				 
 				 <h:message for="Fecharegreso" style="color:red" />
-              </div>       
+              </div> 
+               
+              <div class="row formatoFecha">
+              	<div class="col s6">
+              		<h5>* El formato de las fechas debe ser AAAA-MM-DD</h5>
+              	</div>
+              </div>    
+               
         </div>
         
      	
@@ -66,39 +227,38 @@
           
        </div>
        
-     <!--   <div class="row">
-       		<div class="input-field col s12">
-       		<h:outputLabel value="#{usuarioBean.respuesta}"  />
+       <div class="row">
+       		<div class="col s12">
+       			<h:outputLabel value="#{tablaBean.mensajePrestamo}" class="mensajePrestamo"/>
        		</div>
        
-       </div> -->
+       </div>
 	
 		</h:form>
 		</fieldset>
 	
 	</div>
-		
-</f:view>
-</ui:define>
 
+		
+
+<!-- <script type = "text/javascript">
+
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 97, // Creates a dropdown of 15 years to control year,
+    today: 'Hoy',
+    clear: 'Limpiar',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+	  
+
+</script> -->
+
+</body>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         
-<script type="text/javascript" src="../js/materialize.min.js"></script>
-		
+<script type="text/javascript" src="../resources/js/materialize.min.js"></script>
 
-<script>
-
-	$('.datepicker').pickadate({
-	    selectMonths: true, // Creates a dropdown to control month
-	    selectYears: 97, // Creates a dropdown of 15 years to control year,
-	    today: 'Hoy',
-	    clear: 'Limpiar',
-	    close: 'Ok',
-	    closeOnSelect: false // Close upon selecting a date,
-	  });
-	  
-
-</script>
-
-</ui:composition>
+</html>

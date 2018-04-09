@@ -19,13 +19,15 @@ public class PrestamoLibroVo {
 	private String infoObservaciones;
 	private String fecha_inicioSancion;
 	private String fecha_finSancion;
+	private String estadoPrestamo = "activo";
 	
 	public PrestamoLibroVo(){
 		
 	}
 	
 	public PrestamoLibroVo(int codigoLibro,String documento,String fechaPrestamo,String fechaRegreso, 
-			String nombreUsuario, String nombreLibro, String tipo_sancion, String infoObservaciones, String fecha_inicioSancion, String fecha_finSancion){
+			String nombreUsuario, String nombreLibro, String tipo_sancion, String infoObservaciones, String fecha_inicioSancion, String fecha_finSancion, 
+			String estadoPrestamo){
 		super();
 		
 		this.codigoLibro=codigoLibro;
@@ -38,6 +40,7 @@ public class PrestamoLibroVo {
 		this.infoObservaciones=infoObservaciones;
 		this.fecha_inicioSancion=fecha_inicioSancion;
 		this.fecha_finSancion=fecha_finSancion;
+		this.estadoPrestamo=estadoPrestamo;
 		
 	}
 	
@@ -45,6 +48,14 @@ public class PrestamoLibroVo {
 	
 	
 	
+	public String getEstadoPrestamo() {
+		return estadoPrestamo;
+	}
+
+	public void setEstadoPrestamo(String estadoPrestamo) {
+		this.estadoPrestamo = estadoPrestamo;
+	}
+
 	public String getFecha_inicioSancion() {
 		return fecha_inicioSancion;
 	}
@@ -124,11 +135,6 @@ public class PrestamoLibroVo {
 
 	public void setNombreLibro(String nombreLibro) {
 		this.nombreLibro = nombreLibro;
-	}
-
-	
-	
-	
-	
+	}	
 	
 }

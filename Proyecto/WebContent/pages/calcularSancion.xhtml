@@ -3,26 +3,30 @@
 		xmlns:ui="http://java.sun.com/jsf/facelets" 
 		xmlns:f="http://java.sun.com/jsf/core" 
 		xmlns:h="http://java.sun.com/jsf/html"
- 		template="/templates/plantilla.xhtml">
-
-<ui:param name="tituloNombre" value="Juana Pelaez"></ui:param>
+ 		template="../templates/plantilla.xhtml">
 
 <ui:define name="contenido">
 <f:view>
 	
 	<div class="row cajaPrestamos">
 	
-	<h2>Devoluciones</h2>
+	<h1>Devoluciones</h1>
 	
-	<div class=" col s10">
-	
-			
+	<div class=" col s8">
 	
 	<h:form>
+	
+			<div class="row">
 			
-			<div class="input-field col s4">
+			<div class="input-field col s6">
+			
+			<h:outputLabel value="Codigo Libro" for="libro"/>
+			<h:inputText value="#{tablaBean.miLibro.codigoLibro}" id="libro" type="text"/>
+			   
+  			</div>
+				<div class="input-field col s6">
 			    <h:selectOneMenu value="#{tablaBean.miLibro.tipo_sancion}">
-			      <f:selectItem itemLabel="Seleccione" itemValue=""/>
+			      <f:selectItem itemLabel="Selecione" itemValue=""/>
 			      <f:selectItem itemLabel="No aplica" itemValue="No aplica"/>
 			      <f:selectItem itemLabel="Retraso" itemValue="Retraso"/>
 			      <f:selectItem itemLabel="Perdida" itemValue="Perdida"/>
@@ -30,6 +34,9 @@
 			    </h:selectOneMenu>
 			    <label>Tipo Sancion</label>
   			</div><br/>
+			</div>
+			
+			
 			
 			<!-- <div class="input-field col s6">
 				<h:outputLabel for="Tipo_Sancion" required="true"  /> 
@@ -54,16 +61,24 @@
 				
 				
 			</h:selectOneMenu> -->
-			<br/><br/><br/>
-			<h:outputLabel value="Observaciones" for="info"/> 
-			<h:inputTextarea value="#{tablaBean.miLibro.infoObservaciones}" id="info" /><br/><br/>
 			
-			<h:outputLabel value="Fecha Sancion" for="sancion"/>
-			<h:inputText value="#{tablaBean.miLibro.fecha_inicioSancion}" id="sancion" type="text" class="datepicker"/><br/><br/>
+			<div class="row">
+				<div class="input-field col s12">
+					<h:outputLabel value="Observaciones" for="info"/> 
+					<h:inputTextarea value="#{tablaBean.miLibro.infoObservaciones}" id="info" /><br/><br/>
+				</div>
+			</div>
 			
-			<h:outputLabel value="Fecha Expiracion" for="expi"/>
-			<h:inputText value="#{tablaBean.miLibro.fecha_finSancion}" id="expi" type="text" class="datepicker"/><br/><br/>
-			
+			<div class="row">
+				<div class="input-field col s6">
+					<h:outputLabel value="Fecha Sancion" for="sancion"/>
+					<h:inputText value="#{tablaBean.miLibro.fecha_inicioSancion}" id="sancion" type="text"/><br/><br/>
+				</div>
+				<div class="input-field col s6">
+					<h:outputLabel value="Fecha Expiracion" for="expi"/>
+					<h:inputText value="#{tablaBean.miLibro.fecha_finSancion}" id="expi" type="text"/><br/><br/>
+				</div>
+			</div>
 			
 			<h:commandButton value="Cancelar" action="devolverLibro" class="waves-effect waves-light btn"/> 
 			

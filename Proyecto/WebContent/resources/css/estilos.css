@@ -153,6 +153,26 @@ h2{
 }
 
 --------------------------------- -->
+/*
+Anlinson 
+*/
+
+
+.cajaPrestamos{
+	width: 69.7%;
+	height:  auto  ;
+	margin-left:15%;
+	margin-top:60px;
+}
+
+.formatoFecha h5{
+	font-size: 15px;
+}
+
+.mensajePrestamo{
+	font-size: 15px;
+	width: 10%;
+}
 
 
 

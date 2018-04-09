@@ -22,15 +22,15 @@ public class PrestamoLibroDao {
 		PreparedStatement preStatement =null;
 		
 		connection = conexion.getConexion();
-		String registro="INSERT INTO prestamo (usuarioPrestamo,codigoLibro,fechaPrestamo,fechaRegreso)"
-				+"values(?,?,?,?)";
-		
+		String registro="INSERT INTO prestamo (usuarioPrestamo, libroPrestamo,fechaPrestamo,fechaRegreso,estado)"
+				+"values(?,?,?,?,?);";
 		try {
 			preStatement = connection.prepareStatement(registro);
 			preStatement.setString(1,miLibro.getDocumento());
 			preStatement.setInt(2,miLibro.getCodigoLibro());
 			preStatement.setString(3, miLibro.getFechaPrestamo());
 			preStatement.setString(4, miLibro.getFechaRegreso());
+			preStatement.setString(5, miLibro.getEstadoPrestamo());
 			preStatement.execute();
 			resultado = "registro exitoso";
 			
@@ -41,19 +41,72 @@ public class PrestamoLibroDao {
 			conexion.desconectar();
 		}
 		
+	
+		
 		return resultado;
 		
 		
 	}
+	
+			public String actualizarContador(PrestamoLibroVo miLibro){
+				String dato="";
+				Connection connection=null;
+				Conexion conexion=new Conexion();
+				PreparedStatement preStatement =null;
+				
+				connection = conexion.getConexion();
+				
+				String actualizarContador="UPDATE libro SET disponible = (disponible - 1) WHERE (codLibro = ? ) AND (disponible != 0);";
+				
+				
+	try {
+		preStatement = connection.prepareStatement(actualizarContador);
+		preStatement.setInt(1, miLibro.getCodigoLibro());
+		preStatement.execute();
+		dato="ok";
+	} catch (Exception e) {
+		System.out.println(e.getMessage());
+		dato="no actualizo";
+	}			
+				
+	return dato;
+								
+			}
+			
+			public String aumentarCantidad(PrestamoLibroVo miLibro){
+				String aumento="";
+				Connection connection=null;
+				Conexion conexion=new Conexion();
+				PreparedStatement preStatement =null;
+				
+				connection = conexion.getConexion();
+				
+				String actualizacion="UPDATE libro SET disponible = (disponible + 1) WHERE (codLibro = ?) AND (disponible < ejemplarLibro);";
+				
+				try {
+					preStatement = connection.prepareStatement(actualizacion);
+					preStatement.setInt(1, miLibro.getCodigoLibro());
+					preStatement.execute();
+					aumento="ok";
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+					aumento="no ok";
+				}
+				
+				return aumento;
+			}
 	 
 	public ArrayList<PrestamoLibroVo> devolver(String codigoUsuario){
+		
 		
 		Connection connection=null;
 		Conexion conexion=new Conexion();
 		PreparedStatement preStatement =null;
 		ResultSet result = null;
 		
-		PrestamoLibroVo miLibroVo;
+		System.out.println("codigo Uusario ----- "  + codigoUsuario);
+		
+		PrestamoLibroVo miLibroVo = null;
 		
 		connection = conexion.getConexion();
 		
@@ -61,16 +114,15 @@ public class PrestamoLibroDao {
 		ArrayList<PrestamoLibroVo> listaLibros = new ArrayList<> ();
 
 
-		String consultaLibro="select libro.tituloLibro, usuario.nombreUsuario, prestamo.usuarioPrestamo,   prestamo.fechaPrestamo, prestamo.fechaRegreso "
-				+ "from prestamo,usuario, libro where prestamo.usuarioPrestamo = usuario.idUsuario and libro.codLibro = prestamo.codigoLibro and usuario.idUsuario = ?";
+		String consultaLibro="SELECT libro.tituloLibro, usuario.nombreUsuario, prestamo.usuarioPrestamo, prestamo.fechaPrestamo, prestamo.fechaRegreso FROM prestamo,usuario, libro WHERE prestamo.usuarioPrestamo = usuario.idUsuario AND libro.codLibro = prestamo.libroPrestamo AND usuario.idUsuario = ?;";
 		
 		try {
 			
 			preStatement = connection.prepareStatement(consultaLibro);
 			preStatement.setString(1, codigoUsuario);
-			
-			
 			result = preStatement.executeQuery();
+			
+			
 			while(result.next()){
 				
 			miLibroVo= new PrestamoLibroVo();
@@ -80,17 +132,27 @@ public class PrestamoLibroDao {
 			miLibroVo.setDocumento(result.getString("usuarioPrestamo"));
 			miLibroVo.setFechaPrestamo(result.getString("fechaprestamo"));
 			miLibroVo.setFechaRegreso(result.getString("fechaRegreso"));
-		
-			
 			listaLibros.add(miLibroVo);
 				
 			}
 									
 		} catch (Exception e) {
-			conexion.desconectar();
-	}
+		
+			System.out.println("Error en la base de datos");
+			System.out.println(e.getMessage());
+		
+		}
+		
+		
+		conexion.desconectar();
+		
+		
+		System.out.println("cantidad de registros en la clase PrestamoLibroDao" + listaLibros.size());
+		
 		return listaLibros;
-}
+		
+		}
+	
 	
 		public String devolverLibroSancion( PrestamoLibroVo miLibro){
 			String msj="";
@@ -135,56 +197,35 @@ public class PrestamoLibroDao {
 			return msj;
 		}
 		
-	/*	public String deletePrestamo(String doc){
-			 resp="";
-			
-			Connection connection=null;
-			Conexion conexion=new Conexion();
-			PreparedStatement preStatement =null;
+
+
+	public String eliminarPrestamo(PrestamoLibroVo miLibro) {
+		String respEliminar="";
+		Connection connection=null;
+		Conexion conexion=new Conexion();
+		PreparedStatement preStatement =null;
 		
-			 Libro miLibro = new Libro();
-			
-			connection = conexion.getConnection();
-			
-			
-			String delete = "delete from prestamo where usuarioPrestamo = ?";
-			try {
-				preStatement = connection.prepareStatement(delete);
-				preStatement.setString(1,miLibro.getDocumento());
-				
-				preStatement.execute();
-				resp="exitoso";
-			
-				
-			} catch (Exception e) {
-				System.out.println("No se pudo registrar el libro " +  e.getMessage());
-				resp="no exitoso";
-			}finally{
-				conexion.desconectar();
-			}
-			
-			return resp;
-		}
-	*/
-	/*String registro="INSERT INTO prestamo (usuarioPrestamo,codigoLibro,fechaPrestamo,fechaRegreso)"
-				+"values(?,?,?,?)";
+		connection = conexion.getConexion();
+		
+		String eliminarPres = "UPDATE prestamo SET estado = 'Inactivo' WHERE usuarioPrestamo = ? AND libroPrestamo = ?";
 		
 		try {
-			preStatement = connection.prepareStatement(registro);
-			preStatement.setInt(1,miLibro.getDocumento());
-			preStatement.setInt(2,miLibro.getCodigoLibro());
-			preStatement.setString(3, miLibro.getFechaPrestamo());
-			preStatement.setString(4, miLibro.getFechaRegreso());
+			preStatement = connection.prepareStatement(eliminarPres);
+			preStatement.setString(1, miLibro.getDocumento());
+			preStatement.setInt(2, miLibro.getCodigoLibro());
 			preStatement.execute();
-			resultado = "registro exitoso";
 			
+			respEliminar="satisfactorio";
 		} catch (Exception e) {
-			System.out.println("No se pudo registrar el libro " +  e.getMessage());
-			resultado="no se registro";
-		}finally{
-			conexion.desconectar();
+			respEliminar ="no satisfactorio";
+			System.out.println("Error en la base de datos!1");
 		}
 		
-		return resultado;*/
+		return respEliminar;
+	}
+	
+	
+	
+	
 	
 }
