@@ -40,7 +40,7 @@ public String ingresoUsuario(){
 		PersonaVo persona=miPersonaDao.consultarUsuarioLogin(miPersonaVo.getDocumento(), miPersonaVo.getContraseniaUsuario());
 		
 		if (persona!=null) {
-			resp="bienvenido.jsf";
+			resp="pageAdministrador.xhtml";
 			mensaje="";
 			miPersonaVo=persona;
 			//System.out.println("USUARIO VALIDO: "+miBean.getUsuario()+" "+ miBean.getContrasena());
