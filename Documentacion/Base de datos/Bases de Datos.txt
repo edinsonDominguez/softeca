@@ -101,7 +101,7 @@ usuarioPrestamo INT,
 libroPrestamo VARCHAR(10),
 fechaPrestamo DATE,
 fechaRegreso DATE,
-
+estado VARCHAR(15),
 
 PRIMARY KEY (codPrestamo),
 FOREIGN KEY (usuarioPrestamo) REFERENCES usuario(idUsuario),
