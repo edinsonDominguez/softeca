@@ -72,7 +72,62 @@
 	</form>
 
 	
-	<!-- La logica -->	
+	<!-- La logica -->
+	
+	
+	<h:form>
+	<h:commandLink action="#{consultaPrestamo.consultaPrestamoMetodo()}" value="Ver historial de prestamos" />
+	</h:form>
+	
+	
+	<div class = "row">
+ <h:form>
+	
+	
+	
+	<h:dataTable value = "#{consultaPrestamo.listaPrestamo}" var="datosUsuario" 
+	   class = "striped centered col s10 offset-s1" >
+
+<!-- rendered="#{moduloReporteUsuario.listaPrestamos.size() > 0}" -->
+
+	<h:column>
+		<f:facet name="header">
+			<h:outputLabel value="Libro" />
+		</f:facet>
+		<h:outputLabel value="#{datosUsuario.tituloLibro}" />
+	</h:column>
+
+	<h:column>
+		<f:facet name="header">
+			<h:outputLabel value="Fecha Prestamo" />
+		</f:facet>
+		<h:outputLabel value="#{datosUsuario.fechaPrestamo}" />
+	</h:column>
+
+
+	<h:column>
+		<f:facet name="header">
+			<h:outputLabel value="Fecha regreso" />
+		</f:facet>
+		<h:outputLabel value="#{datosUsuario.fechaRegreso}" />
+	</h:column>
+
+	 <h:column>
+		<f:facet name="header">
+			<h:outputLabel value="Sancion" />
+		</f:facet>
+		<h:outputLabel value="#{datosUsuario.sancionPrestamo}" />
+	</h:column>
+ 	
+ 	
+ 
+	</h:dataTable>
+	
+	
+	</h:form>
+
+</div>
+		
 
 
 

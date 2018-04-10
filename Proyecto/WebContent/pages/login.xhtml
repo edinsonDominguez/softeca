@@ -93,9 +93,144 @@
 					</div>
 
 
-
 	  </div>
 	  
+   </h:form> 
+   
+   
+   			<h:form class = "col s12">			
+				<section>
+	
+					<div class = "container">	
+						<div class = "row">
+							<div class = "card-panel">			
+						
+								<div class = "row">
+									<div class = "col s8 offset-s1">
+										<h5>Consulta de libros.</h5>
+									</div>
+								</div>
+	
+								<div class="row">
+				
+									<div class = "input-field col s5 offset-s1">		
+										<h:outputLabel value="buscador" for = "buscador" />
+										<h:inputText value="#{librosBean.textoTraer} #{consultaPrestamo.documentoConsulta}" id="buscador" class = "validate"/>
+									</div>
+				
+									<div class = "col s3">
+									 	<h:selectOneMenu value="#{librosBean.opcion}">
+											<f:selectItem itemValue="nombre" itemLabel="Titulo .."/>
+											<f:selectItem itemValue="icbn" itemLabel="ISBN .."/>
+											<f:selectItem itemValue="autor" itemLabel="Autor .."/>
+											<f:selectItem itemValue="categoria" itemLabel="Categoria .."/>	
+										</h:selectOneMenu>  
+									</div>
+					
+									<div class = "col s2">
+										<h:commandButton action="#{librosBean.filtrarOpcion()}" value = "buscar libro" class = "waves-effect waves-light btn"/> 
+									</div>
+								</div>
+						
+							</div>
+						</div>
+					</div>
+						
+				</section>
+			</h:form>
+
+
+
+		<!-- LA SEGUNDA PARTE DE ESTA PAGINA QUE CONTIENE EL DATATABLE  -->
+
+
+
+		<div class="row">
+			
+			<!-- ESTOS SON LOS RESULTADOS EN UN DATATABLE -->
+			<h:form class = "col s10 offset-s1">
+
+				<h:outputLabel
+					value="Puedes ingresar en el buscador el nombre, ISBN, autor o categoria para que aparescan los resultados!! "
+					rendered="#{librosBean.listaLibros.size() == 0}" />
+				
+				<h:dataTable value="#{librosBean.listaLibros}" var="datos"
+					rendered = "#{librosBean.listaLibros.size() > 0}" class="striped centered">
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="ISBN."  />
+							</f:facet>
+							<h:outputLabel value="#{datos.codigo}" />
+						</h:column>
+
+
+						<h:column>
+							<f:facet name="header" class = "colorCabecera">
+								<h:outputLabel value="Titulo." />
+							</f:facet>
+							<h:inputText value="#{datos.titulo}" rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.titulo}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Estanteria." />
+							</f:facet>
+							<h:inputText value="#{datos.estanteria}"
+								rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.estanteria}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Autor." />
+							</f:facet>
+							<h:inputText value="#{datos.autor}" rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.autor}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Editorial." />
+							</f:facet>
+							<h:inputText value="#{datos.editorial}"
+								rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.editorial}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Categoria." />
+							</f:facet>
+							<h:inputText value="#{datos.categoria}"
+								rendered="#{datos.editar}" />
+							<h:outputLabel value="#{datos.categoria}"
+								rendered="#{not datos.editar}" />
+						</h:column>
+
+				</h:dataTable>
+
+			</h:form>	
+						
+					</div>
+
+   
+   
+   
+   
+   
+   
+   
+   
+	 
+</body> 
+
 	<script type = "text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
 	<script src="../resources/js/materialize.min.js"></script>
 	
@@ -107,7 +242,15 @@
 	    	  });
 
       </script> 
-   </h:form> 
-	 
-</body> 
+
+	<script>
+	
+		  $(document).ready(function() {
+			    $('select').material_select();
+			  });
+	
+		 </script>
+		
+		
+
 </html>

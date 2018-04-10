@@ -3,13 +3,14 @@ package accionesBean;
 
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
+import bean.ConsultaPrestamo;
 import dao.PersonaDao;
 import vo.PersonaVo;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class LoginBean {
 	
 	String resp="";
@@ -20,13 +21,11 @@ public class LoginBean {
 	private String navegacion;
 	private String docUsuario;
 	private String passwordUsuario;
-
 	
 	public LoginBean(){
-
-		miPersonaVo=new PersonaVo();
-		miPersonaDao=new PersonaDao();
 		
+		miPersonaVo=new PersonaVo();
+		miPersonaDao=new PersonaDao();		
 	}
 	
 public String ingresoUsuario(){
@@ -39,12 +38,15 @@ public String ingresoUsuario(){
 		
 		PersonaVo persona=miPersonaDao.consultarUsuarioLogin(miPersonaVo.getDocumento(), miPersonaVo.getContraseniaUsuario());
 		
+		
 		if (persona!=null) {
 			
 			mensaje="";
 			miPersonaVo=persona;
 			//System.out.println("USUARIO VALIDO: "+miBean.getUsuario()+" "+ miBean.getContrasena());
 			System.out.println("Ingresa : "+ miPersonaVo.getNombre()+ " " + miPersonaVo.getContraseniaUsuario() + " tipo usuario: " + miPersonaVo.getTipoUsuario());
+
+			System.out.println("el documento en la otra clase es " + miPersonaVo.getDocumento());		
 			
 			if(miPersonaVo.getTipoUsuario().equals("1")){
 				System.out.print("Ingresa al sistema y es administrador");

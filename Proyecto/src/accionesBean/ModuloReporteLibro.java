@@ -63,22 +63,25 @@ public class ModuloReporteLibro {
 	public void buscarLibro(){
 	
 		System.out.println("Estamos en el metodo buscarLibro");
-		if(getObtenerDato() == ""){
+		
+		if(getObtenerDato().equals("")){
 			
 			System.out.println("Estamos en la condicion del metodo buscarLibro");
 		
-		miLibro = daoReporte.HallarLibro(getObtenerDato()); 
-		
-		if(miLibro != null){
-			
-			estadoLibro = "Hay un Libro !!  en la base de datos.";
-		}else{
-			estadoLibro = "No se encontro el libro !!. Digita bien el nombre del libro para obtener resultados.";
-		}
-		
-		}else {
 			estadoLibro = "ERROR, debes digitar el titulo del libro y despues presionar el boton consultar";
 			
+		
+		}else {
+		
+			System.out.println("nos vamos para el metodo buscarPrestamos");
+			miLibro = daoReporte.HallarLibro(getObtenerDato()); 
+			
+			if(miLibro != null){
+				
+				estadoLibro = "Hay un Libro !!  en la base de datos.";
+			}else{
+				estadoLibro = "No se encontro el libro !!. Digita bien el nombre del libro para obtener resultados.";
+			}
 		}
 		
 	}
