@@ -15,9 +15,6 @@ public class Conexion {
 	
 	public Conexion(){
 		
-		System.out.println("Estamos en la clase conexion");
-		
-		
 		try {
 			
 			Class.forName("com.mysql.jdbc.Driver");

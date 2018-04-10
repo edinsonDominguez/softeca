@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import accionesBean.LoginBean;
+import dao.PerfilUsuarioDao;
 import dao.ReporteDao;
 import vo.Libro;
 import vo.PersonaVo;
@@ -20,34 +21,29 @@ public class ConsultaPrestamo {
 	ReporteDao daoReporte ;
 	ArrayList<Reporte>  listaPrestamo = new  ArrayList<>();
 	int documentoConsulta;
-	LoginBean miLogin;
-	PersonaVo miUsuario;
+	PerfilUsuarioDao daoPerfil;
+	
 	
 	
 	public ConsultaPrestamo(){
 	
-		miLogin = new LoginBean();
-		miUsuario = miLogin.getMiPersonaVo();
+		daoPerfil = new PerfilUsuarioDao();
+		daoReporte = new ReporteDao();
 	}
 	
-	public void imprimiendoPersona(){
-		
-		System.out.println("documento" +miUsuario.getDocumento());
-		System.out.println(documentoConsulta + "hola");
-	}
 	
 	public void consultaPrestamoMetodo(){
-	
-		imprimiendoPersona();
-		System.out.println("su nuevo valor es: " + miLogin.getMiPersonaVo().getDocumento());
-		
+
 		System.out.println("estamos en el metodo sin Parametro de consultarPrestamo"); 
-		
-		daoReporte = new ReporteDao();
-		
+
 		listaPrestamo.clear();
-	
-		listaPrestamo = daoReporte.listaPrestamosUsuario(documentoConsulta);
+			
+		int documentoUsuario =  daoPerfil.traerDocumento();
+		
+		System.out.println("su nuevo valor es: " + documentoUsuario);
+		
+			
+		listaPrestamo = daoReporte.listaPrestamosUsuario(documentoUsuario);
 		
 		System.out.println("cantidad de prestamos " + listaPrestamo.size());
 		
@@ -67,22 +63,8 @@ public class ConsultaPrestamo {
 	}
 
 
-
-
 	public void setListaPrestamo(ArrayList<Reporte> listaPrestamo) {
 		this.listaPrestamo = listaPrestamo;
-	}
-
-	public int getDocumentoConsulta() {
-		System.out.println("lo que va a retornar en get es: " + this.documentoConsulta);
-		return documentoConsulta;
-	}
-
-	public void setDocumentoConsulta(int documentoConsulta) {
-		System.out.println("el valor del documento en set es " + documentoConsulta);
-		this.documentoConsulta = documentoConsulta;
-		
-		System.out.println("su nuevo valor en set es:  " + this.documentoConsulta);
 	}
 
 

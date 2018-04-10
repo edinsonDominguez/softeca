@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import bean.ConsultaPrestamo;
+import dao.PerfilUsuarioDao;
 import dao.PersonaDao;
 import vo.PersonaVo;
 
@@ -21,9 +22,11 @@ public class LoginBean {
 	private String navegacion;
 	private String docUsuario;
 	private String passwordUsuario;
+	PerfilUsuarioDao daoPerfil; 
 	
 	public LoginBean(){
 		
+		daoPerfil = new PerfilUsuarioDao();
 		miPersonaVo=new PersonaVo();
 		miPersonaDao=new PersonaDao();		
 	}
@@ -45,7 +48,9 @@ public String ingresoUsuario(){
 			miPersonaVo=persona;
 			//System.out.println("USUARIO VALIDO: "+miBean.getUsuario()+" "+ miBean.getContrasena());
 			System.out.println("Ingresa : "+ miPersonaVo.getNombre()+ " " + miPersonaVo.getContraseniaUsuario() + " tipo usuario: " + miPersonaVo.getTipoUsuario());
-
+			
+			guardarDocumento();
+			
 			System.out.println("el documento en la otra clase es " + miPersonaVo.getDocumento());		
 			
 			if(miPersonaVo.getTipoUsuario().equals("1")){
@@ -66,6 +71,18 @@ public String ingresoUsuario(){
 	}
 
 	
+
+	public void guardarDocumento(){
+	
+	System.out.println("el valor del documento de la personaVo " + miPersonaVo.getDocumento());
+		
+	String verificarDocumento = daoPerfil.guardarDocumento(miPersonaVo.getDocumento());
+	
+	System.out.println("Lo que mostro el metodo guardarDocumento " + verificarDocumento);
+	
+	}
+
+
 	
 	
 
