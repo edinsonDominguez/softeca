@@ -81,6 +81,8 @@ public class PerfilUsuario {
 	}
 	
 	
+	
+	
 
 	public String getValidacionContraseniaNueva() {
 		return validacionContraseniaNueva;

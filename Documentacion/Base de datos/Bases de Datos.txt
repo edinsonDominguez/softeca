@@ -111,6 +111,17 @@ FOREIGN KEY (libroPrestamo) REFERENCES libro(codLibro)
 
 
 
+CREATE TABLE seccionUsuario(
+
+documentoSeccion CHAR(12),
+nombreSeccion VARCHAR(25),
+
+PRIMARY KEY (documentoSeccion)
+)
+
+
+
+
 ------------------------------------------------------------------------------------------
 esta es la sentencia para el modulo 
 _______________________________________________________________________________________
