@@ -200,12 +200,12 @@ public class LibroDao {
 		ArrayList<Libro> lista = new ArrayList<>();
 		connection = conexion.getConexion();
 		
-		String consulta = "SELECT * FROM libro WHERE tituloLibro = ?";
+		String consulta = "SELECT * FROM libro WHERE tituloLibro like ?";
 		
 		try {
 			
 			preStatement =connection.prepareStatement(consulta);
-			preStatement.setString(1, tituloLibro); 
+			preStatement.setString(1, "%" + tituloLibro + "%"); 
 			result = preStatement.executeQuery();
 			
 			
