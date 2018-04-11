@@ -27,7 +27,7 @@ public class LibroDao {
 		
 		
 		connection = conexion.getConexion();
-				String consulta="INSERT INTO libro (codLibro,tituloLibro,autorLibro,editorialLibro,estanteriaLibro,ejemplarLibro,categoriaLibro,disponible) VALUES (?,?,?,?,?,?,?,?)";
+				String consulta="INSERT INTO libro (codLibro,tituloLibro,autorLibro,editorialLibro,estanteriaLibro,ejemplarLibro, disponible, categoriaLibro) VALUES (?,?,?,?,?,?,?,?)";
 		
 				int numeroEjemplares = miLibro.getEjemplar();
 				
@@ -42,7 +42,7 @@ public class LibroDao {
 			preStatement.setString(5, miLibro.getEstanteria());
 			preStatement.setInt(6,  numeroEjemplares);	
 			preStatement.setInt(7, numeroEjemplares);	
-			preStatement.setInt(8, miLibro.getEjemplar());
+			preStatement.setInt(8, miLibro.getCategoria());
 			preStatement.execute();
 
 			resultado="Registro Exitoso ala base de datos ******************************";

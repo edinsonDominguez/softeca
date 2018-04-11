@@ -9,7 +9,7 @@ public class Conexion {
 
 	private String nombreBD = "softeca";
 	private String usuario = "root";
-	private String password = "";
+	private String password = "edinson17861";
 	private String url = "jdbc:mysql://localhost:3306/" + nombreBD;
 	Connection conn = null;
 	
@@ -21,7 +21,6 @@ public class Conexion {
 			
 			conn = DriverManager.getConnection(url,usuario,password);
 				
-			System.out.println("Ingresa al metodo conexion a la clase conexion");
 			if(conn != null){
 				System.out.println("La conexion a la BD exitosa !!");
 			}

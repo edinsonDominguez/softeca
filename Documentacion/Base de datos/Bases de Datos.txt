@@ -1,6 +1,4 @@
 
-
-
 CREATE DATABASE softeca;
 
 USE softeca;
@@ -11,7 +9,7 @@ USE softeca;
 CREATE TABLE categoria(
 
 codCategoria MEDIUMINT,
-nombreCategoria VARCHAR(30),
+nombreCategoria VARCHAR(35),
 PRIMARY KEY (codCategoria)
 );
 
@@ -39,7 +37,7 @@ FOREIGN KEY (categoriaLibro) REFERENCES categoria(codCategoria)
  
 CREATE TABLE usuario(
 
-idUsuario INT,
+idUsuario VARCHAR(15),
 nombreUsuario VARCHAR(25),
 apellidoUsuario VARCHAR(25),
 direccionUsuario VARCHAR(60),
@@ -77,7 +75,7 @@ PRIMARY KEY(codTipo)
 CREATE TABLE sancion(
 
 codSancion MEDIUMINT NOT NULL AUTO_INCREMENT,
-usuarioSancion INT,
+usuarioSancion VARCHAR(15),
 fechaSancion DATE,
 fechaExpiracion DATE,
 tipoSancion TINYINT,
@@ -97,7 +95,7 @@ FOREIGN KEY(libroSancion) REFERENCES libro(codLibro)
 CREATE TABLE prestamo(
 
 codPrestamo MEDIUMINT NOT NULL AUTO_INCREMENT,
-usuarioPrestamo INT,
+usuarioPrestamo VARCHAR(15),
 libroPrestamo VARCHAR(10),
 fechaPrestamo DATE,
 fechaRegreso DATE,
@@ -117,27 +115,33 @@ documentoSeccion CHAR(12),
 nombreSeccion VARCHAR(25),
 
 PRIMARY KEY (documentoSeccion)
-)
+);
+
+
+-- quemar datos por defecto
+
+INSERT INTO categoria(codCategoria, nombreCategoria) VALUES 
+(000, 'Generalidades'),
+(100, 'Filosofia y psicologia'),
+(200, 'Religion'),
+(300, 'Ciencias Sociales'),
+(400, 'Lenguas'),
+(500, 'Ciencias naturales y matematicas'),
+(600, 'Tecnologias (Ciencias aplicadadas)'),
+(700, 'Las artes'),
+(800, 'Literatura y retorica'),
+(900, 'Geografia e historia');
 
 
 
-
-------------------------------------------------------------------------------------------
-esta es la sentencia para el modulo 
-_______________________________________________________________________________________
-
-
-
-SELECT tituloLibro, fechaPrestamo, fechaRegreso FROM libro, prestamo, usuario, revisionPrestamo 
-WHERE (usuarioPrestamo = idUsuario) AND (codPrestamo = codigoPrestamo) AND (codigoLibro = codlibro) AND (usuario.idUsuario = 100);
+INSERT INTO usuario(idUsuario, nombreUsuario, apellidoUsuario, direccionUsuario, nacimientoUsuario, telefonoUsuario, contraseniaUsuario, tipoUsuario, correoUsuario)
+VALUES 
+('ADMIN', 'Administrador', 'Softeca', 'Armenia, Quindio', '2018-04-11', '300', 'adminSofteca', 1, '@gmail.com');
 
 
 
+INSERT INTO seccionUsuario(documentoSeccion, nombreSeccion)
+VALUES('pass', 'Username');
 
-------------------------------------------------------------
+-- ----- finaliza script de la base de datos
 
-
-sentencia para el modulo reportes
-SELECT fechasancion, fechaExpiracion, nombreTipo, informacionTipo FROM tipoSancion, sancion, usuario, libro WHERE () AND (idUsuario = 200) AND (tituloLibro = 'monje');
-
--------

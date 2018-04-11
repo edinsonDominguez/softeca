@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
+import javax.faces.bean.ViewScoped;
 
 import dao.PrestamoLibroDao;
 
 import vo.PrestamoLibroVo;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class TablaBean {
 	private PrestamoLibroVo miLibro;
 	private PrestamoLibroDao miLibroDao;
