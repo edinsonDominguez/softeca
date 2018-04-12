@@ -9,7 +9,7 @@ public class Conexion {
 
 	private String nombreBD = "softeca";
 	private String usuario = "root";
-	private String password = "";
+	private String password = "softeca";
 	private String url = "jdbc:mysql://localhost:3306/" + nombreBD;
 	Connection conn = null;
 	
