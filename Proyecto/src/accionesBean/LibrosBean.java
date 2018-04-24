@@ -116,10 +116,10 @@ public class LibrosBean {
 		
 		if (mensaje.equals("ok")) {
 			
-			validaciones = "El libro fue registrado con exito !!";
+			validaciones = "El libro no registrado con exito !!";
 			
 		}else{
-			validaciones = "No se pudo Registrar el usuario !!";
+			validaciones = " Libro registrado con exito !!";
 		}
 		
 		miLibro = new Libro();

@@ -14,6 +14,7 @@ public class PersonaDao {
 
 	
 	public PersonaVo consultarUsuarioLogin(String documento, String pass) {
+
 		Connection connection = null;
 		Conexion miConexion = new Conexion();
 		PreparedStatement statement = null;
@@ -36,6 +37,7 @@ public class PersonaDao {
 				statement.setString(2, pass);
 								
 				result = statement.executeQuery();
+
 				System.out.println("continua...");
 				if (result.next() == true) {
 					miPersona = new PersonaVo();
